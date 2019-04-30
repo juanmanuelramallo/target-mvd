@@ -27,11 +27,11 @@ class FacebookService
   private
 
   def error?
-    response["error"].present?
+    response['error'].present?
   end
 
   def error_message
-    response["error"]["message"]
+    response['error']['message']
   end
 
   def response
