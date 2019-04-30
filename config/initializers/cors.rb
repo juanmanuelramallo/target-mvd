@@ -7,10 +7,10 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "*" # FIXME: Frontend host
-    resource "*",
-      headers: :any,
-      expose: ["access-token", "expiry", "token-type", "uid", "client"],
-      methods: [:get, :post, :put, :delete, :options]
+    origins '*' # FIXME: Frontend host
+    resource '*',
+             headers: :any,
+             expose: ['access-token', 'expiry', 'token-type', 'uid', 'client'],
+             methods: %i[get post put delete options]
   end
 end
