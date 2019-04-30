@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://graph.facebook.com/me?access_token=EAAZAW69YHUAoBAAqdqz6O9woATHZCuSgVyaFc1U5p0MPr4hEdXbb4ZBw9EPbewlqymGbJbDD1oQt0ixAWa3hNRjuimCaHKEFYQqlIX1ltBXsZCVYSrgYRF62TbAxtlwW7SpCtoeTDg2FMZAC632QU1LlRVIf2V2fqAV0Exxx6VYmLSIRJyeGu4R7ccRRtMR4ZD&fields=email
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Etag:
+      - '"21c65ef004f57ff39c5310405068d31d3fa500e3"'
+      X-App-Usage:
+      - '{"call_count":15,"total_cputime":0,"total_time":1}'
+      Content-Type:
+      - application/json; charset=UTF-8
+      Facebook-Api-Version:
+      - v3.2
+      Strict-Transport-Security:
+      - max-age=15552000; preload
+      Pragma:
+      - no-cache
+      X-Fb-Rev:
+      - '1000656653'
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate
+      X-Fb-Trace-Id:
+      - Dsag4h1+X27
+      X-Fb-Request-Id:
+      - AFu7-oEXfW2WFZAJWImiQyj
+      Expires:
+      - Sat, 01 Jan 2000 00:00:00 GMT
+      X-Fb-Debug:
+      - UCPyBXSYx5HS/ARP2xQnt+5lV+sl3jr3OWvwutKv4ZXM1YR4qd2C4zDHQToEUvDg2MbhlOWmk+rAeU385UV79w==
+      Date:
+      - Tue, 30 Apr 2019 17:26:29 GMT
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '64'
+    body:
+      encoding: UTF-8
+      string: '{"email":"existing-user\u0040example.com","id":"10156645598139232"}'
+    http_version:
+  recorded_at: Tue, 30 Apr 2019 17:26:29 GMT
+recorded_with: VCR 4.0.0

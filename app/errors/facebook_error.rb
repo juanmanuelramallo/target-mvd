@@ -1,0 +1,2 @@
+class FacebookError < StandardError
+end

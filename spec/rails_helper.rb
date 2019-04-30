@@ -59,3 +59,11 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include ResponseHelper
 end
+
+VCR.configure do |config|
+  config.allow_http_connections_when_no_cassette = true
+  config.cassette_library_dir = "#{::Rails.root}/spec/cassettes"
+  config.default_cassette_options = { record: :once }
+  config.hook_into :webmock
+  config.ignore_localhost = true
+end
