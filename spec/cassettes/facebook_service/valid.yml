@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://graph.facebook.com/me?access_token=EAAZAW69YHUAoBAAqdqz6O9woATHZCuSgVyaFc1U5p0MPr4hEdXbb4ZBw9EPbewlqymGbJbDD1oQt0ixAWa3hNRjuimCaHKEFYQqlIX1ltBXsZCVYSrgYRF62TbAxtlwW7SpCtoeTDg2FMZAC632QU1LlRVIf2V2fqAV0Exxx6VYmLSIRJyeGu4R7ccRRtMR4ZD&fields=email
+    uri: https://graph.facebook.com/me?access_token=@cc355t0k3N&fields=email
     body:
       encoding: US-ASCII
       string: ''

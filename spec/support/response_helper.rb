@@ -3,11 +3,11 @@ module ResponseHelper
     JSON.parse(response.body)
   end
 
-  def data(response = @response)
-    json_response["data"]
+  def data
+    json_response['data']
   end
 
-  def errors(response = @response)
-    json_response["errors"]
+  def errors
+    json_response['errors']
   end
 end

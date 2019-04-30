@@ -1,8 +1,9 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/target-mvd
     docker:
-      - image: circleci/ruby:2.6.2-node-browsers
+      - image: circleci/ruby:2.6.2
       - image: circleci/postgres:11.2
 
     steps:
@@ -20,14 +21,17 @@ jobs:
             - ./venv
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
-      # Database setup
       - run: cp .circleci/database.yml config/database.yml
       - run: cp .circleci/application.yml config/application.yml
       - run: RAILS_ENV=test bundle exec rake db:create
       - run: RAILS_ENV=test bundle exec rake db:schema:load
 
       - run:
-          name: run tests
+          name: Rubocop
+          command: bundle exec rubocop
+
+      - run:
+          name: Tests
           command: RAILS_ENV=test bundle exec rspec
 
       # run code_analysis!

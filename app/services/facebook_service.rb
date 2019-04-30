@@ -3,7 +3,7 @@ require 'net/http'
 class FacebookService
   attr_reader :access_token
 
-  BASE_URL = "https://graph.facebook.com".freeze
+  BASE_URL = 'https://graph.facebook.com'.freeze
 
   def self.call!(access_token)
     new(access_token).user!
@@ -14,7 +14,7 @@ class FacebookService
   end
 
   def user!
-    raise FacebookError.new(error_message) if error?
+    raise FacebookError, error_message if error?
 
     User.where(uid: response['email']).first_or_create! do |user|
       user.email = response['email']
