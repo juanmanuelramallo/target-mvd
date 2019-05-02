@@ -30,6 +30,7 @@ gem 'rack-cors', '~> 1.0.3'
 
 gem 'devise', '~> 4.6.2'
 gem 'devise_token_auth', '~> 1.1.0'
+gem 'figaro', '~> 1.1.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -42,6 +43,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'letter_opener', '~> 1.7.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'rubocop', '~> 0.68.1', require: false
   gem 'spring'
