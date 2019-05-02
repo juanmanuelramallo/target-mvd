@@ -4,7 +4,7 @@ module ResponseHelper
   end
 
   def data
-    json_response['data']
+    json_response
   end
 
   def errors

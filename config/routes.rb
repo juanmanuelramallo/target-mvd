@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   namespace :auth do
     post 'facebook/callback', to: 'facebook_callbacks#create'
   end
+
+  resources :targets
 end
