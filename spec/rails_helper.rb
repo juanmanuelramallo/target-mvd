@@ -58,6 +58,7 @@ RSpec.configure do |config|
 
   config.include FactoryBot::Syntax::Methods
   config.include ResponseHelper
+  config.include RequestHelper
 end
 
 VCR.configure do |config|
@@ -66,4 +67,11 @@ VCR.configure do |config|
   config.default_cassette_options = { record: :once }
   config.hook_into :webmock
   config.ignore_localhost = true
+end
+
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :rspec
+    with.library :rails
+  end
 end
