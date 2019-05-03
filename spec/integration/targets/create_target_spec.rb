@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe 'Create target', type: :request do
   let(:area_length) { rand 1000 }
-  let(:lat) { Faker::Address.latitude.to_s }
-  let(:lng) { Faker::Address.longitude.to_s }
+  let(:lat) { Faker::Address.latitude }
+  let(:lng) { Faker::Address.longitude }
   let(:title) { Faker::Name.name }
   let(:topic) { create :topic }
   let(:user) { create :user }

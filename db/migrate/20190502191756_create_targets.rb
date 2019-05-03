@@ -4,8 +4,8 @@ class CreateTargets < ActiveRecord::Migration[5.2]
       t.belongs_to :topic, foreign_key: true
       t.belongs_to :user, foreign_key: true
       t.integer :area_length, default: 0, null: false
-      t.string :lat
-      t.string :lng
+      t.float :lat
+      t.float :lng
       t.string :title
 
       t.timestamps
