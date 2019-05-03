@@ -11,6 +11,10 @@ class TargetsController < ApplicationController
     end
   end
 
+  def index
+    render json: current_user.targets
+  end
+
   private
 
   def target_params

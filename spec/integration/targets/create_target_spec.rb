@@ -45,10 +45,6 @@ RSpec.describe 'Create target', type: :request do
     it 'should have the correct area length' do
       expect(subject['area_length']).to eq area_length
     end
-
-    it 'should have the correct user id' do
-      expect(subject['user_id']).to eq user.id
-    end
   end
 
   context 'missing params' do
