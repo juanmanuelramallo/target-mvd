@@ -1,0 +1,7 @@
+#!/bin/bash
+
+bundle exec rails docs:generate
+
+mv ./doc/api/index.apib ./apiary.apib
+
+rm -rf ./doc
