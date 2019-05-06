@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Auth
   class FacebookCallbacksController < ApplicationController
     before_action :set_user
