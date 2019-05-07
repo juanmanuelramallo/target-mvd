@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Sign up user', type: :request do
+RSpec.describe 'POST /auth', type: :request do
   let(:params) do
     {
       email: email,

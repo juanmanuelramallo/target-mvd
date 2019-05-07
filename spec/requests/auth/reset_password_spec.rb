@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Reset password', type: :request do
+RSpec.describe 'PUT /auth/password', type: :request do
   let(:params) do
     {
       email: email,

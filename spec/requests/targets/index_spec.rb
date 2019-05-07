@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Fetching targets', type: :request do
+RSpec.describe 'GET /targets', type: :request do
   let(:user) { create :user }
 
   subject do

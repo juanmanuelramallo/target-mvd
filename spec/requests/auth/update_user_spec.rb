@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Update user', type: :request do
+RSpec.describe 'PUT /auth', type: :request do
   let(:access_token) { response.header['access-token'] }
   let(:client) { response.header['client'] }
   let(:current_password) { 'P@55word' }

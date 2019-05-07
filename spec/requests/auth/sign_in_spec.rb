@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Signing user in', type: :request do
+RSpec.describe 'POST /auth/sign_in', type: :request do
   let(:user) { create :user }
   let(:password) { 'P@55word' }
   let(:params) do

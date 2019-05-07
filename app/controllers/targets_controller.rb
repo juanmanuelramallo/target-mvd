@@ -2,7 +2,6 @@
 
 class TargetsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_target, only: :destroy
 
   def create
     target = Target.new target_params.merge(user_id: current_user.id)
@@ -19,13 +18,13 @@ class TargetsController < ApplicationController
   end
 
   def destroy
-    render json: @target.destroy
+    render json: target.destroy
   end
 
   private
 
-  def set_target
-    @target = current_user.targets.find params[:id]
+  def target
+    @target ||= current_user.targets.find params[:id]
   end
 
   def target_params
