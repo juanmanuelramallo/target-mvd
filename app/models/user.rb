@@ -4,5 +4,7 @@ class User < ApplicationRecord
 
   include DeviseTokenAuth::Concerns::User
 
+  MAXIMUM_TARGETS = 10
+
   has_many :targets, dependent: :destroy
 end
