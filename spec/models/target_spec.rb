@@ -37,4 +37,38 @@ RSpec.describe Target, type: :model do
       end
     end
   end
+
+  describe '#compatible_targets' do
+    subject { target.compatible_targets }
+
+    let(:lat) { Faker::Address.latitude }
+    let(:lng) { Faker::Address.longitude }
+    let(:target) { create :target, lat: lat, lng: lng, area_length: 1000 }
+
+    context 'with one compatible target' do
+      let(:expected_target) do
+        create(:target, topic: target.topic, area_length: 2000, lat: lat + 0.01, lng: lng + 0.01)
+      end
+
+      before do
+        expected_target
+        create :target, topic: target.topic, area_length: 1000, lat: lat + 1, lng: lng + 1
+      end
+
+      it 'should return one target' do
+        expect(subject).to eq [expected_target]
+      end
+    end
+
+    context 'with no compatible targets' do
+      before do
+        create :target, topic: target.topic, area_length: 1000, lat: lat + 1, lng: lng + 1
+        create :target, topic: target.topic, area_length: 10_000, lat: lat - 1, lng: lng - 1
+      end
+
+      it 'should return zero targets' do
+        expect(subject).to eq []
+      end
+    end
+  end
 end

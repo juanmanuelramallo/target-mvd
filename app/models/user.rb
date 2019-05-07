@@ -9,4 +9,8 @@ class User < ApplicationRecord
   MAXIMUM_TARGETS = 10
 
   has_many :targets, dependent: :destroy
+
+  def compatible_targets
+    targets.flat_map(&:compatible_targets).uniq
+  end
 end

@@ -34,6 +34,7 @@ gem 'active_model_serializers', '~> 0.10.9'
 gem 'devise', '~> 4.6.2'
 gem 'devise_token_auth', '~> 1.1.0'
 gem 'figaro', '~> 1.1.1'
+gem 'geokit-rails', '~> 2.3.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
