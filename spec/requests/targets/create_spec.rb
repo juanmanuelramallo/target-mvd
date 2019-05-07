@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Create target', type: :request do
+RSpec.describe 'POST /targets', type: :request do
   let(:area_length) { rand 1000 }
   let(:lat) { Faker::Address.latitude }
   let(:lng) { Faker::Address.longitude }

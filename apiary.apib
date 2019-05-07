@@ -18,8 +18,8 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: 5gz6uAltJZu_pPDdLbIIMw
-            Client: OunSUHmvnX4EPUVLcmCJcw
+            Access-Token: d3wO5saV1aDPfh9d0Fy3ZQ
+            Client: p-1yUJ-6XBOB3XPrE4jxQg
             Uid: user-1@example.com
 
 + Response 200 ()
@@ -28,7 +28,7 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: OunSUHmvnX4EPUVLcmCJcw
+            client: p-1yUJ-6XBOB3XPrE4jxQg
             expiry:  
             uid: user-1@example.com
 
@@ -36,20 +36,20 @@ FORMAT: 1A
 
             [
               {
-                "area_length": 495,
-                "id": 176,
-                "lat": 58.9199847058018,
-                "lng": -60.238786910379,
-                "title": "Jess Von",
-                "topic_id": 210
+                "area_length": 163,
+                "id": 360,
+                "lat": 4.64305861557855,
+                "lng": -75.6924603467218,
+                "title": "Travis Langworth I",
+                "topic_id": 396
               },
               {
-                "area_length": 873,
-                "id": 177,
-                "lat": -56.4540077918361,
-                "lng": 15.3796276362314,
-                "title": "Allen Adams",
-                "topic_id": 211
+                "area_length": 598,
+                "id": 361,
+                "lat": 72.934705063328,
+                "lng": 95.7019118952861,
+                "title": "Carroll Rath",
+                "topic_id": 397
               }
             ]
 
@@ -59,13 +59,13 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: YzR6dYXsp3O1wwxCQhom_w
-            Client: A0-b3Qf9KIIH6093ZuARjQ
+            Access-Token: G8vG6LVhGqfpM2nbinrmqA
+            Client: eu4671uJnAv9Jkv-PjNbFw
             Uid: user-2@example.com
 
     + Body
 
-            target[area_length]=770&target[lat]=20.868393315812&target[lng]=36.89728723627431&target[title]=Noble+Ziemann&target[topic_id]=214
+            target[area_length]=761&target[lat]=-28.842045521414597&target[lng]=123.02110965296635&target[title]=Alfred+Windler&target[topic_id]=400
 
 + Response 201 ()
 
@@ -73,17 +73,50 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: A0-b3Qf9KIIH6093ZuARjQ
+            client: eu4671uJnAv9Jkv-PjNbFw
             expiry:  
             uid: user-2@example.com
 
     + Body
 
             {
-              "area_length": 770,
-              "id": 181,
-              "lat": 20.868393315812,
-              "lng": 36.89728723627431,
-              "title": "Noble Ziemann",
-              "topic_id": 214
+              "area_length": 761,
+              "id": 365,
+              "lat": -28.842045521414597,
+              "lng": 123.02110965296635,
+              "title": "Alfred Windler",
+              "topic_id": 400
+            }
+
+## Target member [/targets/{id}]
+
+### Destroy [DELETE]
+
++ Request Ok
+
+    + Headers
+
+            Access-Token: 7cz8_kxxk7QI40W9rnqoIQ
+            Client: Qvtt-b9NX0XqqqfgLZHWgg
+            Uid: user-4@example.com
+
++ Response 200 ()
+
+    + Headers
+
+            access-token:  
+            token-type: Bearer
+            client: Qvtt-b9NX0XqqqfgLZHWgg
+            expiry:  
+            uid: user-4@example.com
+
+    + Body
+
+            {
+              "area_length": 464,
+              "id": 368,
+              "lat": -33.2444978683203,
+              "lng": -128.19432579433,
+              "title": "Brynn Harber",
+              "topic_id": 403
             }

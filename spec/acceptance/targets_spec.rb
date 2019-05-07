@@ -56,4 +56,28 @@ resource 'Targets' do
       end
     end
   end
+
+  route '/targets/:id', 'Target member' do
+    let(:target) { create :target, user: user }
+    let(:id) { target.id }
+
+    before { target }
+
+    delete 'Destroy' do
+      with_options scope: :target, required: true do
+        response_field :area_length, 'Area length'
+        response_field :id, 'Target ID'
+        response_field :lat, 'Latitude'
+        response_field :lng, 'Longitude'
+        response_field :title, 'Title'
+        response_field :topic_id, 'Topic ID'
+      end
+
+      example 'Ok' do
+        do_request
+
+        expect(status).to eq 200
+      end
+    end
+  end
 end

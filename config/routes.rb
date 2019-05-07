@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     post 'facebook/callback', to: 'facebook_callbacks#create'
   end
 
-  resources :targets, only: %i[create index]
+  resources :targets, only: %i[create index destroy]
 end

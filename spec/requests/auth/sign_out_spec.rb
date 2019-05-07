@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Signing user in', type: :request do
+RSpec.describe 'DELETE /auth/sign_out', type: :request do
   let(:access_token) { response.header['access-token'] }
   let(:client) { response.header['client'] }
   let(:uid) { response.header['uid'] }
