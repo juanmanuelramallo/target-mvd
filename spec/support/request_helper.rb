@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RequestHelper
   def access_token_header
     request_headers['access-token']

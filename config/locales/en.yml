@@ -31,3 +31,4 @@
 
 en:
   hello: "Hello world"
+  user_must_have_less_than_maximum_targets: "User must have less than %{max} targets"

@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'net/http'
 
 class FacebookService
   attr_reader :access_token
 
-  BASE_URL = 'https://graph.facebook.com'.freeze
+  BASE_URL = 'https://graph.facebook.com'
 
   def self.call!(access_token)
     new(access_token).user!

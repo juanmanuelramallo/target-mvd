@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Values listed are the default values
 RspecApiDocumentation.configure do |config|
   # Set the application that Rack::Test uses
