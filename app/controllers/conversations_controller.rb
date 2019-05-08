@@ -15,6 +15,10 @@ class ConversationsController < ApplicationController
     render json: {}, status: :not_found
   end
 
+  def index
+    render json: current_user.conversations
+  end
+
   private
 
   def conversation_params

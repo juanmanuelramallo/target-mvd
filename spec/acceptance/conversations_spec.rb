@@ -11,6 +11,8 @@ resource 'Conversations' do
   let(:conversation) { create :conversation }
   let(:user) { conversation.initiator }
 
+  before { create_list :conversation, 3, initiator: user }
+
   route '/conversations', 'Conversations collection' do
     post 'Create' do
       with_options scope: :conversation, required: true do
@@ -31,6 +33,14 @@ resource 'Conversations' do
         do_request
 
         expect(status).to eq 201
+      end
+    end
+
+    get 'Index' do
+      example 'Ok' do
+        do_request
+
+        expect(status).to eq 200
       end
     end
   end

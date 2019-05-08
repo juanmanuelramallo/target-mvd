@@ -13,4 +13,8 @@ class User < ApplicationRecord
   def compatible_targets
     targets.flat_map(&:compatible_targets).uniq
   end
+
+  def conversations
+    Conversation.where(initiator_id: id).or Conversation.where(target_id: targets.pluck(:id))
+  end
 end
