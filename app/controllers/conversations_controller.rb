@@ -4,13 +4,15 @@ class ConversationsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    conversation = Conversation.first_or_initialize conversation_params
+    conversation = ConversationService.call(conversation_params.merge(current_user: current_user))
 
     if conversation.save
       render json: conversation, status: :created
     else
       render json: { errors: conversation.errors.messages }, status: :unprocessable_entity
     end
+  rescue ConversationNotAllowedError
+    render json: {}, status: :not_found
   end
 
   private

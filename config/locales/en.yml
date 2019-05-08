@@ -32,3 +32,4 @@
 en:
   hello: "Hello world"
   user_must_have_less_than_maximum_targets: "User must have less than %{max} targets"
+  target_must_be_compatible_with_initiator: "must be compatible with initiator"
