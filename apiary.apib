@@ -1,12 +1,49 @@
 FORMAT: 1A
 # Target MVD
 
+# Group Compatible targets
+
+## Compatible targets collection [/compatible_targets]
+
+### Index [GET]
+
++ Request Ok
+
+    + Headers
+
+            Access-Token: 3HI_qgFOIogduVODuFp9RQ
+            Client: lTj-rlExEgPwJ0krxGvr3Q
+            Uid: user-1@example.com
+
++ Response 200 ()
+
+    + Headers
+
+            access-token:  
+            token-type: Bearer
+            client: lTj-rlExEgPwJ0krxGvr3Q
+            expiry:  
+            uid: user-1@example.com
+
+    + Body
+
+            [
+              {
+                "area_length": 2000,
+                "id": 753,
+                "lat": 54.4185207749279,
+                "lng": 115.138932728875,
+                "title": "Otto Skiles III",
+                "topic_id": 645
+              }
+            ]
+
 # Group Targets
 
 ## Targets collection [/targets]
 
 + Attributes (object)
-  + area_length (required) - Area length
+  + area_length (required) - Area length (meters)
   + lat (required) - Latitude
   + lng (required) - Longitude
   + title (required) - Title
@@ -18,9 +55,9 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: d3wO5saV1aDPfh9d0Fy3ZQ
-            Client: p-1yUJ-6XBOB3XPrE4jxQg
-            Uid: user-1@example.com
+            Access-Token: jd9v1BhcCzB8w6AtOjpVQA
+            Client: nvryv82L7XrOEFj8QOmWsA
+            Uid: user-3@example.com
 
 + Response 200 ()
 
@@ -28,28 +65,28 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: p-1yUJ-6XBOB3XPrE4jxQg
+            client: nvryv82L7XrOEFj8QOmWsA
             expiry:  
-            uid: user-1@example.com
+            uid: user-3@example.com
 
     + Body
 
             [
               {
-                "area_length": 163,
-                "id": 360,
-                "lat": 4.64305861557855,
-                "lng": -75.6924603467218,
-                "title": "Travis Langworth I",
-                "topic_id": 396
+                "area_length": 837,
+                "id": 754,
+                "lat": -79.7899491107017,
+                "lng": 89.7811955156606,
+                "title": "Shane Walter",
+                "topic_id": 646
               },
               {
-                "area_length": 598,
-                "id": 361,
-                "lat": 72.934705063328,
-                "lng": 95.7019118952861,
-                "title": "Carroll Rath",
-                "topic_id": 397
+                "area_length": 868,
+                "id": 755,
+                "lat": -88.3846185416942,
+                "lng": 152.251552740167,
+                "title": "Woodrow Kemmer I",
+                "topic_id": 647
               }
             ]
 
@@ -59,13 +96,13 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: G8vG6LVhGqfpM2nbinrmqA
-            Client: eu4671uJnAv9Jkv-PjNbFw
-            Uid: user-2@example.com
+            Access-Token: tsgtZdqR5Hu29G9btcskog
+            Client: GxKu4QtsW7A7sLroiJi7Hg
+            Uid: user-4@example.com
 
     + Body
 
-            target[area_length]=761&target[lat]=-28.842045521414597&target[lng]=123.02110965296635&target[title]=Alfred+Windler&target[topic_id]=400
+            target[area_length]=359&target[lat]=-29.275948887576433&target[lng]=-69.2516961938706&target[title]=Darren+Gaylord&target[topic_id]=650
 
 + Response 201 ()
 
@@ -73,19 +110,19 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: eu4671uJnAv9Jkv-PjNbFw
+            client: GxKu4QtsW7A7sLroiJi7Hg
             expiry:  
-            uid: user-2@example.com
+            uid: user-4@example.com
 
     + Body
 
             {
-              "area_length": 761,
-              "id": 365,
-              "lat": -28.842045521414597,
-              "lng": 123.02110965296635,
-              "title": "Alfred Windler",
-              "topic_id": 400
+              "area_length": 359,
+              "id": 759,
+              "lat": -29.275948887576433,
+              "lng": -69.2516961938706,
+              "title": "Darren Gaylord",
+              "topic_id": 650
             }
 
 ## Target member [/targets/{id}]
@@ -96,9 +133,9 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: 7cz8_kxxk7QI40W9rnqoIQ
-            Client: Qvtt-b9NX0XqqqfgLZHWgg
-            Uid: user-4@example.com
+            Access-Token: QGiUVNLJUdPWsuCX1bPPKw
+            Client: KfTWOZQuwstuZMavU7F5dg
+            Uid: user-6@example.com
 
 + Response 200 ()
 
@@ -106,17 +143,17 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: Qvtt-b9NX0XqqqfgLZHWgg
+            client: KfTWOZQuwstuZMavU7F5dg
             expiry:  
-            uid: user-4@example.com
+            uid: user-6@example.com
 
     + Body
 
             {
-              "area_length": 464,
-              "id": 368,
-              "lat": -33.2444978683203,
-              "lng": -128.19432579433,
-              "title": "Brynn Harber",
-              "topic_id": 403
+              "area_length": 820,
+              "id": 762,
+              "lat": 9.74187920337859,
+              "lng": -138.036442516321,
+              "title": "Eliza Gusikowski",
+              "topic_id": 653
             }
