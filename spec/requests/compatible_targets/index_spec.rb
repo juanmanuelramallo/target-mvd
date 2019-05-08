@@ -42,7 +42,7 @@ RSpec.describe 'GET /compatible_targets', type: :request do
     before do
       target
       create_list :target, 3, topic: target.topic, area_length: rand(1000..2000),
-                              lat: lat + rand(10), lng: lng + rand(10)
+                              lat: lat + rand(1..10), lng: lng + rand(1..10)
     end
 
     it 'should return an empty array' do

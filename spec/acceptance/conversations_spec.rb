@@ -8,7 +8,8 @@ resource 'Conversations' do
   header 'client', :client_header
   header 'uid', :uid_header
 
-  let(:user) { create :user }
+  let(:conversation) { create :conversation }
+  let(:user) { conversation.initiator }
 
   route '/conversations', 'Conversations collection' do
     post 'Create' do
@@ -23,7 +24,6 @@ resource 'Conversations' do
         response_field :initiator, 'Initiator user'
       end
 
-      let(:conversation) { create :conversation }
       let(:target_id) { conversation.target_id }
       let(:initiator_id) { conversation.initiator_id }
 
