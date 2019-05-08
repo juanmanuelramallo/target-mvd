@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   end
 
   resources :compatible_targets, only: :index
-  resources :conversations, only: :create
+  resources :conversations, only: %i[create index]
   resources :targets, only: %i[create index destroy]
 end

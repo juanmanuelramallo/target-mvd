@@ -47,4 +47,32 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe '#conversations' do
+    let(:user) { create :user_with_targets }
+    subject { user.conversations }
+
+    context 'user with conversations' do
+      before { create_list :conversation, 3, initiator: user }
+
+      it 'should return 3 conversations' do
+        expect(subject.size).to eq 3
+      end
+    end
+
+    context 'user with conversations as the receiver' do
+      let(:conversation) { create :conversation }
+      let(:user) { conversation.target.user }
+
+      it 'should return 1 conversation' do
+        expect(subject.size).to eq 1
+      end
+    end
+
+    context 'user without conversations' do
+      it 'should return an empty collection' do
+        expect(subject.size).to eq 0
+      end
+    end
+  end
 end
