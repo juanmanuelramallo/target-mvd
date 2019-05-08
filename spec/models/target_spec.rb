@@ -47,7 +47,7 @@ RSpec.describe Target, type: :model do
 
     context 'with one compatible target' do
       let(:expected_target) do
-        create(:target, topic: target.topic, area_length: 2000, lat: lat + 0.01, lng: lng + 0.01)
+        create(:target, topic: target.topic, area_length: 2000, lat: lat + 0.001, lng: lng + 0.001)
       end
 
       before do

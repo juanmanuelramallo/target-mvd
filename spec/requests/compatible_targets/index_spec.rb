@@ -16,10 +16,8 @@ RSpec.describe 'GET /compatible_targets', type: :request do
   context 'user with compatible targets' do
     before do
       target
-      3.times do
-        create :target, topic: target.topic, area_length: rand(1000..5000), lat: lat + rand / 100,
-                        lng: lng + rand / 100
-      end
+      create_list :target, 3, topic: target.topic, area_length: rand(1000..5000),
+                              lat: lat + rand / 100, lng: lng + rand / 100
     end
 
     it 'should return 3 targets' do
@@ -43,10 +41,8 @@ RSpec.describe 'GET /compatible_targets', type: :request do
   context 'user without compatible targets' do
     before do
       target
-      3.times do
-        create :target, topic: target.topic, area_length: rand(1000..2000), lat: lat + rand(10),
-                        lng: lng + rand(10)
-      end
+      create_list :target, 3, topic: target.topic, area_length: rand(1000..2000),
+                              lat: lat + rand(10), lng: lng + rand(10)
     end
 
     it 'should return an empty array' do
