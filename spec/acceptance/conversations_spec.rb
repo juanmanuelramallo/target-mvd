@@ -24,6 +24,7 @@ resource 'Conversations' do
         response_field :messages, 'Array of messages'
         response_field :target, 'Target object'
         response_field :initiator, 'Initiator user'
+        response_field :unread, 'Unread indicator for the current user'
       end
 
       let(:target_id) { conversation.target_id }

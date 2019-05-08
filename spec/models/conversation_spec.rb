@@ -31,4 +31,52 @@ RSpec.describe Conversation, type: :model do
       end
     end
   end
+
+  describe '#unread?' do
+    subject { conversation.unread? user }
+
+    let(:conversation) { create :conversation_with_messages }
+    let(:user) { conversation.initiator }
+
+    context 'user is the last to send a message' do
+      before do
+        create :message, conversation: conversation, user: user
+      end
+
+      it 'should always return false' do
+        expect(subject).to eq false
+      end
+    end
+
+    context 'user is the second last to send a message' do
+      before do
+        create :message, conversation: conversation, user: conversation.target.user
+      end
+
+      context 'user has not read the conversation' do
+        before do
+          conversation.update unread: true
+        end
+
+        it 'should return true' do
+          expect(subject).to eq true
+        end
+      end
+
+      context 'user has already read the conversation' do
+        it 'should return false' do
+          expect(subject).to eq false
+        end
+      end
+    end
+
+    context 'no messages in conversation' do
+      let(:conversation) { create :conversation }
+      let(:user) { conversation.initiator }
+
+      it 'should return false' do
+        expect(subject).to eq false
+      end
+    end
+  end
 end

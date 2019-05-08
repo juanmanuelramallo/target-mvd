@@ -3,6 +3,7 @@
 FactoryBot.define do
   factory :message do
     user
+    conversation
     text { Faker::Quote.matz }
   end
 end
