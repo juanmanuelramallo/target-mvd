@@ -12,7 +12,7 @@ RSpec.describe 'GET /targets', type: :request do
 
   context 'user with targets' do
     before do
-      3.times { create :target, user: user }
+      create_list :target, 3, user: user
     end
 
     it 'should return 3 targets' do

@@ -25,7 +25,7 @@ resource 'Targets' do
 
     post 'Create' do
       with_options scope: :target, required: true do
-        attribute :area_length, 'Area length'
+        attribute :area_length, 'Area length (meters)'
         attribute :lat, 'Latitude'
         attribute :lng, 'Longitude'
         attribute :title, 'Title'
@@ -33,7 +33,7 @@ resource 'Targets' do
       end
 
       with_options scope: :target, required: true do
-        response_field :area_length, 'Area length'
+        response_field :area_length, 'Area length (meters)'
         response_field :id, 'Target ID'
         response_field :lat, 'Latitude'
         response_field :lng, 'Longitude'
@@ -65,7 +65,7 @@ resource 'Targets' do
 
     delete 'Destroy' do
       with_options scope: :target, required: true do
-        response_field :area_length, 'Area length'
+        response_field :area_length, 'Area length (meters)'
         response_field :id, 'Target ID'
         response_field :lat, 'Latitude'
         response_field :lng, 'Longitude'
