@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_02_191756) do
+ActiveRecord::Schema.define(version: 2019_05_08_142519) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "conversations", force: :cascade do |t|
+    t.bigint "target_id"
+    t.bigint "initiator_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["initiator_id"], name: "index_conversations_on_initiator_id"
+    t.index ["target_id"], name: "index_conversations_on_target_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "conversation_id"
+    t.bigint "user_id"
+    t.text "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
 
   create_table "targets", force: :cascade do |t|
     t.bigint "topic_id"
@@ -57,6 +76,10 @@ ActiveRecord::Schema.define(version: 2019_05_02_191756) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "conversations", "targets"
+  add_foreign_key "conversations", "users", column: "initiator_id"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
   add_foreign_key "targets", "topics"
   add_foreign_key "targets", "users"
 end
