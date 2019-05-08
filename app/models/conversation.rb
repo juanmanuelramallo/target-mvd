@@ -5,4 +5,14 @@ class Conversation < ApplicationRecord
 
   belongs_to :target
   belongs_to :initiator, class_name: 'User'
+
+  validate :target_must_be_compatible_with_initiator
+
+  private
+
+  def target_must_be_compatible_with_initiator
+    return if initiator&.compatible_targets&.include?(target)
+
+    errors.add :target, I18n.t('.target_must_be_compatible_with_initiator')
+  end
 end

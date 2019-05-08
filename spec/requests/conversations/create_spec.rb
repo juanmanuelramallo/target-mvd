@@ -3,8 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe 'POST /conversations', type: :request do
-  let(:target) { create :target }
-  let(:user) { create :user }
+  let(:lat) { user.targets.first.lat }
+  let(:lng) { user.targets.first.lng }
+  let(:target) { create :target, lat: lat, lng: lng, topic: topic }
+  let(:topic) { user.targets.first.topic }
+  let(:user) { create :user_with_targets, targets_count: 1 }
 
   let(:params) do
     {
@@ -38,7 +41,7 @@ RSpec.describe 'POST /conversations', type: :request do
     end
 
     context 'fetching a conversation initiated by another user' do
-      let(:my_target) { create :target, user: user }
+      let(:my_target) { create :target, user: user, lat: lat, lng: lng, topic: topic }
       let(:params) do
         {
           conversation: {

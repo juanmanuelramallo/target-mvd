@@ -23,9 +23,9 @@ resource 'Conversations' do
         response_field :initiator, 'Initiator user'
       end
 
-      let(:target) { create :target }
-      let(:target_id) { target.id }
-      let(:initiator_id) { user.id }
+      let(:conversation) { create :conversation }
+      let(:target_id) { conversation.target_id }
+      let(:initiator_id) { conversation.initiator_id }
 
       example 'Ok' do
         do_request
