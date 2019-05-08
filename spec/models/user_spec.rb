@@ -17,7 +17,7 @@ RSpec.describe User, type: :model do
     context 'user with compatible targets' do
       let(:lat) { Faker::Address.latitude }
       let(:lng) { Faker::Address.longitude }
-      let(:target) { create :target, user: user, lat: lat, lng: lng, area_length: 1000 }
+      let(:target) { create :target, user: user, lat: lat, lng: lng, area_length: 1500 }
       let(:another_target) do
         create :target, user: user, lat: lat + 0.05, lng: lng + 0.05, area_length: 3000
       end

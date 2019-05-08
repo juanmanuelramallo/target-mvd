@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe 'GET /compatible_targets', type: :request do
   let(:lat) { Faker::Address.latitude }
   let(:lng) { Faker::Address.longitude }
-  let(:target) { create :target, user: user, lat: lat, lng: lng, area_length: 1000 }
+  let(:target) { create :target, user: user, lat: lat, lng: lng, area_length: 1500 }
   let(:user) { create :user }
 
   subject do

@@ -43,7 +43,7 @@ RSpec.describe Target, type: :model do
 
     let(:lat) { Faker::Address.latitude }
     let(:lng) { Faker::Address.longitude }
-    let(:target) { create :target, lat: lat, lng: lng, area_length: 1000 }
+    let(:target) { create :target, lat: lat, lng: lng, area_length: 1500 }
 
     context 'with one compatible target' do
       let(:expected_target) do
