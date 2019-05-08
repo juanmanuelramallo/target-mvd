@@ -23,8 +23,10 @@ RSpec.describe User, type: :model do
       end
       let(:expected_targets) do
         [
-          create(:target, topic: target.topic, area_length: 2000, lat: lat + 0.01, lng: lng + 0.01),
-          create(:target, topic: target.topic, area_length: 5000, lat: lat - 0.01, lng: lng - 0.01)
+          create(:target, topic: target.topic, area_length: 2000, lat: lat + 0.001,
+                          lng: lng + 0.001),
+          create(:target, topic: target.topic, area_length: 5000, lat: lat - 0.001,
+                          lng: lng - 0.001)
         ]
       end
 

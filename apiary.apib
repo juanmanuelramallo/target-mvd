@@ -11,8 +11,8 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: 3HI_qgFOIogduVODuFp9RQ
-            Client: lTj-rlExEgPwJ0krxGvr3Q
+            Access-Token: AKJhWzy47B1irz2EpjLKzA
+            Client: WleIded3eUZEyVIfbwEQvw
             Uid: user-1@example.com
 
 + Response 200 ()
@@ -21,22 +21,66 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: lTj-rlExEgPwJ0krxGvr3Q
+            client: WleIded3eUZEyVIfbwEQvw
             expiry:  
             uid: user-1@example.com
 
     + Body
 
             [
-              {
-                "area_length": 2000,
-                "id": 753,
-                "lat": 54.4185207749279,
-                "lng": 115.138932728875,
-                "title": "Otto Skiles III",
-                "topic_id": 645
-              }
+            
             ]
+
+# Group Conversations
+
+## Conversations collection [/conversations]
+
++ Attributes (object)
+  + target_id (required) - Target associated to the conversation
+  + initiator_id (required) - ID of the user whom initiated the conversation
+
+### Create [POST]
+
++ Request Ok
+
+    + Headers
+
+            Access-Token: nmJYJuyqiYig2bDvAZ6OWg
+            Client: 7MEKW_DbzG_Jh_mMccE1IA
+            Uid: user-4@example.com
+
+    + Body
+
+            conversation[target_id]=492&conversation[initiator_id]=438
+
++ Response 201 ()
+
+    + Headers
+
+            access-token:  
+            token-type: Bearer
+            client: 7MEKW_DbzG_Jh_mMccE1IA
+            expiry:  
+            uid: user-4@example.com
+
+    + Body
+
+            {
+              "messages": [
+            
+              ],
+              "target": {
+                "area_length": 559,
+                "id": 492,
+                "lat": 89.9517035356209,
+                "lng": -154.180559443286,
+                "title": "Joy MacGyver",
+                "topic_id": 388
+              },
+              "initiator": {
+                "email": "user-4@example.com"
+              }
+            }
 
 # Group Targets
 
@@ -55,9 +99,9 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: jd9v1BhcCzB8w6AtOjpVQA
-            Client: nvryv82L7XrOEFj8QOmWsA
-            Uid: user-3@example.com
+            Access-Token: 4BGr9HyDDhMc4LUfx2W0Mg
+            Client: AZDbzFziXGNhyD4Xt9SS3A
+            Uid: user-5@example.com
 
 + Response 200 ()
 
@@ -65,28 +109,28 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: nvryv82L7XrOEFj8QOmWsA
+            client: AZDbzFziXGNhyD4Xt9SS3A
             expiry:  
-            uid: user-3@example.com
+            uid: user-5@example.com
 
     + Body
 
             [
               {
-                "area_length": 837,
-                "id": 754,
-                "lat": -79.7899491107017,
-                "lng": 89.7811955156606,
-                "title": "Shane Walter",
-                "topic_id": 646
+                "area_length": 655,
+                "id": 493,
+                "lat": 46.2850817018467,
+                "lng": -39.6572900277415,
+                "title": "Hilario Koelpin MD",
+                "topic_id": 389
               },
               {
-                "area_length": 868,
-                "id": 755,
-                "lat": -88.3846185416942,
-                "lng": 152.251552740167,
-                "title": "Woodrow Kemmer I",
-                "topic_id": 647
+                "area_length": 908,
+                "id": 494,
+                "lat": 66.5296844960306,
+                "lng": -81.7856952153404,
+                "title": "Elton Kuhlman",
+                "topic_id": 390
               }
             ]
 
@@ -96,13 +140,13 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: tsgtZdqR5Hu29G9btcskog
-            Client: GxKu4QtsW7A7sLroiJi7Hg
-            Uid: user-4@example.com
+            Access-Token: OlxlgTrUQXsj4dD84l6aRw
+            Client: FE-ZZ-vSoiFzDrSF7e-Wpw
+            Uid: user-6@example.com
 
     + Body
 
-            target[area_length]=359&target[lat]=-29.275948887576433&target[lng]=-69.2516961938706&target[title]=Darren+Gaylord&target[topic_id]=650
+            target[area_length]=92&target[lat]=65.57264081081044&target[lng]=-20.750553873649437&target[title]=Gil+Renner&target[topic_id]=393
 
 + Response 201 ()
 
@@ -110,19 +154,19 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: GxKu4QtsW7A7sLroiJi7Hg
+            client: FE-ZZ-vSoiFzDrSF7e-Wpw
             expiry:  
-            uid: user-4@example.com
+            uid: user-6@example.com
 
     + Body
 
             {
-              "area_length": 359,
-              "id": 759,
-              "lat": -29.275948887576433,
-              "lng": -69.2516961938706,
-              "title": "Darren Gaylord",
-              "topic_id": 650
+              "area_length": 92,
+              "id": 498,
+              "lat": 65.57264081081044,
+              "lng": -20.750553873649437,
+              "title": "Gil Renner",
+              "topic_id": 393
             }
 
 ## Target member [/targets/{id}]
@@ -133,9 +177,9 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: QGiUVNLJUdPWsuCX1bPPKw
-            Client: KfTWOZQuwstuZMavU7F5dg
-            Uid: user-6@example.com
+            Access-Token: ybWVA0Sbd6F2MQshFVd4xA
+            Client: 72_9G1VcOq22WfV264Tqhw
+            Uid: user-8@example.com
 
 + Response 200 ()
 
@@ -143,17 +187,17 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: KfTWOZQuwstuZMavU7F5dg
+            client: 72_9G1VcOq22WfV264Tqhw
             expiry:  
-            uid: user-6@example.com
+            uid: user-8@example.com
 
     + Body
 
             {
-              "area_length": 820,
-              "id": 762,
-              "lat": 9.74187920337859,
-              "lng": -138.036442516321,
-              "title": "Eliza Gusikowski",
-              "topic_id": 653
+              "area_length": 241,
+              "id": 501,
+              "lat": 20.3687470017516,
+              "lng": 111.79196152468,
+              "title": "Douglass Hackett",
+              "topic_id": 396
             }
