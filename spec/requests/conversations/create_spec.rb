@@ -83,5 +83,9 @@ RSpec.describe 'POST /conversations', type: :request do
     it 'returns an error message' do
       expect(errors['target']).to include 'must exist'
     end
+
+    it 'does not return a successful response' do
+      expect(response.status).to eq 422
+    end
   end
 end

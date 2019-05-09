@@ -20,8 +20,9 @@ RSpec.describe 'DELETE /targets/:id', type: :request do
   context 'passing a target id from a different user' do
     let(:target) { create :target }
 
-    it "doesn't destroy the target" do
-      expect { subject }.to raise_error ActiveRecord::RecordNotFound
+    it 'does not return a successful response' do
+      subject
+      expect(response.status).to eq 404
     end
   end
 end
