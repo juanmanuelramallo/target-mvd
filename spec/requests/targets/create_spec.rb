@@ -47,6 +47,10 @@ RSpec.describe 'POST /targets', type: :request do
     it 'should have the correct area length' do
       expect(subject['area_length']).to eq area_length
     end
+
+    it 'should enqueue a broadcast job' do
+      expect { subject }.to have_enqueued_job
+    end
   end
 
   context 'missing params' do

@@ -10,6 +10,14 @@ RSpec.describe Target, type: :model do
     it { is_expected.to belong_to(:user) }
   end
 
+  describe 'callbacks' do
+    context 'after create' do
+      it 'should enqueue job to broadcast to compatible users' do
+        expect { subject.save }.to have_enqueued_job
+      end
+    end
+  end
+
   describe 'validations' do
     it { is_expected.to validate_presence_of(:title) }
     it { is_expected.to validate_presence_of(:lat) }
