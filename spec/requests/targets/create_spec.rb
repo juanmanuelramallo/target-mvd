@@ -28,24 +28,28 @@ RSpec.describe 'POST /targets', type: :request do
   end
 
   context 'valid params' do
-    it 'should create the target correctly' do
+    it 'creates the target correctly' do
       expect { subject }.to change { Target.count }.by 1
     end
 
-    it 'should have the correct lat' do
+    it 'has the correct lat' do
       expect(subject['lat']).to eq lat
     end
 
-    it 'should have the correct lng' do
+    it 'has the correct lng' do
       expect(subject['lng']).to eq lng
     end
 
-    it 'should have the correct title' do
+    it 'has the correct title' do
       expect(subject['title']).to eq title
     end
 
-    it 'should have the correct area length' do
+    it 'has the correct area length' do
       expect(subject['area_length']).to eq area_length
+    end
+
+    it 'enqueues a broadcast job' do
+      expect { subject }.to have_enqueued_job
     end
   end
 
@@ -54,7 +58,7 @@ RSpec.describe 'POST /targets', type: :request do
 
     before { subject }
 
-    it 'should return the error message' do
+    it 'returns the error message' do
       expect(errors['title']).to include "can't be blank"
     end
   end

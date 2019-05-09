@@ -19,11 +19,11 @@ RSpec.describe 'POST /auth', type: :request do
     let(:email) { Faker::Internet.email }
     let(:password) { Faker::Internet.password(8) }
 
-    it 'should create the user' do
+    it 'creates the user' do
       expect(subject).to have_http_status(:success)
     end
 
-    it 'should send a confirmation mail' do
+    it 'sends a confirmation mail' do
       expect { subject }.to change { ActionMailer::Base.deliveries.count }.by 1
     end
   end
@@ -33,7 +33,7 @@ RSpec.describe 'POST /auth', type: :request do
       let(:email) { '' }
       let(:password) { Faker::Internet.password(8) }
 
-      it "shouldn't create the user" do
+      it "doesn't create the user" do
         expect(subject).to have_http_status(:unprocessable_entity)
       end
     end
@@ -42,7 +42,7 @@ RSpec.describe 'POST /auth', type: :request do
       let(:email) { Faker::Internet.email }
       let(:password) { '' }
 
-      it "shouldn't create the user" do
+      it "doesn't create the user" do
         expect(subject).to have_http_status(:unprocessable_entity)
       end
     end
@@ -53,7 +53,7 @@ RSpec.describe 'POST /auth', type: :request do
 
       before { subject }
 
-      it "shouldn't create the user" do
+      it "doesn't create the user" do
         expect(errors['password'][0]).to include 'is too short'
       end
     end

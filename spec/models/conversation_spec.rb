@@ -14,9 +14,9 @@ RSpec.describe Conversation, type: :model do
   describe 'validations' do
     subject { create :conversation }
 
-    context 'should have a target compatible with the initiator' do
+    context 'has a target compatible with the initiator' do
       context 'conversation valid' do
-        it 'should be valid' do
+        it 'is valid' do
           expect(subject.valid?).to be true
         end
       end
@@ -25,7 +25,7 @@ RSpec.describe Conversation, type: :model do
         subject { build :conversation, target: target, initiator: target.user }
         let(:target) { create :target }
 
-        it 'should be invalid' do
+        it 'is invalid' do
           expect(subject.valid?).to be false
         end
       end
@@ -43,7 +43,7 @@ RSpec.describe Conversation, type: :model do
         create :message, conversation: conversation, user: user
       end
 
-      it 'should always return false' do
+      it 'always returns false' do
         expect(subject).to eq false
       end
     end
@@ -58,13 +58,13 @@ RSpec.describe Conversation, type: :model do
           conversation.update unread: true
         end
 
-        it 'should return true' do
+        it 'returns true' do
           expect(subject).to eq true
         end
       end
 
       context 'user has already read the conversation' do
-        it 'should return false' do
+        it 'returns false' do
           expect(subject).to eq false
         end
       end
@@ -74,7 +74,7 @@ RSpec.describe Conversation, type: :model do
       let(:conversation) { create :conversation }
       let(:user) { conversation.initiator }
 
-      it 'should return false' do
+      it 'returns false' do
         expect(subject).to eq false
       end
     end

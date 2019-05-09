@@ -7,7 +7,7 @@ RSpec.describe 'FacebookService' do
   subject { FacebookService.call!(access_token) }
 
   context 'creating a user' do
-    it 'should return my newly created user' do
+    it 'returns my newly created user' do
       VCR.use_cassette 'facebook_service/valid' do
         expect { subject }.to change { User.count }.by 1
       end
@@ -19,7 +19,7 @@ RSpec.describe 'FacebookService' do
 
     before { user }
 
-    it 'should return the existing user' do
+    it 'returns the existing user' do
       VCR.use_cassette 'facebook_service/valid' do
         expect(subject).to eq(user)
       end
@@ -29,7 +29,7 @@ RSpec.describe 'FacebookService' do
   context 'invalid access token' do
     let(:access_token) { '123456' }
 
-    it 'should raise an error' do
+    it 'raises an error' do
       VCR.use_cassette 'facebook_service/invalid' do
         expect { subject }.to raise_error(FacebookError)
       end

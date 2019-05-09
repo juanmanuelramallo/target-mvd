@@ -10,13 +10,23 @@ class Target < ApplicationRecord
   validates :area_length, numericality: { greater_than: 0 }
   validate :user_must_have_less_than_maximum_targets
 
+  after_create :broadcast_to_compatible_users
+
   def compatible_targets
     Target.where(topic_id: topic_id)
           .where.not(user: user)
           .merge(Target.within(area_length, origin: self))
   end
 
+  def compatible_users
+    User.where(id: compatible_targets.pluck(:user_id))
+  end
+
   private
+
+  def broadcast_to_compatible_users
+    BroadcastCompatibleTargetsJob.perform_later(self)
+  end
 
   def user_must_have_less_than_maximum_targets
     return unless user && user.targets.count >= User::MAXIMUM_TARGETS

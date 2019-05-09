@@ -36,13 +36,13 @@ RSpec.describe User, type: :model do
         expected_targets
       end
 
-      it 'should return 2 unique targets' do
+      it 'returns 2 unique targets' do
         expect(subject).to eq expected_targets
       end
     end
 
     context 'user without targets' do
-      it 'should return an empty collection' do
+      it 'returns an empty collection' do
         expect(subject).to eq []
       end
     end
@@ -55,7 +55,7 @@ RSpec.describe User, type: :model do
     context 'user with conversations' do
       before { create_list :conversation, 3, initiator: user }
 
-      it 'should return 3 conversations' do
+      it 'returns 3 conversations' do
         expect(subject.size).to eq 3
       end
     end
@@ -64,13 +64,13 @@ RSpec.describe User, type: :model do
       let(:conversation) { create :conversation }
       let(:user) { conversation.target.user }
 
-      it 'should return 1 conversation' do
+      it 'returns 1 conversation' do
         expect(subject.size).to eq 1
       end
     end
 
     context 'user without conversations' do
-      it 'should return an empty collection' do
+      it 'returns an empty collection' do
         expect(subject.size).to eq 0
       end
     end

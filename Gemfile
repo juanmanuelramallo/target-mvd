@@ -14,7 +14,7 @@ gem 'puma', '~> 3.11'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.1.1'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -30,11 +30,13 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors', '~> 1.0.3'
 
+gem 'action-cable-testing', '~> 0.5.0'
 gem 'active_model_serializers', '~> 0.10.9'
 gem 'devise', '~> 4.6.2'
 gem 'devise_token_auth', '~> 1.1.0'
 gem 'figaro', '~> 1.1.1'
 gem 'geokit-rails', '~> 2.3.1'
+gem 'sidekiq', '~> 5.2.7'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

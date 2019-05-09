@@ -10,6 +10,14 @@ RSpec.describe Target, type: :model do
     it { is_expected.to belong_to(:user) }
   end
 
+  describe 'callbacks' do
+    context 'after create' do
+      it 'enqueues job to broadcast to compatible users' do
+        expect { subject.save }.to have_enqueued_job
+      end
+    end
+  end
+
   describe 'validations' do
     it { is_expected.to validate_presence_of(:title) }
     it { is_expected.to validate_presence_of(:lat) }
@@ -21,7 +29,7 @@ RSpec.describe Target, type: :model do
       let(:user) { create :user }
 
       context 'user with less than 10 targets' do
-        it 'should be valid' do
+        it 'is valid' do
           expect(target.valid?).to be true
         end
       end
@@ -31,7 +39,7 @@ RSpec.describe Target, type: :model do
           10.times { create :target, user: user }
         end
 
-        it "shouldn't be valid" do
+        it 'is not be valid' do
           expect(target.valid?).to be false
         end
       end
@@ -55,7 +63,7 @@ RSpec.describe Target, type: :model do
         create :target, topic: target.topic, area_length: 1000, lat: lat + 1, lng: lng + 1
       end
 
-      it 'should return one target' do
+      it 'returns one target' do
         expect(subject).to eq [expected_target]
       end
     end
@@ -66,7 +74,7 @@ RSpec.describe Target, type: :model do
         create :target, topic: target.topic, area_length: 10_000, lat: lat - 1, lng: lng - 1
       end
 
-      it 'should return zero targets' do
+      it 'returns zero targets' do
         expect(subject).to eq []
       end
     end

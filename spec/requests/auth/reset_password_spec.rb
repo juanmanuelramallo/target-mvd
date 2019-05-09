@@ -19,7 +19,7 @@ RSpec.describe 'PUT /auth/password', type: :request do
     let(:user) { create :user }
     let(:email) { user.email }
 
-    it 'should send me an email' do
+    it 'sends me an email' do
       expect { subject }.to change { ActionMailer::Base.deliveries.count }.by 1
     end
   end
@@ -27,7 +27,7 @@ RSpec.describe 'PUT /auth/password', type: :request do
   context 'invalid user' do
     let(:email) { 'fake-user@example.com' }
 
-    it "shouldn't send me an email" do
+    it "doesn't send me an email" do
       expect { subject }.to change { ActionMailer::Base.deliveries.count }.by 0
     end
   end

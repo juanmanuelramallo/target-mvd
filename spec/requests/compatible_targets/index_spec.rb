@@ -20,7 +20,7 @@ RSpec.describe 'GET /compatible_targets', type: :request do
                               lat: lat + rand / 100, lng: lng + rand / 100
     end
 
-    it 'should return 3 targets' do
+    it 'returns 3 targets' do
       expect(subject.size).to eq 3
     end
 
@@ -32,7 +32,7 @@ RSpec.describe 'GET /compatible_targets', type: :request do
 
       before { another_target }
 
-      it 'should return 3 targets' do
+      it 'returns 3 targets' do
         expect(subject.size).to eq 3
       end
     end
@@ -45,7 +45,7 @@ RSpec.describe 'GET /compatible_targets', type: :request do
                               lat: lat + rand(1..10), lng: lng + rand(1..10)
     end
 
-    it 'should return an empty array' do
+    it 'returns an empty array' do
       expect(subject.size).to eq 0
     end
   end
