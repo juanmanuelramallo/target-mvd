@@ -11,8 +11,8 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: oXiZ-UVWryiE9LPdF5cBUw
-            Client: 0ebInNIuQ04mw9FUZUhn3Q
+            Access-Token: 8dv84TXRmMPwHtIszfD5yw
+            Client: 4JZVIz7YaxyvTP79cOK3AQ
             Uid: user-1@example.com
 
 + Response 200 ()
@@ -21,7 +21,7 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: 0ebInNIuQ04mw9FUZUhn3Q
+            client: 4JZVIz7YaxyvTP79cOK3AQ
             expiry:  
             uid: user-1@example.com
 
@@ -45,13 +45,13 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: _SrjkeZRykoHtZx-j9sh1w
-            Client: jDjkQB5kVhB6jcexyo34GA
+            Access-Token: eTtG-TgoNKhtnnXW3CmtJA
+            Client: Je9bfQQZZNMzp0tiGOLr4w
             Uid: user-3@example.com
 
     + Body
 
-            conversation[target_id]=1267&conversation[initiator_id]=1110
+            conversation[target_id]=569&conversation[initiator_id]=486
 
 + Response 201 ()
 
@@ -59,23 +59,48 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: jDjkQB5kVhB6jcexyo34GA
+            client: Je9bfQQZZNMzp0tiGOLr4w
             expiry:  
             uid: user-3@example.com
 
     + Body
 
             {
+              "unread": false,
               "messages": [
-            
+                {
+                  "text": "Most of the tasks we do are for humans. For example, a tax calculation is counting numbers so the government can pull money out from my wallet, but government consists of humans.",
+                  "created_at": "2019-05-08T20:03:54.054Z",
+                  "user_id": 487
+                },
+                {
+                  "text": "Actually, I didn't make the claim that Ruby follows the principle of least surprise. Someone felt the design of Ruby follows that philosophy, so they started saying that. I didn't bring that up, actually.",
+                  "created_at": "2019-05-08T20:03:54.056Z",
+                  "user_id": 487
+                },
+                {
+                  "text": "Sometimes people jot down pseudo-code on paper. If that pseudo-code runs directly on their computers, its best, isn't it? Ruby tries to be like that, like pseudo-code that runs. Python people say that too.",
+                  "created_at": "2019-05-08T20:03:54.057Z",
+                  "user_id": 487
+                },
+                {
+                  "text": "Actually, I didn't make the claim that Ruby follows the principle of least surprise. Someone felt the design of Ruby follows that philosophy, so they started saying that. I didn't bring that up, actually.",
+                  "created_at": "2019-05-08T20:03:54.058Z",
+                  "user_id": 487
+                },
+                {
+                  "text": "Smart people underestimate the ordinarity of ordinary people.",
+                  "created_at": "2019-05-08T20:03:54.060Z",
+                  "user_id": 486
+                }
               ],
               "target": {
-                "area_length": 373,
-                "id": 1267,
-                "lat": -61.1248138156259,
-                "lng": -60.721956328495,
-                "title": "Garry Huels III",
-                "topic_id": 856
+                "area_length": 466,
+                "id": 569,
+                "lat": -80.5621462139208,
+                "lng": 129.335708480217,
+                "title": "Julee Gislason",
+                "topic_id": 339
               },
               "initiator": {
                 "email": "user-3@example.com"
@@ -88,8 +113,8 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: brnkjAhzk55E-fGsrsRu6A
-            Client: nJ2tthNZK_-yBM-2oOq1hg
+            Access-Token: 75HeWy-Fw0PkcaR48Uv9dg
+            Client: bUF40qp1w0hTiDyJiGDpNQ
             Uid: user-8@example.com
 
 + Response 200 ()
@@ -98,7 +123,7 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: nJ2tthNZK_-yBM-2oOq1hg
+            client: bUF40qp1w0hTiDyJiGDpNQ
             expiry:  
             uid: user-8@example.com
 
@@ -106,64 +131,92 @@ FORMAT: 1A
 
             [
               {
+                "unread": true,
                 "messages": [
-            
+                  {
+                    "text": "Most of the tasks we do are for humans. For example, a tax calculation is counting numbers so the government can pull money out from my wallet, but government consists of humans.",
+                    "created_at": "2019-05-08T20:03:54.244Z",
+                    "user_id": 491
+                  },
+                  {
+                    "text": "I hope to see Ruby help every programmer in the world to be productive, and to enjoy programming, and to be happy. That is the primary purpose of Ruby language.",
+                    "created_at": "2019-05-08T20:03:54.245Z",
+                    "user_id": 491
+                  },
+                  {
+                    "text": "I believe that the purpose of life is, at least in part, to be happy. Based on this belief, Ruby is designed to make programming not only easy but also fun. It allows you to concentrate on the creative side of programming, with less stress.",
+                    "created_at": "2019-05-08T20:03:54.246Z",
+                    "user_id": 492
+                  },
+                  {
+                    "text": "Often people, especially computer engineers, focus on the machines. But in fact we need to focus on humans, on how humans care about doing programming or operating the application of the machines.",
+                    "created_at": "2019-05-08T20:03:54.247Z",
+                    "user_id": 491
+                  },
+                  {
+                    "text": "You want to enjoy life, don't you? If you get your job done quickly and your job is fun, that's good isn't it? That's the purpose of life, partly. Your life is better.",
+                    "created_at": "2019-05-08T20:03:54.249Z",
+                    "user_id": 492
+                  }
                 ],
                 "target": {
-                  "area_length": 223,
-                  "id": 1272,
-                  "lat": -16.6870716138403,
-                  "lng": 6.57641665499813,
-                  "title": "Elmer Koepp",
-                  "topic_id": 857
+                  "area_length": 644,
+                  "id": 574,
+                  "lat": -61.2429710969357,
+                  "lng": -9.71021783020214,
+                  "title": "Ramon Botsford",
+                  "topic_id": 340
                 },
                 "initiator": {
                   "email": "user-8@example.com"
                 }
               },
               {
+                "unread": false,
                 "messages": [
             
                 ],
                 "target": {
-                  "area_length": 296,
-                  "id": 1273,
-                  "lat": -16.6870716138403,
-                  "lng": 6.57641665499813,
-                  "title": "Mr. Lamar Fay",
-                  "topic_id": 857
+                  "area_length": 69,
+                  "id": 575,
+                  "lat": -61.2429710969357,
+                  "lng": -9.71021783020214,
+                  "title": "Virgilio Deckow",
+                  "topic_id": 340
                 },
                 "initiator": {
                   "email": "user-8@example.com"
                 }
               },
               {
+                "unread": false,
                 "messages": [
             
                 ],
                 "target": {
-                  "area_length": 103,
-                  "id": 1274,
-                  "lat": -16.6870716138403,
-                  "lng": 6.57641665499813,
-                  "title": "Ms. Jonathon Osinski",
-                  "topic_id": 857
+                  "area_length": 816,
+                  "id": 576,
+                  "lat": -61.2429710969357,
+                  "lng": -9.71021783020214,
+                  "title": "Jerri Towne I",
+                  "topic_id": 340
                 },
                 "initiator": {
                   "email": "user-8@example.com"
                 }
               },
               {
+                "unread": false,
                 "messages": [
             
                 ],
                 "target": {
-                  "area_length": 623,
-                  "id": 1275,
-                  "lat": -16.6870716138403,
-                  "lng": 6.57641665499813,
-                  "title": "Earl Spinka",
-                  "topic_id": 857
+                  "area_length": 562,
+                  "id": 577,
+                  "lat": -61.2429710969357,
+                  "lng": -9.71021783020214,
+                  "title": "Becki Pfannerstill",
+                  "topic_id": 340
                 },
                 "initiator": {
                   "email": "user-8@example.com"
@@ -188,8 +241,8 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: SIT_RrtwXu2MkdfaBRz0VQ
-            Client: 2vaEI5NS6omUhwUmfu1DeQ
+            Access-Token: 3nCyotdmaSnCijHThcnvsw
+            Client: FXUgXXzwS0qdn-S82Re4Cg
             Uid: user-13@example.com
 
 + Response 200 ()
@@ -198,7 +251,7 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: 2vaEI5NS6omUhwUmfu1DeQ
+            client: FXUgXXzwS0qdn-S82Re4Cg
             expiry:  
             uid: user-13@example.com
 
@@ -206,20 +259,20 @@ FORMAT: 1A
 
             [
               {
-                "area_length": 619,
-                "id": 1276,
-                "lat": -2.56687449240061,
-                "lng": 136.683096331162,
-                "title": "Julian Wunsch",
-                "topic_id": 858
+                "area_length": 748,
+                "id": 578,
+                "lat": 69.5686329824971,
+                "lng": 55.0634680481147,
+                "title": "Isis Lehner",
+                "topic_id": 341
               },
               {
-                "area_length": 211,
-                "id": 1277,
-                "lat": -71.3549232893304,
-                "lng": 142.834294470886,
-                "title": "Florencia Becker",
-                "topic_id": 859
+                "area_length": 661,
+                "id": 579,
+                "lat": 30.5523056793563,
+                "lng": -67.0093948063233,
+                "title": "Ms. Ivory Jacobi",
+                "topic_id": 342
               }
             ]
 
@@ -229,13 +282,13 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: jzSlGvjjb3BqHDyMnPhmSA
-            Client: hQzQQ8M6icIBPYvjjgQAzg
+            Access-Token: G0CCzf3TszdNyn4aK4cVqg
+            Client: j-AGhxZy36y6yrdZXZmOew
             Uid: user-14@example.com
 
     + Body
 
-            target[area_length]=10&target[lat]=-77.25252745420579&target[lng]=170.6866188808524&target[title]=Tran+Schinner+II&target[topic_id]=862
+            target[area_length]=878&target[lat]=-24.505064484163412&target[lng]=-39.75370262925014&target[title]=Elvina+Grimes&target[topic_id]=345
 
 + Response 201 ()
 
@@ -243,19 +296,19 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: hQzQQ8M6icIBPYvjjgQAzg
+            client: j-AGhxZy36y6yrdZXZmOew
             expiry:  
             uid: user-14@example.com
 
     + Body
 
             {
-              "area_length": 10,
-              "id": 1281,
-              "lat": -77.25252745420579,
-              "lng": 170.6866188808524,
-              "title": "Tran Schinner II",
-              "topic_id": 862
+              "area_length": 878,
+              "id": 583,
+              "lat": -24.505064484163412,
+              "lng": -39.75370262925014,
+              "title": "Elvina Grimes",
+              "topic_id": 345
             }
 
 ## Target member [/targets/{id}]
@@ -266,8 +319,8 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: 0HTI91P1aa_Y5DFJASdVMg
-            Client: C9UH8eEDGtHloBH0D50YNQ
+            Access-Token: g8ijWAmc6uw_xyZggD5lVA
+            Client: OjmD0Muy6G-8zDRU7YELNw
             Uid: user-16@example.com
 
 + Response 200 ()
@@ -276,17 +329,17 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: C9UH8eEDGtHloBH0D50YNQ
+            client: OjmD0Muy6G-8zDRU7YELNw
             expiry:  
             uid: user-16@example.com
 
     + Body
 
             {
-              "area_length": 788,
-              "id": 1284,
-              "lat": -3.57246876185809,
-              "lng": 76.5491850465021,
-              "title": "Alonzo Konopelski",
-              "topic_id": 865
+              "area_length": 962,
+              "id": 586,
+              "lat": 72.5735062952586,
+              "lng": 124.102984715548,
+              "title": "Jordon Renner",
+              "topic_id": 348
             }

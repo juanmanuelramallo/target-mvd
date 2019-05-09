@@ -8,7 +8,7 @@ resource 'Conversations' do
   header 'client', :client_header
   header 'uid', :uid_header
 
-  let(:conversation) { create :conversation }
+  let(:conversation) { create :conversation_with_messages, unread: true }
   let(:user) { conversation.initiator }
 
   before { create_list :conversation, 3, initiator: user }
@@ -24,6 +24,7 @@ resource 'Conversations' do
         response_field :messages, 'Array of messages'
         response_field :target, 'Target object'
         response_field :initiator, 'Initiator user'
+        response_field :unread, 'Unread indicator for the current user'
       end
 
       let(:target_id) { conversation.target_id }
