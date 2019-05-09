@@ -15,13 +15,13 @@ RSpec.describe 'GET /targets', type: :request do
       create_list :target, 3, user: user
     end
 
-    it 'should return 3 targets' do
+    it 'returns 3 targets' do
       expect(subject.size).to eq 3
     end
   end
 
   context 'user without targets' do
-    it 'should return an empty array' do
+    it 'returns an empty array' do
       expect(subject.size).to eq 0
     end
   end

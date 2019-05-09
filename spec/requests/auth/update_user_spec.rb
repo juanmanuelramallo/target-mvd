@@ -33,14 +33,14 @@ RSpec.describe 'PUT /auth', type: :request do
     post '/auth/sign_in', params: { email: user.email, password: 'P@55word' }
   end
 
-  it 'should update the email' do
+  it 'updates the email' do
     expect { subject }.to change { user.reload.email }.to new_email
   end
 
   context 'given a wrong current password' do
     let(:current_password) { 'wrong-password' }
 
-    it "shouldn't update the email" do
+    it "doesn't update the email" do
       expect { subject }.to_not change { user.reload.email }
     end
   end

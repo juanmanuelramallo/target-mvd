@@ -23,7 +23,7 @@ RSpec.describe 'ConversationService' do
 
   context 'building a conversation' do
     context 'as the initiator' do
-      it 'should return a new conversation record' do
+      it 'returns a new conversation record' do
         expect(subject.new_record?).to eq true
       end
     end
@@ -32,7 +32,7 @@ RSpec.describe 'ConversationService' do
       let(:initiator_id) { target.user.id }
       let(:target_id) { user.targets.first.id }
 
-      it 'should return a new conversation record' do
+      it 'returns a new conversation record' do
         expect(subject.new_record?).to eq true
       end
     end
@@ -40,7 +40,7 @@ RSpec.describe 'ConversationService' do
     context 'as a user not related to the target or the initiator' do
       let(:current_user) { create :user_with_targets }
 
-      it 'should raise an error' do
+      it 'raises an error' do
         expect { subject }.to raise_error ConversationNotAllowedError
       end
     end

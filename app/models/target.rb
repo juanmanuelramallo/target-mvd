@@ -19,13 +19,13 @@ class Target < ApplicationRecord
   end
 
   def compatible_users
-    User.where id: compatible_targets.pluck(:user_id)
+    User.where(id: compatible_targets.pluck(:user_id))
   end
 
   private
 
   def broadcast_to_compatible_users
-    BroadcastCompatibleTargetsJob.perform_later self
+    BroadcastCompatibleTargetsJob.perform_later(self)
   end
 
   def user_must_have_less_than_maximum_targets

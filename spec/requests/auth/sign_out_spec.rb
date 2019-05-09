@@ -26,7 +26,7 @@ RSpec.describe 'DELETE /auth/sign_out', type: :request do
       post '/auth/sign_in', params: { email: user.email, password: 'P@55word' }
     end
 
-    it 'should allow me to log out' do
+    it 'allows me to log out' do
       expect(subject).to have_http_status(:success)
     end
   end
@@ -38,7 +38,7 @@ RSpec.describe 'DELETE /auth/sign_out', type: :request do
     let(:client) { token[0] }
     let(:uid) { user.email }
 
-    it "shouldn't allow me to log out again" do
+    it "doesn't allow me to log out again" do
       expect(subject).to have_http_status(:not_found)
     end
   end

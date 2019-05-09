@@ -12,7 +12,7 @@ RSpec.describe Target, type: :model do
 
   describe 'callbacks' do
     context 'after create' do
-      it 'should enqueue job to broadcast to compatible users' do
+      it 'enqueues job to broadcast to compatible users' do
         expect { subject.save }.to have_enqueued_job
       end
     end
@@ -29,7 +29,7 @@ RSpec.describe Target, type: :model do
       let(:user) { create :user }
 
       context 'user with less than 10 targets' do
-        it 'should be valid' do
+        it 'is valid' do
           expect(target.valid?).to be true
         end
       end
@@ -39,7 +39,7 @@ RSpec.describe Target, type: :model do
           10.times { create :target, user: user }
         end
 
-        it "shouldn't be valid" do
+        it 'is not be valid' do
           expect(target.valid?).to be false
         end
       end
@@ -63,7 +63,7 @@ RSpec.describe Target, type: :model do
         create :target, topic: target.topic, area_length: 1000, lat: lat + 1, lng: lng + 1
       end
 
-      it 'should return one target' do
+      it 'returns one target' do
         expect(subject).to eq [expected_target]
       end
     end
@@ -74,7 +74,7 @@ RSpec.describe Target, type: :model do
         create :target, topic: target.topic, area_length: 10_000, lat: lat - 1, lng: lng - 1
       end
 
-      it 'should return zero targets' do
+      it 'returns zero targets' do
         expect(subject).to eq []
       end
     end

@@ -17,7 +17,7 @@ RSpec.describe 'POST /auth/sign_in', type: :request do
   before(:each) { subject }
 
   context 'valid user' do
-    it 'should allow me to log in' do
+    it 'allows me to log in' do
       expect(response).to have_http_status(:success)
     end
   end
@@ -26,7 +26,7 @@ RSpec.describe 'POST /auth/sign_in', type: :request do
     context 'inexistent user' do
       let(:user) { build :user }
 
-      it "shouldn't allow me to log in" do
+      it "doesn't allow me to log in" do
         expect(response).to have_http_status(:unauthorized)
       end
     end
@@ -34,7 +34,7 @@ RSpec.describe 'POST /auth/sign_in', type: :request do
     context 'wrong password' do
       let(:password) { '123456' }
 
-      it "shouldn't allow me to log in" do
+      it "doesn't allow me to log in" do
         expect(response).to have_http_status(:unauthorized)
       end
     end

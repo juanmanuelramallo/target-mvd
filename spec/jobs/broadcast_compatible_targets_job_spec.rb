@@ -23,7 +23,7 @@ RSpec.describe BroadcastCompatibleTargetsJob, type: :job do
       compatible_target
     end
 
-    it 'should broadcast to the users with compatible targets' do
+    it 'broadcasts to the users with compatible targets' do
       expect { subject }.to have_broadcasted_to(compatible_target.user)
         .from_channel(CompatibleTargetsChannel)
         .with(serialized_target)
@@ -38,7 +38,7 @@ RSpec.describe BroadcastCompatibleTargetsJob, type: :job do
       another_target
     end
 
-    it "shouldn't broadcast to any user" do
+    it "doesn't broadcast to any user" do
       expect { subject }.to_not have_broadcasted_to(another_target.user)
         .from_channel(CompatibleTargetsChannel)
         .with(target: serialized_target)

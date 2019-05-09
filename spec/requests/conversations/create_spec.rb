@@ -25,7 +25,7 @@ RSpec.describe 'POST /conversations', type: :request do
 
   context 'valid params' do
     context 'nonexistent conversation' do
-      it 'should create a conversation' do
+      it 'creates a conversation' do
         expect { subject }.to change { Conversation.count }.by 1
       end
     end
@@ -35,7 +35,7 @@ RSpec.describe 'POST /conversations', type: :request do
         create :conversation, target: target, initiator: user
       end
 
-      it "shouldn't create a conversation" do
+      it "doesn't create a conversation" do
         expect { subject }.to_not change { Conversation.count }
       end
     end
@@ -52,7 +52,7 @@ RSpec.describe 'POST /conversations', type: :request do
       end
 
       context 'nonexistent conversation' do
-        it 'should create a conversation' do
+        it 'creates a conversation' do
           expect { subject }.to change { Conversation.count }.by 1
         end
       end
@@ -62,7 +62,7 @@ RSpec.describe 'POST /conversations', type: :request do
           create :conversation, target: my_target, initiator: target.user
         end
 
-        it "shouldn't create a conversation" do
+        it "doesn't create a conversation" do
           expect { subject }.to_not change { Conversation.count }
         end
       end
@@ -80,7 +80,7 @@ RSpec.describe 'POST /conversations', type: :request do
 
     before { subject }
 
-    it 'should return an error message' do
+    it 'returns an error message' do
       expect(errors['target']).to include 'must exist'
     end
   end

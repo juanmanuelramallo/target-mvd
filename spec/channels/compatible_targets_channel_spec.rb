@@ -14,6 +14,6 @@ RSpec.describe CompatibleTargetsChannel, type: :channel do
     end
 
     it { is_expected.to be_confirmed }
-    it { is_expected.to have_stream_from(user) }
+    it { is_expected.to have_stream_for(user) }
   end
 end
