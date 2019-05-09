@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   end
 
   resources :compatible_targets, only: :index
-  resources :conversations, only: %i[create index]
+  resources :conversations, only: %i[create index show]
   resources :targets, only: %i[create index destroy]
 end

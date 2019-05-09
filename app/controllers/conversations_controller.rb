@@ -19,7 +19,15 @@ class ConversationsController < ApplicationController
     render json: current_user.conversations
   end
 
+  def show
+    render json: conversation
+  end
+
   private
+
+  def conversation
+    @conversation ||= current_user.conversations.find params[:id]
+  end
 
   def conversation_params
     params.require(:conversation).permit(:target_id, :initiator_id)

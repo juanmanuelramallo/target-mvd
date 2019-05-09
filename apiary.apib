@@ -11,8 +11,8 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: 8dv84TXRmMPwHtIszfD5yw
-            Client: 4JZVIz7YaxyvTP79cOK3AQ
+            Access-Token: C_gb1rQ6SeRseb6FRDExlA
+            Client: skkIJhi1Inlky04dBx1TcA
             Uid: user-1@example.com
 
 + Response 200 ()
@@ -21,7 +21,7 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: 4JZVIz7YaxyvTP79cOK3AQ
+            client: skkIJhi1Inlky04dBx1TcA
             expiry:  
             uid: user-1@example.com
 
@@ -45,13 +45,13 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: eTtG-TgoNKhtnnXW3CmtJA
-            Client: Je9bfQQZZNMzp0tiGOLr4w
+            Access-Token: doQ5_GTg5wSFpjC46vghPw
+            Client: eGM5rIVnuE5JZCl9Yg071Q
             Uid: user-3@example.com
 
     + Body
 
-            conversation[target_id]=569&conversation[initiator_id]=486
+            conversation[target_id]=945&conversation[initiator_id]=837
 
 + Response 201 ()
 
@@ -59,48 +59,49 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: Je9bfQQZZNMzp0tiGOLr4w
+            client: eGM5rIVnuE5JZCl9Yg071Q
             expiry:  
             uid: user-3@example.com
 
     + Body
 
             {
-              "unread": false,
+              "id": 255,
+              "unread": true,
               "messages": [
                 {
-                  "text": "Most of the tasks we do are for humans. For example, a tax calculation is counting numbers so the government can pull money out from my wallet, but government consists of humans.",
-                  "created_at": "2019-05-08T20:03:54.054Z",
-                  "user_id": 487
+                  "text": "Man is driven to create; I know I really love to create things. And while I'm not good at painting, drawing, or music, I can write software.",
+                  "created_at": "2019-05-09T17:55:43.680Z",
+                  "user_id": 837
                 },
                 {
-                  "text": "Actually, I didn't make the claim that Ruby follows the principle of least surprise. Someone felt the design of Ruby follows that philosophy, so they started saying that. I didn't bring that up, actually.",
-                  "created_at": "2019-05-08T20:03:54.056Z",
-                  "user_id": 487
-                },
-                {
-                  "text": "Sometimes people jot down pseudo-code on paper. If that pseudo-code runs directly on their computers, its best, isn't it? Ruby tries to be like that, like pseudo-code that runs. Python people say that too.",
-                  "created_at": "2019-05-08T20:03:54.057Z",
-                  "user_id": 487
-                },
-                {
-                  "text": "Actually, I didn't make the claim that Ruby follows the principle of least surprise. Someone felt the design of Ruby follows that philosophy, so they started saying that. I didn't bring that up, actually.",
-                  "created_at": "2019-05-08T20:03:54.058Z",
-                  "user_id": 487
+                  "text": "I believe that the purpose of life is, at least in part, to be happy. Based on this belief, Ruby is designed to make programming not only easy but also fun. It allows you to concentrate on the creative side of programming, with less stress.",
+                  "created_at": "2019-05-09T17:55:43.682Z",
+                  "user_id": 837
                 },
                 {
                   "text": "Smart people underestimate the ordinarity of ordinary people.",
-                  "created_at": "2019-05-08T20:03:54.060Z",
-                  "user_id": 486
+                  "created_at": "2019-05-09T17:55:43.684Z",
+                  "user_id": 838
+                },
+                {
+                  "text": "Plant a memory, plant a tree, do it today for tomorrow.",
+                  "created_at": "2019-05-09T17:55:43.685Z",
+                  "user_id": 837
+                },
+                {
+                  "text": "Sometimes people jot down pseudo-code on paper. If that pseudo-code runs directly on their computers, its best, isn't it? Ruby tries to be like that, like pseudo-code that runs. Python people say that too.",
+                  "created_at": "2019-05-09T17:55:43.686Z",
+                  "user_id": 838
                 }
               ],
               "target": {
-                "area_length": 466,
-                "id": 569,
-                "lat": -80.5621462139208,
-                "lng": 129.335708480217,
-                "title": "Julee Gislason",
-                "topic_id": 339
+                "area_length": 925,
+                "id": 945,
+                "lat": -2.88351577233449,
+                "lng": -121.582378392361,
+                "title": "Vanda Turner",
+                "topic_id": 571
               },
               "initiator": {
                 "email": "user-3@example.com"
@@ -113,8 +114,8 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: 75HeWy-Fw0PkcaR48Uv9dg
-            Client: bUF40qp1w0hTiDyJiGDpNQ
+            Access-Token: itkLI7lWy4i6MuFF34q40A
+            Client: zUjW9GpYYfvMXEn9sUIBGA
             Uid: user-8@example.com
 
 + Response 200 ()
@@ -123,7 +124,7 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: bUF40qp1w0hTiDyJiGDpNQ
+            client: zUjW9GpYYfvMXEn9sUIBGA
             expiry:  
             uid: user-8@example.com
 
@@ -131,98 +132,169 @@ FORMAT: 1A
 
             [
               {
-                "unread": true,
+                "id": 259,
+                "unread": false,
                 "messages": [
                   {
-                    "text": "Most of the tasks we do are for humans. For example, a tax calculation is counting numbers so the government can pull money out from my wallet, but government consists of humans.",
-                    "created_at": "2019-05-08T20:03:54.244Z",
-                    "user_id": 491
-                  },
-                  {
                     "text": "I hope to see Ruby help every programmer in the world to be productive, and to enjoy programming, and to be happy. That is the primary purpose of Ruby language.",
-                    "created_at": "2019-05-08T20:03:54.245Z",
-                    "user_id": 491
+                    "created_at": "2019-05-09T17:55:43.870Z",
+                    "user_id": 842
                   },
                   {
-                    "text": "I believe that the purpose of life is, at least in part, to be happy. Based on this belief, Ruby is designed to make programming not only easy but also fun. It allows you to concentrate on the creative side of programming, with less stress.",
-                    "created_at": "2019-05-08T20:03:54.246Z",
-                    "user_id": 492
+                    "text": "Actually, I didn't make the claim that Ruby follows the principle of least surprise. Someone felt the design of Ruby follows that philosophy, so they started saying that. I didn't bring that up, actually.",
+                    "created_at": "2019-05-09T17:55:43.871Z",
+                    "user_id": 843
                   },
                   {
-                    "text": "Often people, especially computer engineers, focus on the machines. But in fact we need to focus on humans, on how humans care about doing programming or operating the application of the machines.",
-                    "created_at": "2019-05-08T20:03:54.247Z",
-                    "user_id": 491
+                    "text": "Actually, I didn't make the claim that Ruby follows the principle of least surprise. Someone felt the design of Ruby follows that philosophy, so they started saying that. I didn't bring that up, actually.",
+                    "created_at": "2019-05-09T17:55:43.872Z",
+                    "user_id": 843
                   },
                   {
-                    "text": "You want to enjoy life, don't you? If you get your job done quickly and your job is fun, that's good isn't it? That's the purpose of life, partly. Your life is better.",
-                    "created_at": "2019-05-08T20:03:54.249Z",
-                    "user_id": 492
+                    "text": "Everyone has an individual background. Someone may come from Python, someone else may come from Perl, and they may be surprised by different aspects of the language. Then they come up to me and say, 'I was surprised by this feature of the language, so therefore Ruby violates the principle of least surprise.' Wait. Wait. The principle of least surprise is not for you only.",
+                    "created_at": "2019-05-09T17:55:43.873Z",
+                    "user_id": 842
+                  },
+                  {
+                    "text": "Because of the Turing completeness theory, everything one Turing-complete language can do can theoretically be done by another Turing-complete language, but at a different cost. You can do everything in assembler, but no one wants to program in assembler anymore.",
+                    "created_at": "2019-05-09T17:55:43.874Z",
+                    "user_id": 842
                   }
                 ],
                 "target": {
-                  "area_length": 644,
-                  "id": 574,
-                  "lat": -61.2429710969357,
-                  "lng": -9.71021783020214,
-                  "title": "Ramon Botsford",
-                  "topic_id": 340
+                  "area_length": 582,
+                  "id": 950,
+                  "lat": 1.50583005154623,
+                  "lng": 120.615939971786,
+                  "title": "Mac Christiansen",
+                  "topic_id": 572
                 },
                 "initiator": {
                   "email": "user-8@example.com"
                 }
               },
               {
+                "id": 260,
                 "unread": false,
                 "messages": [
             
                 ],
                 "target": {
-                  "area_length": 69,
-                  "id": 575,
-                  "lat": -61.2429710969357,
-                  "lng": -9.71021783020214,
-                  "title": "Virgilio Deckow",
-                  "topic_id": 340
+                  "area_length": 599,
+                  "id": 951,
+                  "lat": 1.50583005154623,
+                  "lng": 120.615939971786,
+                  "title": "Hana Krajcik",
+                  "topic_id": 572
                 },
                 "initiator": {
                   "email": "user-8@example.com"
                 }
               },
               {
+                "id": 261,
                 "unread": false,
                 "messages": [
             
                 ],
                 "target": {
-                  "area_length": 816,
-                  "id": 576,
-                  "lat": -61.2429710969357,
-                  "lng": -9.71021783020214,
-                  "title": "Jerri Towne I",
-                  "topic_id": 340
+                  "area_length": 224,
+                  "id": 952,
+                  "lat": 1.50583005154623,
+                  "lng": 120.615939971786,
+                  "title": "Shaniqua Schiller",
+                  "topic_id": 572
                 },
                 "initiator": {
                   "email": "user-8@example.com"
                 }
               },
               {
+                "id": 262,
                 "unread": false,
                 "messages": [
             
                 ],
                 "target": {
-                  "area_length": 562,
-                  "id": 577,
-                  "lat": -61.2429710969357,
-                  "lng": -9.71021783020214,
-                  "title": "Becki Pfannerstill",
-                  "topic_id": 340
+                  "area_length": 320,
+                  "id": 953,
+                  "lat": 1.50583005154623,
+                  "lng": 120.615939971786,
+                  "title": "Douglass Moen",
+                  "topic_id": 572
                 },
                 "initiator": {
                   "email": "user-8@example.com"
                 }
               }
             ]
+
+## Conversation member [/conversations/{id}]
+
+### Show [GET]
+
++ Request Ok
+
+    + Headers
+
+            Access-Token: fi15S6IABo2nALO8N92NnQ
+            Client: BUBWeFaBx3S1Mqf9x9Vkbg
+            Uid: user-13@example.com
+
++ Response 200 ()
+
+    + Headers
+
+            access-token:  
+            token-type: Bearer
+            client: BUBWeFaBx3S1Mqf9x9Vkbg
+            expiry:  
+            uid: user-13@example.com
+
+    + Body
+
+            {
+              "id": 263,
+              "unread": true,
+              "messages": [
+                {
+                  "text": "Because of the Turing completeness theory, everything one Turing-complete language can do can theoretically be done by another Turing-complete language, but at a different cost. You can do everything in assembler, but no one wants to program in assembler anymore.",
+                  "created_at": "2019-05-09T17:55:44.055Z",
+                  "user_id": 848
+                },
+                {
+                  "text": "Most programs are not write-once. They are reworked and rewritten again and again in their lived. Bugs must be debugged. Changing requirements and the need for increased functionality mean the program itself may be modified on an ongoing basis. During this process, human beings must be able to read and understand the original code. It is therefore more important by far for humans to be able to understand the program than it is for the computer.",
+                  "created_at": "2019-05-09T17:55:44.057Z",
+                  "user_id": 847
+                },
+                {
+                  "text": "Everyone has an individual background. Someone may come from Python, someone else may come from Perl, and they may be surprised by different aspects of the language. Then they come up to me and say, 'I was surprised by this feature of the language, so therefore Ruby violates the principle of least surprise.' Wait. Wait. The principle of least surprise is not for you only.",
+                  "created_at": "2019-05-09T17:55:44.058Z",
+                  "user_id": 847
+                },
+                {
+                  "text": "In our daily lives as programmers, we process text strings a lot. So I tried to work hard on text processing, namely the string class and regular expressions. Regular expressions are built into the language and are very tuned up for use.",
+                  "created_at": "2019-05-09T17:55:44.060Z",
+                  "user_id": 848
+                },
+                {
+                  "text": "From the viewpoint of what you can do, therefore, languages do differ - but the differences are limited. For example, Python and Ruby provide almost the same power to the programmer.",
+                  "created_at": "2019-05-09T17:55:44.061Z",
+                  "user_id": 848
+                }
+              ],
+              "target": {
+                "area_length": 115,
+                "id": 955,
+                "lat": -23.8041469458767,
+                "lng": 91.4412846886729,
+                "title": "Shellie Hahn",
+                "topic_id": 573
+              },
+              "initiator": {
+                "email": "user-13@example.com"
+              }
+            }
 
 # Group Targets
 
@@ -241,9 +313,9 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: 3nCyotdmaSnCijHThcnvsw
-            Client: FXUgXXzwS0qdn-S82Re4Cg
-            Uid: user-13@example.com
+            Access-Token: zRRCgWsrY_wL5ERXgqhMOg
+            Client: 9gIXEsk57Psn6ZPXw-7LpQ
+            Uid: user-18@example.com
 
 + Response 200 ()
 
@@ -251,28 +323,28 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: FXUgXXzwS0qdn-S82Re4Cg
+            client: 9gIXEsk57Psn6ZPXw-7LpQ
             expiry:  
-            uid: user-13@example.com
+            uid: user-18@example.com
 
     + Body
 
             [
               {
-                "area_length": 748,
-                "id": 578,
-                "lat": 69.5686329824971,
-                "lng": 55.0634680481147,
-                "title": "Isis Lehner",
-                "topic_id": 341
+                "area_length": 683,
+                "id": 959,
+                "lat": 18.6916769527578,
+                "lng": 159.460361998818,
+                "title": "Dr. Judson O'Keefe",
+                "topic_id": 574
               },
               {
-                "area_length": 661,
-                "id": 579,
-                "lat": 30.5523056793563,
-                "lng": -67.0093948063233,
-                "title": "Ms. Ivory Jacobi",
-                "topic_id": 342
+                "area_length": 900,
+                "id": 960,
+                "lat": 3.98591661701229,
+                "lng": 16.7759146481725,
+                "title": "Shad Tremblay",
+                "topic_id": 575
               }
             ]
 
@@ -282,13 +354,13 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: G0CCzf3TszdNyn4aK4cVqg
-            Client: j-AGhxZy36y6yrdZXZmOew
-            Uid: user-14@example.com
+            Access-Token: UeVdTDxlA1Pvn4VecEAqGw
+            Client: znUz6_NX-dgO2q3jOfsMLw
+            Uid: user-19@example.com
 
     + Body
 
-            target[area_length]=878&target[lat]=-24.505064484163412&target[lng]=-39.75370262925014&target[title]=Elvina+Grimes&target[topic_id]=345
+            target[area_length]=287&target[lat]=-13.141373360556685&target[lng]=83.74238958538143&target[title]=Ms.+Shakira+Steuber&target[topic_id]=578
 
 + Response 201 ()
 
@@ -296,19 +368,19 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: j-AGhxZy36y6yrdZXZmOew
+            client: znUz6_NX-dgO2q3jOfsMLw
             expiry:  
-            uid: user-14@example.com
+            uid: user-19@example.com
 
     + Body
 
             {
-              "area_length": 878,
-              "id": 583,
-              "lat": -24.505064484163412,
-              "lng": -39.75370262925014,
-              "title": "Elvina Grimes",
-              "topic_id": 345
+              "area_length": 287,
+              "id": 964,
+              "lat": -13.141373360556685,
+              "lng": 83.74238958538143,
+              "title": "Ms. Shakira Steuber",
+              "topic_id": 578
             }
 
 ## Target member [/targets/{id}]
@@ -319,9 +391,9 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: g8ijWAmc6uw_xyZggD5lVA
-            Client: OjmD0Muy6G-8zDRU7YELNw
-            Uid: user-16@example.com
+            Access-Token: fIK8Z9YKClHTgYuCvTpt9g
+            Client: Dc08hkJ12d-gI2jDSSw_nQ
+            Uid: user-21@example.com
 
 + Response 200 ()
 
@@ -329,17 +401,17 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: OjmD0Muy6G-8zDRU7YELNw
+            client: Dc08hkJ12d-gI2jDSSw_nQ
             expiry:  
-            uid: user-16@example.com
+            uid: user-21@example.com
 
     + Body
 
             {
-              "area_length": 962,
-              "id": 586,
-              "lat": 72.5735062952586,
-              "lng": 124.102984715548,
-              "title": "Jordon Renner",
-              "topic_id": 348
+              "area_length": 83,
+              "id": 967,
+              "lat": -48.0865787234377,
+              "lng": 27.1968456555966,
+              "title": "Katheryn Pfannerstill",
+              "topic_id": 581
             }
