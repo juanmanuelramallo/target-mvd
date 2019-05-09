@@ -10,7 +10,7 @@ RSpec.describe 'GET /conversations/:id', type: :request do
     data
   end
 
-  context "given I'm the initiator of the conversation" do
+  context 'given the current user is the initiator of the conversation' do
     let(:user) { conversation.initiator }
 
     it 'returns my conversation' do
@@ -18,7 +18,7 @@ RSpec.describe 'GET /conversations/:id', type: :request do
     end
   end
 
-  context "given I'm the receiver of the conversation" do
+  context 'given the current user is the receiver of the conversation' do
     let(:user) { conversation.target.user }
 
     it 'returns my conversation' do
@@ -26,7 +26,7 @@ RSpec.describe 'GET /conversations/:id', type: :request do
     end
   end
 
-  context 'given I try to fetch a conversation from another user' do
+  context 'given the current user tries to fetch a conversation from another user' do
     let(:user) { create :user }
 
     it 'raises not found error' do
