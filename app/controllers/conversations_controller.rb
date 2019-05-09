@@ -23,6 +23,14 @@ class ConversationsController < ApplicationController
     render json: conversation
   end
 
+  def update
+    if conversation.update(update_params)
+      render json: conversation, status: :ok
+    else
+      render json: { errors: conversation.errors.messages }, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def conversation
@@ -31,5 +39,17 @@ class ConversationsController < ApplicationController
 
   def conversation_params
     params.require(:conversation).permit(:target_id, :initiator_id)
+  end
+
+  def conversation_update_params
+    params.require(:conversation).permit(:unread)
+  end
+
+  def update_params
+    @update_params ||= if conversation.messages.last&.user == current_user
+                         conversation_update_params.except :unread
+                       else
+                         conversation_update_params
+                       end
   end
 end

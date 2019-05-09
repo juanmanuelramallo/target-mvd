@@ -55,10 +55,26 @@ resource 'Conversations' do
   end
 
   route '/conversations/:id', 'Conversation member' do
+    let(:id) { conversation_with_messages.id }
+
     get 'Show' do
       with_conversation_response.call
 
-      let(:id) { conversation_with_messages.id }
+      example 'Ok' do
+        do_request
+
+        expect(status).to eq 200
+      end
+    end
+
+    put 'Update' do
+      with_conversation_response.call
+
+      with_options scope: :conversation, required: true do
+        attribute :unread, 'Flag to mark the conversation as unread'
+      end
+
+      let(:unread) { false }
 
       example 'Ok' do
         do_request
