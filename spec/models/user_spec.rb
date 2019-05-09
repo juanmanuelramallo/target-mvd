@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
   subject { create :user }
 
   describe 'associations' do
-    it { should have_many(:targets).dependent(:destroy) }
+    it { is_expected.to have_many(:targets).dependent(:destroy) }
   end
 
   describe '#compatible_targets' do

@@ -6,9 +6,9 @@ RSpec.describe Conversation, type: :model do
   subject { create :conversation }
 
   describe 'associations' do
-    it { should have_many(:messages).dependent(:destroy) }
-    it { should belong_to(:target) }
-    it { should belong_to(:initiator) }
+    it { is_expected.to have_many(:messages).dependent(:destroy) }
+    it { is_expected.to belong_to(:target) }
+    it { is_expected.to belong_to(:initiator) }
   end
 
   describe 'validations' do
