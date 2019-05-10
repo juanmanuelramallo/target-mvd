@@ -3,7 +3,7 @@
 class ApplicationController < ActionController::API
   include DeviseTokenAuth::Concerns::SetUserByToken
 
-  rescue_from Exception,                           with: :render_error
+  rescue_from Exception,                           with: :render_base_error
   rescue_from ActiveRecord::RecordNotFound,        with: :render_not_found
   rescue_from ActiveRecord::RecordInvalid,         with: :render_record_invalid
   rescue_from ActionController::RoutingError,      with: :render_not_found
@@ -12,7 +12,7 @@ class ApplicationController < ActionController::API
 
   private
 
-  def render_error(exception)
+  def render_base_error(exception)
     raise exception if Rails.env.test?
 
     render json: { errors: [I18n.t('errors.server'), exception.message] },
