@@ -15,20 +15,20 @@ class ApplicationController < ActionController::API
   def render_base_error(exception)
     raise exception if Rails.env.test?
 
-    render json: { errors: [I18n.t('errors.server'), exception.message] },
+    render json: { errors: [I18n.t('errors.server')] },
            status: :internal_server_error
   end
 
-  def render_not_found(exception)
-    render json: { errors: [I18n.t('errors.not_found'), exception.message] }, status: :not_found
+  def render_not_found(_exception)
+    render json: { errors: [I18n.t('errors.not_found')] }, status: :not_found
   end
 
   def render_record_invalid(exception)
     render json: { errors: exception.record.errors.as_json }, status: :bad_request
   end
 
-  def render_parameter_missing(exception)
-    render json: { errors: [I18n.t('errors.missing_param'), exception.message] },
+  def render_parameter_missing(_exception)
+    render json: { errors: [I18n.t('errors.missing_param')] },
            status: :unprocessable_entity
   end
 end
