@@ -1,6 +1,8 @@
-FRONTEND_HOST: http://localhost:3001
 BACKEND_HOST: http://localhost:3000
-SMTP_PORT: ""
-SMTP_SERVER: ""
+FRONTEND_HOST: http://localhost:3001
 SMTP_LOGIN: ""
 SMTP_PASSWORD: ""
+SMTP_PORT: ""
+SMTP_SERVER: ""
+WEB_SOCKET_SERVER_URL: "ws://localhost:3000/cable"
+ACTION_CABLE_ALLOWED_REQUEST_ORIGINS: "http://localhost:3000,http://localhost:3001"
