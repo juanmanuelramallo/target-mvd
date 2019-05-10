@@ -57,8 +57,17 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "target-mvd_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
-
   config.action_mailer.default_url_options = { host: ENV.fetch('BACKEND_HOST') }
+  config.action_mailer.smtp_settings = {
+    address: ENV.fetch('SMTP_SERVER'),
+    authentication: :plain,
+    domain: ENV.fetch('BACKEND_HOST'),
+    enable_starttls_auto: true,
+    password: ENV.fetch('SMTP_PASSWORD'),
+    port: ENV.fetch('SMTP_PORT'),
+    user_name: ENV.fetch('SMTP_LOGIN')
+  }
+  config.action_mailer.delivery_method = :smtp
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
