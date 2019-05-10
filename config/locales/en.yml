@@ -33,3 +33,8 @@ en:
   hello: "Hello world"
   user_must_have_less_than_maximum_targets: "User must have less than %{max} targets"
   target_must_be_compatible_with_initiator: "must be compatible with initiator"
+  errors:
+    server: 'An error ocurred'
+    not_found: "Couldn't find the record"
+    missing_param: 'A required param is missing'
+    invalid_content_type: 'Invalid content type header'

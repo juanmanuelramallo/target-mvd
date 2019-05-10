@@ -29,8 +29,9 @@ RSpec.describe 'GET /conversations/:id', type: :request do
   context 'given I try to fetch a conversation from another user' do
     let(:user) { create :user }
 
-    it 'raises not found error' do
-      expect { subject }.to raise_error ActiveRecord::RecordNotFound
+    it 'does not return a successful response' do
+      subject
+      expect(response.status).to eq 404
     end
   end
 end
