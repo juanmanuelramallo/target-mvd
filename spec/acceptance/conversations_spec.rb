@@ -8,7 +8,11 @@ resource 'Conversations' do
   header 'client', :client_header
   header 'uid', :uid_header
 
-  let(:conversation) { create :conversation_with_messages, unread: true }
+  let(:conversation) { create :conversation }
+  let(:conversation_with_messages) do
+    create :conversation_with_messages, initiator: conversation.initiator,
+                                        target: conversation.target
+  end
   let(:user) { conversation.initiator }
 
   with_conversation_response = lambda {
@@ -54,7 +58,7 @@ resource 'Conversations' do
     get 'Show' do
       with_conversation_response.call
 
-      let(:id) { conversation.id }
+      let(:id) { conversation_with_messages.id }
 
       example 'Ok' do
         do_request

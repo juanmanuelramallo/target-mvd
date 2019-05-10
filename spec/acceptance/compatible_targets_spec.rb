@@ -14,7 +14,7 @@ resource 'Compatible targets' do
     lat = Faker::Address.latitude
     lng = Faker::Address.longitude
     target = create :target, user: user, lat: lat, lng: lng, area_length: 1000
-    create :target, topic: target.topic, area_length: 2000, lat: lat + 0.01, lng: lng + 0.01
+    create :target, topic: target.topic, area_length: 2000, lat: lat + 0.001, lng: lng + 0.001
   end
 
   route '/compatible_targets', 'Compatible targets collection' do
