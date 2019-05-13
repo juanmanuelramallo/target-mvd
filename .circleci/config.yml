@@ -1,6 +1,8 @@
 version: 2
 jobs:
   build:
+    environment:
+      CC_TEST_REPORTER_ID: a8cbbcd37d4be0ca59389e3af26871a3d70c406e9655e2e04faa0b41db36da2a
     working_directory: ~/target-mvd
     docker:
       - image: circleci/ruby:2.6.2
@@ -31,25 +33,17 @@ jobs:
           command: bundle exec rubocop
 
       - run:
+          name: Setup Code Climate test-reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+            ./cc-test-reporter before-build
+
+      - run:
           name: Tests
-          command: RAILS_ENV=test bundle exec rspec
+          command: |
+            RAILS_ENV=test bundle exec rspec
+            ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
 
-      # run code_analysis!
-      # - run:
-      #     name: run code analysis
-      #     command: RAILS_ENV=test bundle exec rake code_analysis
-
-      - store_test_results:
-          path: /tmp/test-results
       - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
-
-      # run codeclimate!
-      # - run:
-      #     name: Setup Code Climate test-reporter
-      #     command: |
-      #       curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-      #       chmod +x ./cc-test-reporter
-      #       ./cc-test-reporter before-build
-      #       ./cc-test-reporter after-build
+          path: coverage
