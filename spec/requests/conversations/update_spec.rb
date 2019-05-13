@@ -18,12 +18,12 @@ RSpec.describe 'PUT /conversations/:id', type: :request do
     data
   end
 
-  context "given I'm the second last user to send a message in the conversation" do
+  context 'given the second last user sends a message in the conversation' do
     before :each do
       create :message, user: conversation.target.user, conversation: conversation
     end
 
-    context 'and I want to mark the conversation as read' do
+    context 'and the last user want to mark the conversation as read' do
       let(:unread) { false }
 
       it 'updates the conversation' do
@@ -42,12 +42,12 @@ RSpec.describe 'PUT /conversations/:id', type: :request do
     end
   end
 
-  context "given I'm the very last user to send a message in the conversation" do
+  context 'given the very last user sends a message in the conversation' do
     before :each do
       create :message, user: user, conversation: conversation
     end
 
-    context 'and I want to mark the conversation as read' do
+    context 'and the second last user wants to mark the conversation as read' do
       let(:unread) { false }
 
       it "doesn't update the unread attribute" do

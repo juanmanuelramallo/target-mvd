@@ -24,11 +24,7 @@ class ConversationsController < ApplicationController
   end
 
   def update
-    if conversation.update(update_params)
-      render json: conversation, status: :ok
-    else
-      render json: { errors: conversation.errors.messages }, status: :unprocessable_entity
-    end
+    render json: conversation, status: :ok if conversation.update!(update_params)
   end
 
   private
