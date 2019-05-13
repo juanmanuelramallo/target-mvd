@@ -11,8 +11,8 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: QmSSf5Chdsq4dsz0-fT3Bw
-            Client: z_-A8A_womm8y_fP2ECs1g
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
             Uid: user-1@example.com
 
 + Response 200 ()
@@ -21,22 +21,27 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: z_-A8A_womm8y_fP2ECs1g
+            client: abcdefghijklmnopqrstuv
             expiry:  
             uid: user-1@example.com
 
     + Body
 
-            [
-              {
-                "area_length": 2000,
-                "id": 1279,
-                "lat": 70.8798753902014,
-                "lng": 72.4737740032236,
-                "title": "Dr. Sunni West",
-                "topic_id": 740
-              }
-            ]
+            {
+              "data": [
+                {
+                  "id": "2",
+                  "type": "targets",
+                  "attributes": {
+                    "area-length": 2000,
+                    "lat": -30.8457016834139,
+                    "lng": 95.8489802219973,
+                    "title": "Micah Cole",
+                    "topic-id": 1
+                  }
+                }
+              ]
+            }
 
 # Group Conversations
 
@@ -52,13 +57,13 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: hlFdAg-RdITlBoRqOX8p8g
-            Client: otk-x5D7jjObOjiYwplOHQ
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
             Uid: user-3@example.com
 
     + Body
 
-            conversation[target_id]=1281&conversation[initiator_id]=1148
+            conversation[target_id]=4&conversation[initiator_id]=3
 
 + Response 201 ()
 
@@ -66,28 +71,38 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: otk-x5D7jjObOjiYwplOHQ
+            client: abcdefghijklmnopqrstuv
             expiry:  
             uid: user-3@example.com
 
     + Body
 
             {
-              "id": 399,
-              "unread": false,
-              "messages": [
+              "data": {
+                "id": "1",
+                "type": "conversations",
+                "attributes": {
+                  "unread": false
+                },
+                "relationships": {
+                  "messages": {
+                    "data": [
             
-              ],
-              "target": {
-                "area_length": 828,
-                "id": 1281,
-                "lat": 84.7216592317399,
-                "lng": -100.510500575824,
-                "title": "Ms. Vi Beatty",
-                "topic_id": 741
-              },
-              "initiator": {
-                "email": "user-3@example.com"
+                    ]
+                  },
+                  "target": {
+                    "data": {
+                      "id": "4",
+                      "type": "targets"
+                    }
+                  },
+                  "initiator": {
+                    "data": {
+                      "id": "3",
+                      "type": "users"
+                    }
+                  }
+                }
               }
             }
 
@@ -97,8 +112,8 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: PTlv0QgRZ0-6Yqqa_9K-XQ
-            Client: jZRhBmekgx7H9OSUgP00wg
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
             Uid: user-8@example.com
 
 + Response 200 ()
@@ -107,86 +122,120 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: jZRhBmekgx7H9OSUgP00wg
+            client: abcdefghijklmnopqrstuv
             expiry:  
             uid: user-8@example.com
 
     + Body
 
-            [
-              {
-                "id": 403,
-                "unread": false,
-                "messages": [
+            {
+              "data": [
+                {
+                  "id": "5",
+                  "type": "conversations",
+                  "attributes": {
+                    "unread": false
+                  },
+                  "relationships": {
+                    "messages": {
+                      "data": [
             
-                ],
-                "target": {
-                  "area_length": 106,
-                  "id": 1286,
-                  "lat": -69.5220445753782,
-                  "lng": -84.5174114989892,
-                  "title": "Mrs. Dennise Walsh",
-                  "topic_id": 742
+                      ]
+                    },
+                    "target": {
+                      "data": {
+                        "id": "9",
+                        "type": "targets"
+                      }
+                    },
+                    "initiator": {
+                      "data": {
+                        "id": "8",
+                        "type": "users"
+                      }
+                    }
+                  }
                 },
-                "initiator": {
-                  "email": "user-8@example.com"
-                }
-              },
-              {
-                "id": 404,
-                "unread": false,
-                "messages": [
+                {
+                  "id": "6",
+                  "type": "conversations",
+                  "attributes": {
+                    "unread": false
+                  },
+                  "relationships": {
+                    "messages": {
+                      "data": [
             
-                ],
-                "target": {
-                  "area_length": 807,
-                  "id": 1287,
-                  "lat": -69.5220445753782,
-                  "lng": -84.5174114989892,
-                  "title": "Claude McKenzie DVM",
-                  "topic_id": 742
+                      ]
+                    },
+                    "target": {
+                      "data": {
+                        "id": "10",
+                        "type": "targets"
+                      }
+                    },
+                    "initiator": {
+                      "data": {
+                        "id": "8",
+                        "type": "users"
+                      }
+                    }
+                  }
                 },
-                "initiator": {
-                  "email": "user-8@example.com"
-                }
-              },
-              {
-                "id": 405,
-                "unread": false,
-                "messages": [
+                {
+                  "id": "7",
+                  "type": "conversations",
+                  "attributes": {
+                    "unread": false
+                  },
+                  "relationships": {
+                    "messages": {
+                      "data": [
             
-                ],
-                "target": {
-                  "area_length": 593,
-                  "id": 1288,
-                  "lat": -69.5220445753782,
-                  "lng": -84.5174114989892,
-                  "title": "Marcelene Herzog",
-                  "topic_id": 742
+                      ]
+                    },
+                    "target": {
+                      "data": {
+                        "id": "11",
+                        "type": "targets"
+                      }
+                    },
+                    "initiator": {
+                      "data": {
+                        "id": "8",
+                        "type": "users"
+                      }
+                    }
+                  }
                 },
-                "initiator": {
-                  "email": "user-8@example.com"
-                }
-              },
-              {
-                "id": 406,
-                "unread": false,
-                "messages": [
+                {
+                  "id": "8",
+                  "type": "conversations",
+                  "attributes": {
+                    "unread": false
+                  },
+                  "relationships": {
+                    "messages": {
+                      "data": [
             
-                ],
-                "target": {
-                  "area_length": 131,
-                  "id": 1289,
-                  "lat": -69.5220445753782,
-                  "lng": -84.5174114989892,
-                  "title": "Shad Schumm DDS",
-                  "topic_id": 742
-                },
-                "initiator": {
-                  "email": "user-8@example.com"
+                      ]
+                    },
+                    "target": {
+                      "data": {
+                        "id": "12",
+                        "type": "targets"
+                      }
+                    },
+                    "initiator": {
+                      "data": {
+                        "id": "8",
+                        "type": "users"
+                      }
+                    }
+                  }
                 }
-              }
-            ]
+              ]
+            }
 
 ## Conversation member [/conversations/{id}]
 
@@ -196,8 +245,8 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: i8-Og0yZBlA7sW59jbJloQ
-            Client: FI2RAnJiQBlFB3AD2jNecw
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
             Uid: user-13@example.com
 
 + Response 200 ()
@@ -206,52 +255,57 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: FI2RAnJiQBlFB3AD2jNecw
+            client: abcdefghijklmnopqrstuv
             expiry:  
             uid: user-13@example.com
 
     + Body
 
             {
-              "id": 411,
-              "unread": false,
-              "messages": [
-                {
-                  "text": "I didn't work hard to make Ruby perfect for everyone, because you feel differently from me. No language can be perfect for everyone. I tried to make Ruby perfect for me, but maybe it's not perfect for you. The perfect language for Guido van Rossum is probably Python.",
-                  "created_at": "2019-05-09T19:27:59.689Z",
-                  "user_id": 1158
+              "data": {
+                "id": "13",
+                "type": "conversations",
+                "attributes": {
+                  "unread": false
                 },
-                {
-                  "text": "Sometimes people jot down pseudo-code on paper. If that pseudo-code runs directly on their computers, its best, isn't it? Ruby tries to be like that, like pseudo-code that runs. Python people say that too.",
-                  "created_at": "2019-05-09T19:27:59.691Z",
-                  "user_id": 1159
-                },
-                {
-                  "text": "Plant a memory, plant a tree, do it today for tomorrow.",
-                  "created_at": "2019-05-09T19:27:59.692Z",
-                  "user_id": 1158
-                },
-                {
-                  "text": "I didn't work hard to make Ruby perfect for everyone, because you feel differently from me. No language can be perfect for everyone. I tried to make Ruby perfect for me, but maybe it's not perfect for you. The perfect language for Guido van Rossum is probably Python.",
-                  "created_at": "2019-05-09T19:27:59.694Z",
-                  "user_id": 1158
-                },
-                {
-                  "text": "Most of the tasks we do are for humans. For example, a tax calculation is counting numbers so the government can pull money out from my wallet, but government consists of humans.",
-                  "created_at": "2019-05-09T19:27:59.695Z",
-                  "user_id": 1158
+                "relationships": {
+                  "messages": {
+                    "data": [
+                      {
+                        "id": "1",
+                        "type": "messages"
+                      },
+                      {
+                        "id": "2",
+                        "type": "messages"
+                      },
+                      {
+                        "id": "3",
+                        "type": "messages"
+                      },
+                      {
+                        "id": "4",
+                        "type": "messages"
+                      },
+                      {
+                        "id": "5",
+                        "type": "messages"
+                      }
+                    ]
+                  },
+                  "target": {
+                    "data": {
+                      "id": "14",
+                      "type": "targets"
+                    }
+                  },
+                  "initiator": {
+                    "data": {
+                      "id": "13",
+                      "type": "users"
+                    }
+                  }
                 }
-              ],
-              "target": {
-                "area_length": 481,
-                "id": 1291,
-                "lat": -15.9459273288362,
-                "lng": 8.20967666041162,
-                "title": "Dr. Joel Romaguera",
-                "topic_id": 743
-              },
-              "initiator": {
-                "email": "user-13@example.com"
               }
             }
 
@@ -272,8 +326,8 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: 4q_PRdT95HmjYTC2ZOOp2A
-            Client: Pb7LQfLp7vCfIZdz1eDX_g
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
             Uid: user-18@example.com
 
 + Response 200 ()
@@ -282,30 +336,38 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: Pb7LQfLp7vCfIZdz1eDX_g
+            client: abcdefghijklmnopqrstuv
             expiry:  
             uid: user-18@example.com
 
     + Body
 
-            [
-              {
-                "area_length": 594,
-                "id": 1295,
-                "lat": 47.9496033250981,
-                "lng": -162.446944732128,
-                "title": "Miss Kimberlee Kris",
-                "topic_id": 744
-              },
-              {
-                "area_length": 925,
-                "id": 1296,
-                "lat": -46.3152680981384,
-                "lng": -108.369520068036,
-                "title": "Dewayne Schmitt",
-                "topic_id": 745
-              }
-            ]
+            {
+              "data": [
+                {
+                  "id": "18",
+                  "type": "targets",
+                  "attributes": {
+                    "area-length": 420,
+                    "lat": 47.7274825420241,
+                    "lng": -75.7982753752782,
+                    "title": "Gerard Feeney III",
+                    "topic-id": 5
+                  }
+                },
+                {
+                  "id": "19",
+                  "type": "targets",
+                  "attributes": {
+                    "area-length": 631,
+                    "lat": -1.96025033020837,
+                    "lng": -130.30094321375,
+                    "title": "Ruthe Abbott V",
+                    "topic-id": 6
+                  }
+                }
+              ]
+            }
 
 ### Create [POST]
 
@@ -313,13 +375,13 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: PF0a1LbZDPMD_ftVDjwLPA
-            Client: 66sLkwPIF8hUpGRfAbDP_g
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
             Uid: user-19@example.com
 
     + Body
 
-            target[area_length]=36&target[lat]=-78.34858416877577&target[lng]=33.12378590959676&target[title]=Kathie+Tillman&target[topic_id]=748
+            target[area_length]=397&target[lat]=-23.62426376319054&target[lng]=109.56368762449182&target[title]=Ms.+Shane+Moen&target[topic_id]=9
 
 + Response 201 ()
 
@@ -327,19 +389,24 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: 66sLkwPIF8hUpGRfAbDP_g
+            client: abcdefghijklmnopqrstuv
             expiry:  
             uid: user-19@example.com
 
     + Body
 
             {
-              "area_length": 36,
-              "id": 1300,
-              "lat": -78.34858416877577,
-              "lng": 33.12378590959676,
-              "title": "Kathie Tillman",
-              "topic_id": 748
+              "data": {
+                "id": "23",
+                "type": "targets",
+                "attributes": {
+                  "area-length": 397,
+                  "lat": -23.62426376319054,
+                  "lng": 109.56368762449182,
+                  "title": "Ms. Shane Moen",
+                  "topic-id": 9
+                }
+              }
             }
 
 ## Target member [/targets/{id}]
@@ -350,8 +417,8 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: x90tXo4MSDSSCZ5VfBCExg
-            Client: _jYtO0rmMUcjyMxWW-tnVA
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
             Uid: user-21@example.com
 
 + Response 200 ()
@@ -360,17 +427,22 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: _jYtO0rmMUcjyMxWW-tnVA
+            client: abcdefghijklmnopqrstuv
             expiry:  
             uid: user-21@example.com
 
     + Body
 
             {
-              "area_length": 658,
-              "id": 1303,
-              "lat": -30.1159528117321,
-              "lng": 154.38093295888,
-              "title": "Mr. Marlo Considine",
-              "topic_id": 751
+              "data": {
+                "id": "26",
+                "type": "targets",
+                "attributes": {
+                  "area-length": 485,
+                  "lat": 80.8023565578692,
+                  "lng": -40.4369920443589,
+                  "title": "Darryl Bosco Sr.",
+                  "topic-id": 12
+                }
+              }
             }
