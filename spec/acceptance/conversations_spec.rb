@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-require 'rspec_api_documentation/dsl'
+require_relative '../support/acceptance_tests_helper'
 
 resource 'Conversations' do
   header 'access-token', :access_token_header

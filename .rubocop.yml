@@ -73,6 +73,8 @@ Rails/FilePath:
 
 Rails/SaveBang:
   Enabled: true
+  Exclude:
+    - spec/support/**/*
 
 Style/BlockDelimiters:
   EnforcedStyle: braces_for_chaining
