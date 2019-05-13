@@ -15,21 +15,10 @@ resource 'Conversations' do
   end
   let(:user) { conversation.initiator }
 
-  with_conversation_response = lambda {
-    with_options scope: :conversation, required: true do
-      response_field :messages, 'Array of messages'
-      response_field :target, 'Target object'
-      response_field :initiator, 'Initiator user'
-      response_field :unread, 'Unread indicator for the current user'
-    end
-  }
-
   before { create_list :conversation, 3, initiator: user }
 
   route '/conversations', 'Conversations collection' do
     post 'Create' do
-      with_conversation_response.call
-
       with_options scope: :conversation, required: true do
         attribute :target_id, 'Target associated to the conversation'
         attribute :initiator_id, 'ID of the user whom initiated the conversation'
@@ -56,8 +45,6 @@ resource 'Conversations' do
 
   route '/conversations/:id', 'Conversation member' do
     get 'Show' do
-      with_conversation_response.call
-
       let(:id) { conversation_with_messages.id }
 
       example 'Ok' do
