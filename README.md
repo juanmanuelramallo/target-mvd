@@ -1,5 +1,7 @@
 # Target MVD
 
+[![CircleCI](https://circleci.com/gh/juanmanuelramallo/target-mvd.svg?style=shield)](https://circleci.com/gh/juanmanuelramallo/target-mvd)
+
 ## Up and running
 It uses ruby 2.6.2
 - `gem install bundler` (if necessary)
