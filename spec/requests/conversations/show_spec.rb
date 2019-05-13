@@ -14,7 +14,7 @@ RSpec.describe 'GET /conversations/:id', type: :request do
     let(:user) { conversation.initiator }
 
     it 'returns my conversation' do
-      expect(subject['id']).to eq conversation.id
+      expect(subject['id']).to eq conversation.id.to_s
     end
   end
 
@@ -22,7 +22,7 @@ RSpec.describe 'GET /conversations/:id', type: :request do
     let(:user) { conversation.target.user }
 
     it 'returns my conversation' do
-      expect(subject['id']).to eq conversation.id
+      expect(subject['id']).to eq conversation.id.to_s
     end
   end
 

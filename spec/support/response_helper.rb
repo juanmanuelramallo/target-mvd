@@ -6,7 +6,7 @@ module ResponseHelper
   end
 
   def data
-    json_response
+    json_response['data']
   end
 
   def errors
