@@ -11,8 +11,8 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: YNkZCKRwxReieJlewbYtlQ
-            Client: w0AzCbpSrARUl4mo1tzdpQ
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
             Uid: user-1@example.com
 
 + Response 200 ()
@@ -21,22 +21,27 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: w0AzCbpSrARUl4mo1tzdpQ
+            client: abcdefghijklmnopqrstuv
             expiry:  
             uid: user-1@example.com
 
     + Body
 
-            [
-              {
-                "area_length": 2000,
-                "id": 904,
-                "lat": 69.9939686663632,
-                "lng": 161.408049303082,
-                "title": "Dian Rippin I",
-                "topic_id": 559
-              }
-            ]
+            {
+              "data": [
+                {
+                  "id": "2",
+                  "type": "targets",
+                  "attributes": {
+                    "area-length": 2000,
+                    "lat": 6.18691216707392,
+                    "lng": -41.8979324428237,
+                    "title": "Rae Tillman MD",
+                    "topic-id": 1
+                  }
+                }
+              ]
+            }
 
 # Group Conversations
 
@@ -52,13 +57,13 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: kB55MIcmxJ6yPRTQ_A0bTA
-            Client: IePnGRJ94eIynf3JaZBtRg
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
             Uid: user-3@example.com
 
     + Body
 
-            conversation[target_id]=906&conversation[initiator_id]=810
+            conversation[target_id]=4&conversation[initiator_id]=3
 
 + Response 201 ()
 
@@ -66,28 +71,38 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: IePnGRJ94eIynf3JaZBtRg
+            client: abcdefghijklmnopqrstuv
             expiry:  
             uid: user-3@example.com
 
     + Body
 
             {
-              "id": 236,
-              "unread": false,
-              "messages": [
+              "data": {
+                "id": "1",
+                "type": "conversations",
+                "attributes": {
+                  "unread": false
+                },
+                "relationships": {
+                  "messages": {
+                    "data": [
             
-              ],
-              "target": {
-                "area_length": 788,
-                "id": 906,
-                "lat": -15.0571122205522,
-                "lng": -26.2147503026701,
-                "title": "Daphine Schmeler",
-                "topic_id": 560
-              },
-              "initiator": {
-                "email": "user-3@example.com"
+                    ]
+                  },
+                  "target": {
+                    "data": {
+                      "id": "4",
+                      "type": "targets"
+                    }
+                  },
+                  "initiator": {
+                    "data": {
+                      "id": "3",
+                      "type": "users"
+                    }
+                  }
+                }
               }
             }
 
@@ -97,8 +112,8 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: OA-BOtyiR6ZP835kpiA0zA
-            Client: XWO1rwO7vTq7upBU1O_xhA
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
             Uid: user-8@example.com
 
 + Response 200 ()
@@ -107,86 +122,120 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: XWO1rwO7vTq7upBU1O_xhA
+            client: abcdefghijklmnopqrstuv
             expiry:  
             uid: user-8@example.com
 
     + Body
 
-            [
-              {
-                "id": 240,
-                "unread": false,
-                "messages": [
+            {
+              "data": [
+                {
+                  "id": "5",
+                  "type": "conversations",
+                  "attributes": {
+                    "unread": false
+                  },
+                  "relationships": {
+                    "messages": {
+                      "data": [
             
-                ],
-                "target": {
-                  "area_length": 149,
-                  "id": 911,
-                  "lat": 5.82214792751613,
-                  "lng": -152.708921740298,
-                  "title": "Katherina Kuhn",
-                  "topic_id": 561
+                      ]
+                    },
+                    "target": {
+                      "data": {
+                        "id": "9",
+                        "type": "targets"
+                      }
+                    },
+                    "initiator": {
+                      "data": {
+                        "id": "8",
+                        "type": "users"
+                      }
+                    }
+                  }
                 },
-                "initiator": {
-                  "email": "user-8@example.com"
-                }
-              },
-              {
-                "id": 241,
-                "unread": false,
-                "messages": [
+                {
+                  "id": "6",
+                  "type": "conversations",
+                  "attributes": {
+                    "unread": false
+                  },
+                  "relationships": {
+                    "messages": {
+                      "data": [
             
-                ],
-                "target": {
-                  "area_length": 450,
-                  "id": 912,
-                  "lat": 5.82214792751613,
-                  "lng": -152.708921740298,
-                  "title": "Annika Blanda",
-                  "topic_id": 561
+                      ]
+                    },
+                    "target": {
+                      "data": {
+                        "id": "10",
+                        "type": "targets"
+                      }
+                    },
+                    "initiator": {
+                      "data": {
+                        "id": "8",
+                        "type": "users"
+                      }
+                    }
+                  }
                 },
-                "initiator": {
-                  "email": "user-8@example.com"
-                }
-              },
-              {
-                "id": 242,
-                "unread": false,
-                "messages": [
+                {
+                  "id": "7",
+                  "type": "conversations",
+                  "attributes": {
+                    "unread": false
+                  },
+                  "relationships": {
+                    "messages": {
+                      "data": [
             
-                ],
-                "target": {
-                  "area_length": 929,
-                  "id": 913,
-                  "lat": 5.82214792751613,
-                  "lng": -152.708921740298,
-                  "title": "Ms. Candace Weissnat",
-                  "topic_id": 561
+                      ]
+                    },
+                    "target": {
+                      "data": {
+                        "id": "11",
+                        "type": "targets"
+                      }
+                    },
+                    "initiator": {
+                      "data": {
+                        "id": "8",
+                        "type": "users"
+                      }
+                    }
+                  }
                 },
-                "initiator": {
-                  "email": "user-8@example.com"
-                }
-              },
-              {
-                "id": 243,
-                "unread": false,
-                "messages": [
+                {
+                  "id": "8",
+                  "type": "conversations",
+                  "attributes": {
+                    "unread": false
+                  },
+                  "relationships": {
+                    "messages": {
+                      "data": [
             
-                ],
-                "target": {
-                  "area_length": 305,
-                  "id": 914,
-                  "lat": 5.82214792751613,
-                  "lng": -152.708921740298,
-                  "title": "Robt McClure",
-                  "topic_id": 561
-                },
-                "initiator": {
-                  "email": "user-8@example.com"
+                      ]
+                    },
+                    "target": {
+                      "data": {
+                        "id": "12",
+                        "type": "targets"
+                      }
+                    },
+                    "initiator": {
+                      "data": {
+                        "id": "8",
+                        "type": "users"
+                      }
+                    }
+                  }
                 }
-              }
-            ]
+              ]
+            }
 
 ## Conversation member [/conversations/{id}]
 
@@ -199,8 +248,8 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: vxeRqiA7RcLgN58aabjw5A
-            Client: yNioSHlW3hmH_HH90MuIyg
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
             Uid: user-13@example.com
 
 + Response 200 ()
@@ -209,52 +258,57 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: yNioSHlW3hmH_HH90MuIyg
+            client: abcdefghijklmnopqrstuv
             expiry:  
             uid: user-13@example.com
 
     + Body
 
             {
-              "id": 248,
-              "unread": false,
-              "messages": [
-                {
-                  "text": "Most of the tasks we do are for humans. For example, a tax calculation is counting numbers so the government can pull money out from my wallet, but government consists of humans.",
-                  "created_at": "2019-05-13T19:51:50.376Z",
-                  "user_id": 821
+              "data": {
+                "id": "13",
+                "type": "conversations",
+                "attributes": {
+                  "unread": false
                 },
-                {
-                  "text": "Imagine you are writing an email. You are in front of the computer. You are operating the computer, clicking a mouse and typing on a keyboard, but the message will be sent to a human over the internet. So you are working before the computer, but with a human behind the computer.",
-                  "created_at": "2019-05-13T19:51:50.378Z",
-                  "user_id": 821
-                },
-                {
-                  "text": "In our daily lives as programmers, we process text strings a lot. So I tried to work hard on text processing, namely the string class and regular expressions. Regular expressions are built into the language and are very tuned up for use.",
-                  "created_at": "2019-05-13T19:51:50.379Z",
-                  "user_id": 821
-                },
-                {
-                  "text": "Everyone has an individual background. Someone may come from Python, someone else may come from Perl, and they may be surprised by different aspects of the language. Then they come up to me and say, 'I was surprised by this feature of the language, so therefore Ruby violates the principle of least surprise.' Wait. Wait. The principle of least surprise is not for you only.",
-                  "created_at": "2019-05-13T19:51:50.380Z",
-                  "user_id": 820
-                },
-                {
-                  "text": "Plant a memory, plant a tree, do it today for tomorrow.",
-                  "created_at": "2019-05-13T19:51:50.382Z",
-                  "user_id": 821
+                "relationships": {
+                  "messages": {
+                    "data": [
+                      {
+                        "id": "1",
+                        "type": "messages"
+                      },
+                      {
+                        "id": "2",
+                        "type": "messages"
+                      },
+                      {
+                        "id": "3",
+                        "type": "messages"
+                      },
+                      {
+                        "id": "4",
+                        "type": "messages"
+                      },
+                      {
+                        "id": "5",
+                        "type": "messages"
+                      }
+                    ]
+                  },
+                  "target": {
+                    "data": {
+                      "id": "14",
+                      "type": "targets"
+                    }
+                  },
+                  "initiator": {
+                    "data": {
+                      "id": "13",
+                      "type": "users"
+                    }
+                  }
                 }
-              ],
-              "target": {
-                "area_length": 528,
-                "id": 916,
-                "lat": -29.0990001750628,
-                "lng": 94.9685397559422,
-                "title": "Victorina Boehm",
-                "topic_id": 562
-              },
-              "initiator": {
-                "email": "user-13@example.com"
               }
             }
 
@@ -264,8 +318,8 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: DxgmqLKP_s-q-O-alNzUXA
-            Client: mPNeicN57cUpi_XhB6wUcA
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
             Uid: user-18@example.com
 
     + Body
@@ -278,52 +332,57 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: mPNeicN57cUpi_XhB6wUcA
+            client: abcdefghijklmnopqrstuv
             expiry:  
             uid: user-18@example.com
 
     + Body
 
             {
-              "id": 253,
-              "unread": false,
-              "messages": [
-                {
-                  "text": "Sometimes people jot down pseudo-code on paper. If that pseudo-code runs directly on their computers, its best, isn't it? Ruby tries to be like that, like pseudo-code that runs. Python people say that too.",
-                  "created_at": "2019-05-13T19:51:50.544Z",
-                  "user_id": 826
+              "data": {
+                "id": "18",
+                "type": "conversations",
+                "attributes": {
+                  "unread": false
                 },
-                {
-                  "text": "I didn't work hard to make Ruby perfect for everyone, because you feel differently from me. No language can be perfect for everyone. I tried to make Ruby perfect for me, but maybe it's not perfect for you. The perfect language for Guido van Rossum is probably Python.",
-                  "created_at": "2019-05-13T19:51:50.545Z",
-                  "user_id": 826
-                },
-                {
-                  "text": "Most of the tasks we do are for humans. For example, a tax calculation is counting numbers so the government can pull money out from my wallet, but government consists of humans.",
-                  "created_at": "2019-05-13T19:51:50.547Z",
-                  "user_id": 825
-                },
-                {
-                  "text": "In our daily lives as programmers, we process text strings a lot. So I tried to work hard on text processing, namely the string class and regular expressions. Regular expressions are built into the language and are very tuned up for use.",
-                  "created_at": "2019-05-13T19:51:50.548Z",
-                  "user_id": 825
-                },
-                {
-                  "text": "Everyone has an individual background. Someone may come from Python, someone else may come from Perl, and they may be surprised by different aspects of the language. Then they come up to me and say, 'I was surprised by this feature of the language, so therefore Ruby violates the principle of least surprise.' Wait. Wait. The principle of least surprise is not for you only.",
-                  "created_at": "2019-05-13T19:51:50.549Z",
-                  "user_id": 825
+                "relationships": {
+                  "messages": {
+                    "data": [
+                      {
+                        "id": "6",
+                        "type": "messages"
+                      },
+                      {
+                        "id": "7",
+                        "type": "messages"
+                      },
+                      {
+                        "id": "8",
+                        "type": "messages"
+                      },
+                      {
+                        "id": "9",
+                        "type": "messages"
+                      },
+                      {
+                        "id": "10",
+                        "type": "messages"
+                      }
+                    ]
+                  },
+                  "target": {
+                    "data": {
+                      "id": "19",
+                      "type": "targets"
+                    }
+                  },
+                  "initiator": {
+                    "data": {
+                      "id": "18",
+                      "type": "users"
+                    }
+                  }
                 }
-              ],
-              "target": {
-                "area_length": 426,
-                "id": 921,
-                "lat": -10.9366949776324,
-                "lng": -78.4497080853112,
-                "title": "Azalee Swift",
-                "topic_id": 563
-              },
-              "initiator": {
-                "email": "user-18@example.com"
               }
             }
 
@@ -340,13 +399,13 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: czCpCNFM7-gqyDVoW7bsfg
-            Client: G6YVt5oMUAL3gH989zBj8w
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
             Uid: user-23@example.com
 
     + Body
 
-            message[text]=The+orthogonal+features%2C+when+combined%2C+can+explode+into+complexity.
+            message[text]=Everyone+has+an+individual+background.+Someone+may+come+from+Python%2C+someone+else+may+come+from+Perl%2C+and+they+may+be+surprised+by+different+aspects+of+the+language.+Then+they+come+up+to+me+and+say%2C+%27I+was+surprised+by+this+feature+of+the+language%2C+so+therefore+Ruby+violates+the+principle+of+least+surprise.%27+Wait.+Wait.+The+principle+of+least+surprise+is+not+for+you+only.
 
 + Response 201 ()
 
@@ -354,16 +413,22 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: G6YVt5oMUAL3gH989zBj8w
+            client: abcdefghijklmnopqrstuv
             expiry:  
             uid: user-23@example.com
 
     + Body
 
             {
-              "text": "The orthogonal features, when combined, can explode into complexity.",
-              "created_at": "2019-05-13T19:51:50.785Z",
-              "user_id": 830
+              "data": {
+                "id": "11",
+                "type": "messages",
+                "attributes": {
+                  "text": "Everyone has an individual background. Someone may come from Python, someone else may come from Perl, and they may be surprised by different aspects of the language. Then they come up to me and say, 'I was surprised by this feature of the language, so therefore Ruby violates the principle of least surprise.' Wait. Wait. The principle of least surprise is not for you only.",
+                  "created-at": "2019-05-14T15:12:14.421Z",
+                  "user-id": 23
+                }
+              }
             }
 
 # Group Targets
@@ -383,8 +448,8 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: zl_mf89OdsI7l1n9XmAaGw
-            Client: NBUUqlVyJns4taBC83dkeg
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
             Uid: user-25@example.com
 
 + Response 200 ()
@@ -393,30 +458,38 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: NBUUqlVyJns4taBC83dkeg
+            client: abcdefghijklmnopqrstuv
             expiry:  
             uid: user-25@example.com
 
     + Body
 
-            [
-              {
-                "area_length": 95,
-                "id": 927,
-                "lat": 68.9290028163926,
-                "lng": -166.054018306131,
-                "title": "Deann Jacobi",
-                "topic_id": 565
-              },
-              {
-                "area_length": 481,
-                "id": 928,
-                "lat": 19.4686219110755,
-                "lng": -12.1160517354639,
-                "title": "Franklyn Weber",
-                "topic_id": 566
-              }
-            ]
+            {
+              "data": [
+                {
+                  "id": "25",
+                  "type": "targets",
+                  "attributes": {
+                    "area-length": 721,
+                    "lat": -38.9873738737712,
+                    "lng": 142.018107421175,
+                    "title": "Claretha Kautzer",
+                    "topic-id": 7
+                  }
+                },
+                {
+                  "id": "26",
+                  "type": "targets",
+                  "attributes": {
+                    "area-length": 944,
+                    "lat": 81.5001915632263,
+                    "lng": -145.382462167669,
+                    "title": "Kieth Sanford",
+                    "topic-id": 8
+                  }
+                }
+              ]
+            }
 
 ### Create [POST]
 
@@ -424,13 +497,13 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: 2nFcT0O9HUPx8QfXcp9CEA
-            Client: VK9AceXQn5JbTTNtcIJm-w
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
             Uid: user-26@example.com
 
     + Body
 
-            target[area_length]=495&target[lat]=42.82345243138144&target[lng]=27.17279793474424&target[title]=Conrad+Schmitt&target[topic_id]=569
+            target[area_length]=326&target[lat]=-61.855259980824&target[lng]=57.34273353114938&target[title]=Ethelyn+Zieme+V&target[topic_id]=11
 
 + Response 201 ()
 
@@ -438,19 +511,24 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: VK9AceXQn5JbTTNtcIJm-w
+            client: abcdefghijklmnopqrstuv
             expiry:  
             uid: user-26@example.com
 
     + Body
 
             {
-              "area_length": 495,
-              "id": 932,
-              "lat": 42.82345243138144,
-              "lng": 27.17279793474424,
-              "title": "Conrad Schmitt",
-              "topic_id": 569
+              "data": {
+                "id": "30",
+                "type": "targets",
+                "attributes": {
+                  "area-length": 326,
+                  "lat": -61.855259980824,
+                  "lng": 57.34273353114938,
+                  "title": "Ethelyn Zieme V",
+                  "topic-id": 11
+                }
+              }
             }
 
 ## Target member [/targets/{id}]
@@ -461,8 +539,8 @@ FORMAT: 1A
 
     + Headers
 
-            Access-Token: c7H5j5imVh72lHvWC7e3gQ
-            Client: 7KWko9LvTNABdZqafvmTig
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
             Uid: user-28@example.com
 
 + Response 200 ()
@@ -471,17 +549,22 @@ FORMAT: 1A
 
             access-token:  
             token-type: Bearer
-            client: 7KWko9LvTNABdZqafvmTig
+            client: abcdefghijklmnopqrstuv
             expiry:  
             uid: user-28@example.com
 
     + Body
 
             {
-              "area_length": 344,
-              "id": 935,
-              "lat": 55.6825006642162,
-              "lng": 121.492175900047,
-              "title": "Karlyn Koss",
-              "topic_id": 572
+              "data": {
+                "id": "33",
+                "type": "targets",
+                "attributes": {
+                  "area-length": 953,
+                  "lat": -28.0076965151626,
+                  "lng": -123.143695057871,
+                  "title": "Wesley Grant DVM",
+                  "topic-id": 14
+                }
+              }
             }

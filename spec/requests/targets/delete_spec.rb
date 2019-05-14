@@ -20,9 +20,10 @@ RSpec.describe 'DELETE /targets/:id', type: :request do
   context 'passing a target id from a different user' do
     let(:target) { create :target }
 
+    before { subject }
+
     it 'does not return a successful response' do
-      subject
-      expect(response.status).to eq 404
+      expect(errors).to include "Couldn't find the record"
     end
   end
 end

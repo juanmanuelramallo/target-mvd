@@ -6,11 +6,7 @@ class TargetsController < ApplicationController
   def create
     target = Target.new target_params.merge(user_id: current_user.id)
 
-    if target.save
-      render json: target, status: :created
-    else
-      render json: { errors: target.errors.messages }, status: :unprocessable_entity
-    end
+    render json: target, status: :created if target.save!
   end
 
   def index

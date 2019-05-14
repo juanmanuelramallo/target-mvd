@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
-require 'rspec_api_documentation/dsl'
+require_relative '../support/acceptance_tests_helper'
 
 resource 'Targets' do
   header 'access-token', :access_token_header
@@ -32,15 +31,6 @@ resource 'Targets' do
         attribute :topic_id, 'Topic ID'
       end
 
-      with_options scope: :target, required: true do
-        response_field :area_length, 'Area length (meters)'
-        response_field :id, 'Target ID'
-        response_field :lat, 'Latitude'
-        response_field :lng, 'Longitude'
-        response_field :title, 'Title'
-        response_field :topic_id, 'Topic ID'
-      end
-
       let(:topic) { create :topic }
       let(:target) { create :target, topic: topic }
       let(:area_length) { target.area_length }
@@ -64,15 +54,6 @@ resource 'Targets' do
     before { target }
 
     delete 'Destroy' do
-      with_options scope: :target, required: true do
-        response_field :area_length, 'Area length (meters)'
-        response_field :id, 'Target ID'
-        response_field :lat, 'Latitude'
-        response_field :lng, 'Longitude'
-        response_field :title, 'Title'
-        response_field :topic_id, 'Topic ID'
-      end
-
       example 'Ok' do
         do_request
 

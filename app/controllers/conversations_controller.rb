@@ -6,13 +6,9 @@ class ConversationsController < ApplicationController
   def create
     conversation = ConversationService.call(conversation_params.merge(current_user: current_user))
 
-    if conversation.save
-      render json: conversation, status: :created
-    else
-      render json: { errors: conversation.errors.messages }, status: :unprocessable_entity
-    end
-  rescue ConversationNotAllowedError
-    render json: {}, status: :not_found
+    render json: conversation, status: :created if conversation.save!
+  rescue ConversationNotAllowedError => e
+    render_not_found(e)
   end
 
   def index

@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'FacebookService' do
-  let(:access_token) { '@cc355t0k3N' }
+  let(:access_token) { 'acc35T0k3n' }
   subject { FacebookService.call!(access_token) }
 
   context 'creating a user' do

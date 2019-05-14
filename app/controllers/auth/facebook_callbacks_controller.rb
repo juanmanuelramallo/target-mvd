@@ -12,10 +12,6 @@ module Auth
       update_headers
 
       render json: @user, status: :ok
-    rescue ActiveRecord::ActiveRecordError => e
-      render json: { error: e.message }, status: :internal_server_error
-    rescue FacebookError => e
-      render json: { error: e.message }, status: :bad_request
     end
 
     private
@@ -31,6 +27,8 @@ module Auth
 
     def set_user
       @user = FacebookService.call!(facebook_params[:access_token])
+    rescue FacebookError => e
+      render_error(:bad_request, [e.message], @user)
     end
   end
 end

@@ -33,19 +33,19 @@ RSpec.describe 'POST /targets', type: :request do
     end
 
     it 'has the correct lat' do
-      expect(subject['lat']).to eq lat
+      expect(subject['attributes']['lat']).to eq lat
     end
 
     it 'has the correct lng' do
-      expect(subject['lng']).to eq lng
+      expect(subject['attributes']['lng']).to eq lng
     end
 
     it 'has the correct title' do
-      expect(subject['title']).to eq title
+      expect(subject['attributes']['title']).to eq title
     end
 
     it 'has the correct area length' do
-      expect(subject['area_length']).to eq area_length
+      expect(subject['attributes']['area-length']).to eq area_length
     end
 
     it 'enqueues a broadcast job' do
@@ -54,6 +54,16 @@ RSpec.describe 'POST /targets', type: :request do
   end
 
   context 'missing params' do
+    let(:params) { nil }
+
+    before { subject }
+
+    it 'returns an error message' do
+      expect(errors).to include 'A required param is missing'
+    end
+  end
+
+  context 'missing title param' do
     let(:title) { nil }
 
     before { subject }
