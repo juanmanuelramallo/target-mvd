@@ -31,12 +31,12 @@ Update them in the `./Procfile.dev` file.
 bundle exec rspec
 ```
 
-## [API Blueprint](https://targetmvd2.docs.apiary.io/)
+## [API Blueprint](https://jmtargetmvd.docs.apiary.io/)
 ```bash
 ./bin/docs
 ```
 
-[RSpec api documentation](https://github.com/juanmanuelramallo/target-mvd/pull/22) is used to generate the blueprint.
+[RSpec api documentation](https://github.com/zipmark/rspec_api_documentation) is used to generate the blueprint.
 Add the specs inside the `./spec/acceptance/` folder.
 
 
