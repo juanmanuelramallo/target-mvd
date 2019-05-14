@@ -3,10 +3,10 @@
 module DeviseTokenAuth
   module Concerns
     module User
-      def create_token(client_id: nil, token: nil, expiry: nil, **token_extras)
-        client_id ||= 'abcdefghijklmnopqrstuv'
-        token     ||= '1234567890123456789012'
-        expiry    ||= (Time.zone.now + token_lifespan).to_i
+      def create_token(_client_id: nil, _token: nil, _expiry: nil, **token_extras)
+        client_id = 'abcdefghijklmnopqrstuv'
+        token     = '1234567890123456789012'
+        expiry    = (Time.zone.now + token_lifespan).to_i
 
         tokens[client_id] = {
           token: BCrypt::Password.create(token),
