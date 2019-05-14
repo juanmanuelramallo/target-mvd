@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://graph.facebook.com/me?access_token=@cc355t0k3N&fields=email
+    uri: https://graph.facebook.com/me?access_token=acc35T0k3n&fields=email
     body:
       encoding: US-ASCII
       string: ''
@@ -21,7 +21,7 @@ http_interactions:
       Etag:
       - '"21c65ef004f57ff39c5310405068d31d3fa500e3"'
       X-App-Usage:
-      - '{"call_count":15,"total_cputime":0,"total_time":1}'
+      - '{"call_count":0,"total_cputime":0,"total_time":0}'
       Content-Type:
       - application/json; charset=UTF-8
       Facebook-Api-Version:
@@ -31,21 +31,21 @@ http_interactions:
       Pragma:
       - no-cache
       X-Fb-Rev:
-      - '1000656653'
+      - '1000708627'
       Access-Control-Allow-Origin:
       - "*"
       Cache-Control:
       - private, no-cache, no-store, must-revalidate
       X-Fb-Trace-Id:
-      - Dsag4h1+X27
+      - AHG9tL1MJJy
       X-Fb-Request-Id:
-      - AFu7-oEXfW2WFZAJWImiQyj
+      - AWJZOqWBBIPy1HP8Yg3rnbQ
       Expires:
       - Sat, 01 Jan 2000 00:00:00 GMT
       X-Fb-Debug:
-      - UCPyBXSYx5HS/ARP2xQnt+5lV+sl3jr3OWvwutKv4ZXM1YR4qd2C4zDHQToEUvDg2MbhlOWmk+rAeU385UV79w==
+      - EUtkMwFO3ubEv2UinzrqtSapSMJmdCqhd/mYvISpU/Se1u5smezNDoG626F+9nXO7+S+Kfr9gGxue1MeBvMxPQ==
       Date:
-      - Tue, 30 Apr 2019 17:26:29 GMT
+      - Tue, 14 May 2019 15:49:07 GMT
       Connection:
       - keep-alive
       Content-Length:
@@ -54,5 +54,5 @@ http_interactions:
       encoding: UTF-8
       string: '{"email":"existing-user\u0040example.com","id":"10156645598139232"}'
     http_version:
-  recorded_at: Tue, 30 Apr 2019 17:26:29 GMT
+  recorded_at: Tue, 14 May 2019 15:49:07 GMT
 recorded_with: VCR 4.0.0

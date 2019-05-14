@@ -67,6 +67,29 @@ RSpec.describe 'POST /conversations', type: :request do
         end
       end
     end
+
+    context 'trying to fetch a conversation the user does not belong to' do
+      let(:lat) { other_user.targets.first.lat }
+      let(:lng) { other_user.targets.first.lng }
+      let(:other_user) { create :user_with_targets, targets_count: 1 }
+      let(:target) { create :target, lat: lat, lng: lng, topic: topic }
+      let(:topic) { other_user.targets.first.topic }
+      let(:user) { create :user }
+      let(:params) do
+        {
+          conversation: {
+            target_id: target.id,
+            initiator_id: other_user.id
+          }
+        }
+      end
+
+      before { subject }
+
+      it 'returns an error' do
+        expect(response).to have_http_status(:not_found)
+      end
+    end
   end
 
   context 'missing params' do
@@ -85,7 +108,7 @@ RSpec.describe 'POST /conversations', type: :request do
     end
 
     it 'does not return a successful response' do
-      expect(response.status).to eq 422
+      expect(response.status).to eq 400
     end
   end
 end

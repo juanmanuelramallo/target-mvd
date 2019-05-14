@@ -54,6 +54,16 @@ RSpec.describe 'POST /targets', type: :request do
   end
 
   context 'missing params' do
+    let(:params) { nil }
+
+    before { subject }
+
+    it 'returns an error message' do
+      expect(errors).to include 'A required param is missing'
+    end
+  end
+
+  context 'missing title param' do
     let(:title) { nil }
 
     before { subject }
