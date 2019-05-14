@@ -1,6 +1,168 @@
 FORMAT: 1A
 # Target MVD
 
+# Group Auth
+
+## Registrations [/auth]
+
++ Attributes (object)
+  + email (required) - Email
+  + password (required) - Password
+  + current_password (required) - Current password
+
+### Create [POST]
+
++ Request Ok
+
+    + Body
+
+            email=user-1%40example.com&password=P%4055word
+
++ Response 200 ()
+
+    + Body
+
+            {
+              "status": "success",
+              "data": {
+                "id": 1,
+                "email": "user-1@example.com",
+                "created_at": "2019-05-14T20:20:42.020Z",
+                "updated_at": "2019-05-14T20:20:42.020Z",
+                "provider": "email",
+                "uid": "user-1@example.com",
+                "allow_password_change": false,
+                "type": "user"
+              }
+            }
+
+### Update [PUT]
+
++ Request Ok
+
+    + Headers
+
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
+            Uid: user-2@example.com
+
+    + Body
+
+            current_password=P%4055word&email=new-email-1%40example.com&password=n3w-p%4055word
+
++ Response 200 ()
+
+    + Headers
+
+            access-token:  
+            token-type: Bearer
+            client: abcdefghijklmnopqrstuv
+            expiry:  
+            uid: new-email-1@example.com
+
+    + Body
+
+            {
+              "status": "success",
+              "data": {
+                "id": 2,
+                "email": "new-email-1@example.com",
+                "provider": "email",
+                "uid": "new-email-1@example.com",
+                "created_at": "2019-05-14T20:20:42.249Z",
+                "updated_at": "2019-05-14T20:20:42.355Z",
+                "allow_password_change": false,
+                "type": "user"
+              }
+            }
+
+## Session [/auth/sign_in]
+
++ Attributes (object)
+  + email (required) - Email
+  + password (required) - Password
+
+### Create [POST]
+
++ Request Ok
+
+    + Body
+
+            email=user-3%40example.com&password=P%4055word
+
++ Response 200 ()
+
+    + Headers
+
+            access-token: 1234567890123456789012
+            token-type: Bearer
+            client: abcdefghijklmnopqrstuv
+            expiry: 1559074842
+            uid: user-3@example.com
+
+    + Body
+
+            {
+              "data": {
+                "id": 3,
+                "email": "user-3@example.com",
+                "provider": "email",
+                "uid": "user-3@example.com",
+                "allow_password_change": false,
+                "type": "user"
+              }
+            }
+
+## Session [/auth/sign_out]
+
+### Delete [DELETE]
+
++ Request Ok
+
+    + Headers
+
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
+            Uid: user-4@example.com
+
++ Response 200 ()
+
+    + Body
+
+            {
+              "success": true
+            }
+
+## Password [/auth/password]
+
++ Attributes (object)
+  + email (required) - Email
+  + redirect_url (required) - Url to which the user will be redirected after visiting
+                                  the link contained in the email
+
+### Reset password email [POST]
+
++ Request Ok
+
+    + Headers
+
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
+            Uid: user-5@example.com
+
+    + Body
+
+            email=user-5%40example.com&redirect_url=http%3A%2F%2Fanywhere.com
+
++ Response 200 ()
+
+    + Body
+
+            {
+              "success": true,
+              "message": "An email has been sent to 'user-5@example.com' containing instructions for resetting your password."
+            }
+
 # Group Compatible targets
 
 ## Compatible targets collection [/compatible_targets]
@@ -13,7 +175,7 @@ FORMAT: 1A
 
             Access-Token: 1234567890123456789012
             Client: abcdefghijklmnopqrstuv
-            Uid: user-1@example.com
+            Uid: user-6@example.com
 
 + Response 200 ()
 
@@ -23,7 +185,7 @@ FORMAT: 1A
             token-type: Bearer
             client: abcdefghijklmnopqrstuv
             expiry:  
-            uid: user-1@example.com
+            uid: user-6@example.com
 
     + Body
 
@@ -34,9 +196,9 @@ FORMAT: 1A
                   "type": "targets",
                   "attributes": {
                     "area-length": 2000,
-                    "lat": 6.18691216707392,
-                    "lng": -41.8979324428237,
-                    "title": "Rae Tillman MD",
+                    "lat": 46.8770385549965,
+                    "lng": 168.534801800431,
+                    "title": "Williams Hackett",
                     "topic-id": 1
                   }
                 }
@@ -59,11 +221,11 @@ FORMAT: 1A
 
             Access-Token: 1234567890123456789012
             Client: abcdefghijklmnopqrstuv
-            Uid: user-3@example.com
+            Uid: user-8@example.com
 
     + Body
 
-            conversation[target_id]=4&conversation[initiator_id]=3
+            conversation[target_id]=4&conversation[initiator_id]=8
 
 + Response 201 ()
 
@@ -73,7 +235,7 @@ FORMAT: 1A
             token-type: Bearer
             client: abcdefghijklmnopqrstuv
             expiry:  
-            uid: user-3@example.com
+            uid: user-8@example.com
 
     + Body
 
@@ -98,7 +260,7 @@ FORMAT: 1A
                   },
                   "initiator": {
                     "data": {
-                      "id": "3",
+                      "id": "8",
                       "type": "users"
                     }
                   }
@@ -114,7 +276,7 @@ FORMAT: 1A
 
             Access-Token: 1234567890123456789012
             Client: abcdefghijklmnopqrstuv
-            Uid: user-8@example.com
+            Uid: user-13@example.com
 
 + Response 200 ()
 
@@ -124,7 +286,7 @@ FORMAT: 1A
             token-type: Bearer
             client: abcdefghijklmnopqrstuv
             expiry:  
-            uid: user-8@example.com
+            uid: user-13@example.com
 
     + Body
 
@@ -150,7 +312,7 @@ FORMAT: 1A
                     },
                     "initiator": {
                       "data": {
-                        "id": "8",
+                        "id": "13",
                         "type": "users"
                       }
                     }
@@ -176,7 +338,7 @@ FORMAT: 1A
                     },
                     "initiator": {
                       "data": {
-                        "id": "8",
+                        "id": "13",
                         "type": "users"
                       }
                     }
@@ -202,7 +364,7 @@ FORMAT: 1A
                     },
                     "initiator": {
                       "data": {
-                        "id": "8",
+                        "id": "13",
                         "type": "users"
                       }
                     }
@@ -228,7 +390,7 @@ FORMAT: 1A
                     },
                     "initiator": {
                       "data": {
-                        "id": "8",
+                        "id": "13",
                         "type": "users"
                       }
                     }
@@ -250,7 +412,7 @@ FORMAT: 1A
 
             Access-Token: 1234567890123456789012
             Client: abcdefghijklmnopqrstuv
-            Uid: user-13@example.com
+            Uid: user-18@example.com
 
 + Response 200 ()
 
@@ -260,7 +422,7 @@ FORMAT: 1A
             token-type: Bearer
             client: abcdefghijklmnopqrstuv
             expiry:  
-            uid: user-13@example.com
+            uid: user-18@example.com
 
     + Body
 
@@ -304,7 +466,7 @@ FORMAT: 1A
                   },
                   "initiator": {
                     "data": {
-                      "id": "13",
+                      "id": "18",
                       "type": "users"
                     }
                   }
@@ -320,7 +482,7 @@ FORMAT: 1A
 
             Access-Token: 1234567890123456789012
             Client: abcdefghijklmnopqrstuv
-            Uid: user-18@example.com
+            Uid: user-23@example.com
 
     + Body
 
@@ -334,7 +496,7 @@ FORMAT: 1A
             token-type: Bearer
             client: abcdefghijklmnopqrstuv
             expiry:  
-            uid: user-18@example.com
+            uid: user-23@example.com
 
     + Body
 
@@ -378,7 +540,7 @@ FORMAT: 1A
                   },
                   "initiator": {
                     "data": {
-                      "id": "18",
+                      "id": "23",
                       "type": "users"
                     }
                   }
@@ -401,11 +563,11 @@ FORMAT: 1A
 
             Access-Token: 1234567890123456789012
             Client: abcdefghijklmnopqrstuv
-            Uid: user-23@example.com
+            Uid: user-28@example.com
 
     + Body
 
-            message[text]=Everyone+has+an+individual+background.+Someone+may+come+from+Python%2C+someone+else+may+come+from+Perl%2C+and+they+may+be+surprised+by+different+aspects+of+the+language.+Then+they+come+up+to+me+and+say%2C+%27I+was+surprised+by+this+feature+of+the+language%2C+so+therefore+Ruby+violates+the+principle+of+least+surprise.%27+Wait.+Wait.+The+principle+of+least+surprise+is+not+for+you+only.
+            message[text]=I+didn%27t+work+hard+to+make+Ruby+perfect+for+everyone%2C+because+you+feel+differently+from+me.+No+language+can+be+perfect+for+everyone.+I+tried+to+make+Ruby+perfect+for+me%2C+but+maybe+it%27s+not+perfect+for+you.+The+perfect+language+for+Guido+van+Rossum+is+probably+Python.
 
 + Response 201 ()
 
@@ -415,7 +577,7 @@ FORMAT: 1A
             token-type: Bearer
             client: abcdefghijklmnopqrstuv
             expiry:  
-            uid: user-23@example.com
+            uid: user-28@example.com
 
     + Body
 
@@ -424,9 +586,9 @@ FORMAT: 1A
                 "id": "11",
                 "type": "messages",
                 "attributes": {
-                  "text": "Everyone has an individual background. Someone may come from Python, someone else may come from Perl, and they may be surprised by different aspects of the language. Then they come up to me and say, 'I was surprised by this feature of the language, so therefore Ruby violates the principle of least surprise.' Wait. Wait. The principle of least surprise is not for you only.",
-                  "created-at": "2019-05-14T15:12:14.421Z",
-                  "user-id": 23
+                  "text": "I didn't work hard to make Ruby perfect for everyone, because you feel differently from me. No language can be perfect for everyone. I tried to make Ruby perfect for me, but maybe it's not perfect for you. The perfect language for Guido van Rossum is probably Python.",
+                  "created-at": "2019-05-14T20:20:43.820Z",
+                  "user-id": 28
                 }
               }
             }
@@ -450,7 +612,7 @@ FORMAT: 1A
 
             Access-Token: 1234567890123456789012
             Client: abcdefghijklmnopqrstuv
-            Uid: user-25@example.com
+            Uid: user-30@example.com
 
 + Response 200 ()
 
@@ -460,7 +622,7 @@ FORMAT: 1A
             token-type: Bearer
             client: abcdefghijklmnopqrstuv
             expiry:  
-            uid: user-25@example.com
+            uid: user-30@example.com
 
     + Body
 
@@ -470,10 +632,10 @@ FORMAT: 1A
                   "id": "25",
                   "type": "targets",
                   "attributes": {
-                    "area-length": 721,
-                    "lat": -38.9873738737712,
-                    "lng": 142.018107421175,
-                    "title": "Claretha Kautzer",
+                    "area-length": 524,
+                    "lat": 4.127174743835,
+                    "lng": 79.8945629118279,
+                    "title": "Fermina Bartoletti",
                     "topic-id": 7
                   }
                 },
@@ -481,10 +643,10 @@ FORMAT: 1A
                   "id": "26",
                   "type": "targets",
                   "attributes": {
-                    "area-length": 944,
-                    "lat": 81.5001915632263,
-                    "lng": -145.382462167669,
-                    "title": "Kieth Sanford",
+                    "area-length": 723,
+                    "lat": -87.5682257568365,
+                    "lng": -126.255736885146,
+                    "title": "Miss Michel Champlin",
                     "topic-id": 8
                   }
                 }
@@ -499,11 +661,11 @@ FORMAT: 1A
 
             Access-Token: 1234567890123456789012
             Client: abcdefghijklmnopqrstuv
-            Uid: user-26@example.com
+            Uid: user-31@example.com
 
     + Body
 
-            target[area_length]=326&target[lat]=-61.855259980824&target[lng]=57.34273353114938&target[title]=Ethelyn+Zieme+V&target[topic_id]=11
+            target[area_length]=651&target[lat]=-52.53627164734447&target[lng]=-46.17797558850509&target[title]=Romeo+Fay&target[topic_id]=11
 
 + Response 201 ()
 
@@ -513,7 +675,7 @@ FORMAT: 1A
             token-type: Bearer
             client: abcdefghijklmnopqrstuv
             expiry:  
-            uid: user-26@example.com
+            uid: user-31@example.com
 
     + Body
 
@@ -522,10 +684,10 @@ FORMAT: 1A
                 "id": "30",
                 "type": "targets",
                 "attributes": {
-                  "area-length": 326,
-                  "lat": -61.855259980824,
-                  "lng": 57.34273353114938,
-                  "title": "Ethelyn Zieme V",
+                  "area-length": 651,
+                  "lat": -52.53627164734447,
+                  "lng": -46.17797558850509,
+                  "title": "Romeo Fay",
                   "topic-id": 11
                 }
               }
@@ -541,7 +703,7 @@ FORMAT: 1A
 
             Access-Token: 1234567890123456789012
             Client: abcdefghijklmnopqrstuv
-            Uid: user-28@example.com
+            Uid: user-33@example.com
 
 + Response 200 ()
 
@@ -551,7 +713,7 @@ FORMAT: 1A
             token-type: Bearer
             client: abcdefghijklmnopqrstuv
             expiry:  
-            uid: user-28@example.com
+            uid: user-33@example.com
 
     + Body
 
@@ -560,10 +722,10 @@ FORMAT: 1A
                 "id": "33",
                 "type": "targets",
                 "attributes": {
-                  "area-length": 953,
-                  "lat": -28.0076965151626,
-                  "lng": -123.143695057871,
-                  "title": "Wesley Grant DVM",
+                  "area-length": 706,
+                  "lat": -89.5103675237156,
+                  "lng": 108.963527026744,
+                  "title": "Benedict Gislason II",
                   "topic-id": 14
                 }
               }
