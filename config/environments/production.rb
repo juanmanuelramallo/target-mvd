@@ -99,4 +99,7 @@ Rails.application.configure do
   config.web_socket_server_url = ENV.fetch('WEB_SOCKET_SERVER_URL')
   config.action_cable.allowed_request_origins = ENV.fetch('ACTION_CABLE_ALLOWED_REQUEST_ORIGINS')
                                                    .split(',')
+  config.action_cable.disable_request_forgery_protection = ENV.fetch(
+    'ACTION_CABLE_DISABLE_REQUEST_FORGERY_PROTECTION', false
+  )
 end
