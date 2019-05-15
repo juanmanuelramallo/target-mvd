@@ -102,4 +102,22 @@ resource 'Auth' do
       end
     end
   end
+
+  route '/auth/facebook/callback', 'Facebook' do
+    post 'Login or Sign up' do
+      with_options scope: :facebook, required: true do
+        attribute :access_token, 'Access token provided by facebook'
+      end
+
+      let(:access_token) { 'acc35T0k3n' }
+
+      example 'Ok' do
+        VCR.use_cassette 'facebook_service/valid' do
+          do_request
+
+          expect(status).to eq 200
+        end
+      end
+    end
+  end
 end
