@@ -27,8 +27,8 @@ FORMAT: 1A
               "data": {
                 "id": 1,
                 "email": "user-1@example.com",
-                "created_at": "2019-05-15T13:14:53.601Z",
-                "updated_at": "2019-05-15T13:14:53.601Z",
+                "created_at": "2019-05-15T19:02:27.710Z",
+                "updated_at": "2019-05-15T19:02:27.710Z",
                 "provider": "email",
                 "uid": "user-1@example.com",
                 "allow_password_change": false,
@@ -69,8 +69,8 @@ FORMAT: 1A
                 "email": "new-email-1@example.com",
                 "provider": "email",
                 "uid": "new-email-1@example.com",
-                "created_at": "2019-05-15T13:14:53.967Z",
-                "updated_at": "2019-05-15T13:14:54.072Z",
+                "created_at": "2019-05-15T19:02:27.996Z",
+                "updated_at": "2019-05-15T19:02:28.109Z",
                 "allow_password_change": false,
                 "type": "user"
               }
@@ -97,7 +97,7 @@ FORMAT: 1A
             access-token: 1234567890123456789012
             token-type: Bearer
             client: abcdefghijklmnopqrstuv
-            expiry: 1559135694
+            expiry: 1559156548
             uid: user-3@example.com
 
     + Body
@@ -196,9 +196,9 @@ FORMAT: 1A
                   "type": "targets",
                   "attributes": {
                     "area-length": 2000,
-                    "lat": 36.4926931706233,
-                    "lng": 103.83696803671,
-                    "title": "Debroah Donnelly",
+                    "lat": 26.833702126949,
+                    "lng": 85.9343095657095,
+                    "title": "Robt Predovic",
                     "topic-id": 1
                   }
                 }
@@ -567,7 +567,7 @@ FORMAT: 1A
 
     + Body
 
-            {"message":{"text":"Actually, I didn't make the claim that Ruby follows the principle of least surprise. Someone felt the design of Ruby follows that philosophy, so they started saying that. I didn't bring that up, actually."}}
+            {"message":{"text":"I didn't work hard to make Ruby perfect for everyone, because you feel differently from me. No language can be perfect for everyone. I tried to make Ruby perfect for me, but maybe it's not perfect for you. The perfect language for Guido van Rossum is probably Python."}}
 
 + Response 201 ()
 
@@ -586,8 +586,8 @@ FORMAT: 1A
                 "id": "11",
                 "type": "messages",
                 "attributes": {
-                  "text": "Actually, I didn't make the claim that Ruby follows the principle of least surprise. Someone felt the design of Ruby follows that philosophy, so they started saying that. I didn't bring that up, actually.",
-                  "created-at": "2019-05-15T13:14:55.570Z",
+                  "text": "I didn't work hard to make Ruby perfect for everyone, because you feel differently from me. No language can be perfect for everyone. I tried to make Ruby perfect for me, but maybe it's not perfect for you. The perfect language for Guido van Rossum is probably Python.",
+                  "created-at": "2019-05-15T19:02:29.714Z",
                   "user-id": 28
                 }
               }
@@ -632,10 +632,10 @@ FORMAT: 1A
                   "id": "25",
                   "type": "targets",
                   "attributes": {
-                    "area-length": 229,
-                    "lat": 21.4918238976622,
-                    "lng": -83.7995339539935,
-                    "title": "Lena Paucek",
+                    "area-length": 322,
+                    "lat": 81.866859301339,
+                    "lng": -113.847772914571,
+                    "title": "Rheba Romaguera",
                     "topic-id": 7
                   }
                 },
@@ -643,10 +643,10 @@ FORMAT: 1A
                   "id": "26",
                   "type": "targets",
                   "attributes": {
-                    "area-length": 857,
-                    "lat": -69.1363064791251,
-                    "lng": 78.5861355341301,
-                    "title": "Hanh Cummerata IV",
+                    "area-length": 172,
+                    "lat": -58.2726350497715,
+                    "lng": -46.4299248706469,
+                    "title": "Mrs. Marquita Zemlak",
                     "topic-id": 8
                   }
                 }
@@ -665,7 +665,7 @@ FORMAT: 1A
 
     + Body
 
-            {"target":{"area_length":862,"lat":-12.382449509984838,"lng":16.95358454999797,"title":"Marinda Sawayn Sr.","topic_id":11}}
+            {"target":{"area_length":379,"lat":36.920057850182005,"lng":-60.59976158948412,"title":"Athena Wolf","topic_id":11}}
 
 + Response 201 ()
 
@@ -684,10 +684,10 @@ FORMAT: 1A
                 "id": "30",
                 "type": "targets",
                 "attributes": {
-                  "area-length": 862,
-                  "lat": -12.382449509984838,
-                  "lng": 16.95358454999797,
-                  "title": "Marinda Sawayn Sr.",
+                  "area-length": 379,
+                  "lat": 36.920057850182005,
+                  "lng": -60.59976158948412,
+                  "title": "Athena Wolf",
                   "topic-id": 11
                 }
               }
@@ -722,11 +722,63 @@ FORMAT: 1A
                 "id": "33",
                 "type": "targets",
                 "attributes": {
-                  "area-length": 281,
-                  "lat": 78.7882521639869,
-                  "lng": 156.094156464019,
-                  "title": "Marilynn Koepp",
+                  "area-length": 152,
+                  "lat": 87.2048678704578,
+                  "lng": 123.948214926339,
+                  "title": "Mrs. Myles Haley",
                   "topic-id": 14
                 }
               }
+            }
+
+# Group Topics
+
+## Topics collection [/topics]
+
+### Index [GET]
+
++ Request Ok
+
+    + Headers
+
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
+            Uid: user-34@example.com
+
++ Response 200 ()
+
+    + Headers
+
+            access-token:  
+            token-type: Bearer
+            client: abcdefghijklmnopqrstuv
+            expiry:  
+            uid: user-34@example.com
+
+    + Body
+
+            {
+              "data": [
+                {
+                  "id": "15",
+                  "type": "topics",
+                  "attributes": {
+                    "name": "Jean Swaniawski III"
+                  }
+                },
+                {
+                  "id": "16",
+                  "type": "topics",
+                  "attributes": {
+                    "name": "Curtis Mosciski III"
+                  }
+                },
+                {
+                  "id": "17",
+                  "type": "topics",
+                  "attributes": {
+                    "name": "Heriberto Rice"
+                  }
+                }
+              ]
             }
