@@ -2,7 +2,7 @@
 
 require_relative '../support/acceptance_tests_helper'
 
-resource 'Compatible targets' do
+resource 'Topics' do
   header 'Content-Type', 'application/json'
   header 'access-token', :access_token_header
   header 'client', :client_header
@@ -11,13 +11,10 @@ resource 'Compatible targets' do
   let(:user) { create :user }
 
   before do
-    lat = Faker::Address.latitude
-    lng = Faker::Address.longitude
-    target = create :target, user: user, lat: lat, lng: lng, area_length: 1000
-    create :target, topic: target.topic, area_length: 2000, lat: lat + 0.001, lng: lng + 0.001
+    create_list :topic, 3
   end
 
-  route '/compatible_targets', 'Compatible targets collection' do
+  route '/topics', 'Topics collection' do
     get 'Index' do
       example 'Ok' do
         do_request

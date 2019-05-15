@@ -16,7 +16,7 @@ FORMAT: 1A
 
     + Body
 
-            email=user-1%40example.com&password=P%4055word
+            {"email":"user-1@example.com","password":"P@55word"}
 
 + Response 200 ()
 
@@ -27,8 +27,8 @@ FORMAT: 1A
               "data": {
                 "id": 1,
                 "email": "user-1@example.com",
-                "created_at": "2019-05-14T20:20:42.020Z",
-                "updated_at": "2019-05-14T20:20:42.020Z",
+                "created_at": "2019-05-15T19:02:27.710Z",
+                "updated_at": "2019-05-15T19:02:27.710Z",
                 "provider": "email",
                 "uid": "user-1@example.com",
                 "allow_password_change": false,
@@ -48,7 +48,7 @@ FORMAT: 1A
 
     + Body
 
-            current_password=P%4055word&email=new-email-1%40example.com&password=n3w-p%4055word
+            {"current_password":"P@55word","email":"new-email-1@example.com","password":"n3w-p@55word"}
 
 + Response 200 ()
 
@@ -69,8 +69,8 @@ FORMAT: 1A
                 "email": "new-email-1@example.com",
                 "provider": "email",
                 "uid": "new-email-1@example.com",
-                "created_at": "2019-05-14T20:20:42.249Z",
-                "updated_at": "2019-05-14T20:20:42.355Z",
+                "created_at": "2019-05-15T19:02:27.996Z",
+                "updated_at": "2019-05-15T19:02:28.109Z",
                 "allow_password_change": false,
                 "type": "user"
               }
@@ -88,7 +88,7 @@ FORMAT: 1A
 
     + Body
 
-            email=user-3%40example.com&password=P%4055word
+            {"email":"user-3@example.com","password":"P@55word"}
 
 + Response 200 ()
 
@@ -97,7 +97,7 @@ FORMAT: 1A
             access-token: 1234567890123456789012
             token-type: Bearer
             client: abcdefghijklmnopqrstuv
-            expiry: 1559074842
+            expiry: 1559156548
             uid: user-3@example.com
 
     + Body
@@ -152,7 +152,7 @@ FORMAT: 1A
 
     + Body
 
-            email=user-5%40example.com&redirect_url=http%3A%2F%2Fanywhere.com
+            {"email":"user-5@example.com","redirect_url":"http://anywhere.com"}
 
 + Response 200 ()
 
@@ -196,9 +196,9 @@ FORMAT: 1A
                   "type": "targets",
                   "attributes": {
                     "area-length": 2000,
-                    "lat": 46.8770385549965,
-                    "lng": 168.534801800431,
-                    "title": "Williams Hackett",
+                    "lat": 26.833702126949,
+                    "lng": 85.9343095657095,
+                    "title": "Robt Predovic",
                     "topic-id": 1
                   }
                 }
@@ -225,7 +225,7 @@ FORMAT: 1A
 
     + Body
 
-            conversation[target_id]=4&conversation[initiator_id]=8
+            {"conversation":{"target_id":4,"initiator_id":8}}
 
 + Response 201 ()
 
@@ -486,7 +486,7 @@ FORMAT: 1A
 
     + Body
 
-            conversation[unread]=false
+            {"conversation":{"unread":false}}
 
 + Response 200 ()
 
@@ -567,7 +567,7 @@ FORMAT: 1A
 
     + Body
 
-            message[text]=I+didn%27t+work+hard+to+make+Ruby+perfect+for+everyone%2C+because+you+feel+differently+from+me.+No+language+can+be+perfect+for+everyone.+I+tried+to+make+Ruby+perfect+for+me%2C+but+maybe+it%27s+not+perfect+for+you.+The+perfect+language+for+Guido+van+Rossum+is+probably+Python.
+            {"message":{"text":"I didn't work hard to make Ruby perfect for everyone, because you feel differently from me. No language can be perfect for everyone. I tried to make Ruby perfect for me, but maybe it's not perfect for you. The perfect language for Guido van Rossum is probably Python."}}
 
 + Response 201 ()
 
@@ -587,7 +587,7 @@ FORMAT: 1A
                 "type": "messages",
                 "attributes": {
                   "text": "I didn't work hard to make Ruby perfect for everyone, because you feel differently from me. No language can be perfect for everyone. I tried to make Ruby perfect for me, but maybe it's not perfect for you. The perfect language for Guido van Rossum is probably Python.",
-                  "created-at": "2019-05-14T20:20:43.820Z",
+                  "created-at": "2019-05-15T19:02:29.714Z",
                   "user-id": 28
                 }
               }
@@ -632,10 +632,10 @@ FORMAT: 1A
                   "id": "25",
                   "type": "targets",
                   "attributes": {
-                    "area-length": 524,
-                    "lat": 4.127174743835,
-                    "lng": 79.8945629118279,
-                    "title": "Fermina Bartoletti",
+                    "area-length": 322,
+                    "lat": 81.866859301339,
+                    "lng": -113.847772914571,
+                    "title": "Rheba Romaguera",
                     "topic-id": 7
                   }
                 },
@@ -643,10 +643,10 @@ FORMAT: 1A
                   "id": "26",
                   "type": "targets",
                   "attributes": {
-                    "area-length": 723,
-                    "lat": -87.5682257568365,
-                    "lng": -126.255736885146,
-                    "title": "Miss Michel Champlin",
+                    "area-length": 172,
+                    "lat": -58.2726350497715,
+                    "lng": -46.4299248706469,
+                    "title": "Mrs. Marquita Zemlak",
                     "topic-id": 8
                   }
                 }
@@ -665,7 +665,7 @@ FORMAT: 1A
 
     + Body
 
-            target[area_length]=651&target[lat]=-52.53627164734447&target[lng]=-46.17797558850509&target[title]=Romeo+Fay&target[topic_id]=11
+            {"target":{"area_length":379,"lat":36.920057850182005,"lng":-60.59976158948412,"title":"Athena Wolf","topic_id":11}}
 
 + Response 201 ()
 
@@ -684,10 +684,10 @@ FORMAT: 1A
                 "id": "30",
                 "type": "targets",
                 "attributes": {
-                  "area-length": 651,
-                  "lat": -52.53627164734447,
-                  "lng": -46.17797558850509,
-                  "title": "Romeo Fay",
+                  "area-length": 379,
+                  "lat": 36.920057850182005,
+                  "lng": -60.59976158948412,
+                  "title": "Athena Wolf",
                   "topic-id": 11
                 }
               }
@@ -722,11 +722,63 @@ FORMAT: 1A
                 "id": "33",
                 "type": "targets",
                 "attributes": {
-                  "area-length": 706,
-                  "lat": -89.5103675237156,
-                  "lng": 108.963527026744,
-                  "title": "Benedict Gislason II",
+                  "area-length": 152,
+                  "lat": 87.2048678704578,
+                  "lng": 123.948214926339,
+                  "title": "Mrs. Myles Haley",
                   "topic-id": 14
                 }
               }
+            }
+
+# Group Topics
+
+## Topics collection [/topics]
+
+### Index [GET]
+
++ Request Ok
+
+    + Headers
+
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
+            Uid: user-34@example.com
+
++ Response 200 ()
+
+    + Headers
+
+            access-token:  
+            token-type: Bearer
+            client: abcdefghijklmnopqrstuv
+            expiry:  
+            uid: user-34@example.com
+
+    + Body
+
+            {
+              "data": [
+                {
+                  "id": "15",
+                  "type": "topics",
+                  "attributes": {
+                    "name": "Jean Swaniawski III"
+                  }
+                },
+                {
+                  "id": "16",
+                  "type": "topics",
+                  "attributes": {
+                    "name": "Curtis Mosciski III"
+                  }
+                },
+                {
+                  "id": "17",
+                  "type": "topics",
+                  "attributes": {
+                    "name": "Heriberto Rice"
+                  }
+                }
+              ]
             }

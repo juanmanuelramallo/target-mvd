@@ -3,6 +3,8 @@
 require_relative '../support/acceptance_tests_helper'
 
 resource 'Auth' do
+  header 'Content-Type', 'application/json'
+
   let(:user) { create :user }
 
   route '/auth', 'Registrations' do
