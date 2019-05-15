@@ -3,6 +3,7 @@
 require_relative '../support/acceptance_tests_helper'
 
 resource 'Targets' do
+  header 'Content-Type', 'application/json'
   header 'access-token', :access_token_header
   header 'client', :client_header
   header 'uid', :uid_header
