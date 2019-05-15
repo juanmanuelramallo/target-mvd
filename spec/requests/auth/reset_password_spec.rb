@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'PUT /auth/password', type: :request do
+RSpec.describe 'POST /auth/password', type: :request do
   let(:params) do
     {
       email: email,
