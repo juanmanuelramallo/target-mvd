@@ -39,4 +39,5 @@ bundle exec rspec
 [RSpec api documentation](https://github.com/zipmark/rspec_api_documentation) is used to generate the blueprint.
 Add the specs inside the `./spec/acceptance/` folder.
 
-
+## Tasks
+Populate the topics table running `bundle exec rails topics:seed`
