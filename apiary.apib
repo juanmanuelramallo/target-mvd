@@ -27,8 +27,8 @@ FORMAT: 1A
               "data": {
                 "id": 1,
                 "email": "user-1@example.com",
-                "created_at": "2019-05-15T19:02:27.710Z",
-                "updated_at": "2019-05-15T19:02:27.710Z",
+                "created_at": "2019-05-15T19:35:25.225Z",
+                "updated_at": "2019-05-15T19:35:25.225Z",
                 "provider": "email",
                 "uid": "user-1@example.com",
                 "allow_password_change": false,
@@ -69,8 +69,8 @@ FORMAT: 1A
                 "email": "new-email-1@example.com",
                 "provider": "email",
                 "uid": "new-email-1@example.com",
-                "created_at": "2019-05-15T19:02:27.996Z",
-                "updated_at": "2019-05-15T19:02:28.109Z",
+                "created_at": "2019-05-15T19:35:25.457Z",
+                "updated_at": "2019-05-15T19:35:25.563Z",
                 "allow_password_change": false,
                 "type": "user"
               }
@@ -97,7 +97,7 @@ FORMAT: 1A
             access-token: 1234567890123456789012
             token-type: Bearer
             client: abcdefghijklmnopqrstuv
-            expiry: 1559156548
+            expiry: 1559158525
             uid: user-3@example.com
 
     + Body
@@ -163,6 +163,41 @@ FORMAT: 1A
               "message": "An email has been sent to 'user-5@example.com' containing instructions for resetting your password."
             }
 
+## Facebook [/auth/facebook/callback]
+
++ Attributes (object)
+  + access_token (required) - Access token provided by facebook
+
+### Login or Sign up [POST]
+
++ Request Ok
+
+    + Body
+
+            {"facebook":{"access_token":"acc35T0k3n"}}
+
++ Response 200 ()
+
+    + Headers
+
+            access-token: 1234567890123456789012
+            token-type: Bearer
+            client: abcdefghijklmnopqrstuv
+            expiry: 1559158526
+            uid: existing-user@example.com
+
+    + Body
+
+            {
+              "data": {
+                "id": "6",
+                "type": "users",
+                "attributes": {
+                  "email": "existing-user@example.com"
+                }
+              }
+            }
+
 # Group Compatible targets
 
 ## Compatible targets collection [/compatible_targets]
@@ -196,9 +231,9 @@ FORMAT: 1A
                   "type": "targets",
                   "attributes": {
                     "area-length": 2000,
-                    "lat": 26.833702126949,
-                    "lng": 85.9343095657095,
-                    "title": "Robt Predovic",
+                    "lat": -54.6164232086881,
+                    "lng": -175.750015092773,
+                    "title": "Gennie Blanda",
                     "topic-id": 1
                   }
                 }
@@ -225,7 +260,7 @@ FORMAT: 1A
 
     + Body
 
-            {"conversation":{"target_id":4,"initiator_id":8}}
+            {"conversation":{"target_id":4,"initiator_id":9}}
 
 + Response 201 ()
 
@@ -260,7 +295,7 @@ FORMAT: 1A
                   },
                   "initiator": {
                     "data": {
-                      "id": "8",
+                      "id": "9",
                       "type": "users"
                     }
                   }
@@ -312,7 +347,7 @@ FORMAT: 1A
                     },
                     "initiator": {
                       "data": {
-                        "id": "13",
+                        "id": "14",
                         "type": "users"
                       }
                     }
@@ -338,7 +373,7 @@ FORMAT: 1A
                     },
                     "initiator": {
                       "data": {
-                        "id": "13",
+                        "id": "14",
                         "type": "users"
                       }
                     }
@@ -364,7 +399,7 @@ FORMAT: 1A
                     },
                     "initiator": {
                       "data": {
-                        "id": "13",
+                        "id": "14",
                         "type": "users"
                       }
                     }
@@ -390,7 +425,7 @@ FORMAT: 1A
                     },
                     "initiator": {
                       "data": {
-                        "id": "13",
+                        "id": "14",
                         "type": "users"
                       }
                     }
@@ -466,7 +501,7 @@ FORMAT: 1A
                   },
                   "initiator": {
                     "data": {
-                      "id": "18",
+                      "id": "19",
                       "type": "users"
                     }
                   }
@@ -540,7 +575,7 @@ FORMAT: 1A
                   },
                   "initiator": {
                     "data": {
-                      "id": "23",
+                      "id": "24",
                       "type": "users"
                     }
                   }
@@ -567,7 +602,7 @@ FORMAT: 1A
 
     + Body
 
-            {"message":{"text":"I didn't work hard to make Ruby perfect for everyone, because you feel differently from me. No language can be perfect for everyone. I tried to make Ruby perfect for me, but maybe it's not perfect for you. The perfect language for Guido van Rossum is probably Python."}}
+            {"message":{"text":"I hope to see Ruby help every programmer in the world to be productive, and to enjoy programming, and to be happy. That is the primary purpose of Ruby language."}}
 
 + Response 201 ()
 
@@ -586,9 +621,9 @@ FORMAT: 1A
                 "id": "11",
                 "type": "messages",
                 "attributes": {
-                  "text": "I didn't work hard to make Ruby perfect for everyone, because you feel differently from me. No language can be perfect for everyone. I tried to make Ruby perfect for me, but maybe it's not perfect for you. The perfect language for Guido van Rossum is probably Python.",
-                  "created-at": "2019-05-15T19:02:29.714Z",
-                  "user-id": 28
+                  "text": "I hope to see Ruby help every programmer in the world to be productive, and to enjoy programming, and to be happy. That is the primary purpose of Ruby language.",
+                  "created-at": "2019-05-15T19:35:27.162Z",
+                  "user-id": 29
                 }
               }
             }
@@ -632,10 +667,10 @@ FORMAT: 1A
                   "id": "25",
                   "type": "targets",
                   "attributes": {
-                    "area-length": 322,
-                    "lat": 81.866859301339,
-                    "lng": -113.847772914571,
-                    "title": "Rheba Romaguera",
+                    "area-length": 591,
+                    "lat": 84.6927855061741,
+                    "lng": 29.1879094850218,
+                    "title": "Dr. Brenton Breitenberg",
                     "topic-id": 7
                   }
                 },
@@ -643,10 +678,10 @@ FORMAT: 1A
                   "id": "26",
                   "type": "targets",
                   "attributes": {
-                    "area-length": 172,
-                    "lat": -58.2726350497715,
-                    "lng": -46.4299248706469,
-                    "title": "Mrs. Marquita Zemlak",
+                    "area-length": 983,
+                    "lat": -2.32924224159078,
+                    "lng": 157.021370294664,
+                    "title": "Edythe Frami",
                     "topic-id": 8
                   }
                 }
@@ -665,7 +700,7 @@ FORMAT: 1A
 
     + Body
 
-            {"target":{"area_length":379,"lat":36.920057850182005,"lng":-60.59976158948412,"title":"Athena Wolf","topic_id":11}}
+            {"target":{"area_length":962,"lat":15.527441788083564,"lng":174.4022429935203,"title":"Abraham Hahn III","topic_id":11}}
 
 + Response 201 ()
 
@@ -684,10 +719,10 @@ FORMAT: 1A
                 "id": "30",
                 "type": "targets",
                 "attributes": {
-                  "area-length": 379,
-                  "lat": 36.920057850182005,
-                  "lng": -60.59976158948412,
-                  "title": "Athena Wolf",
+                  "area-length": 962,
+                  "lat": 15.527441788083564,
+                  "lng": 174.4022429935203,
+                  "title": "Abraham Hahn III",
                   "topic-id": 11
                 }
               }
@@ -722,10 +757,10 @@ FORMAT: 1A
                 "id": "33",
                 "type": "targets",
                 "attributes": {
-                  "area-length": 152,
-                  "lat": 87.2048678704578,
-                  "lng": 123.948214926339,
-                  "title": "Mrs. Myles Haley",
+                  "area-length": 107,
+                  "lat": -16.6455655792596,
+                  "lng": 71.2345067148138,
+                  "title": "Geoffrey Heller",
                   "topic-id": 14
                 }
               }
@@ -763,21 +798,21 @@ FORMAT: 1A
                   "id": "15",
                   "type": "topics",
                   "attributes": {
-                    "name": "Jean Swaniawski III"
+                    "name": "Gregory Pfannerstill"
                   }
                 },
                 {
                   "id": "16",
                   "type": "topics",
                   "attributes": {
-                    "name": "Curtis Mosciski III"
+                    "name": "Tova Walker PhD"
                   }
                 },
                 {
                   "id": "17",
                   "type": "topics",
                   "attributes": {
-                    "name": "Heriberto Rice"
+                    "name": "Ms. Yon Hahn"
                   }
                 }
               ]
