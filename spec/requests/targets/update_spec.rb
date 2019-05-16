@@ -4,8 +4,8 @@ require 'rails_helper'
 
 RSpec.describe 'PUT /targets/:id', type: :request do
   let(:area_length) { rand(1..1000) }
-  let(:lat) { Faker::Address.latitude.round(13) }
-  let(:lng) { Faker::Address.longitude.round(13) }
+  let(:lat) { Faker::Address.latitude.round(11) }
+  let(:lng) { Faker::Address.longitude.round(11) }
   let(:target) { create :target }
   let(:title) { Faker::Name.name }
   let(:topic) { create :topic }
