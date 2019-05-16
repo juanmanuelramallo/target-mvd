@@ -10,7 +10,7 @@ class Target < ApplicationRecord
   validates :area_length, numericality: { greater_than: 0 }
   validate :user_must_have_less_than_maximum_targets
 
-  after_create :broadcast_to_compatible_users
+  after_save :broadcast_to_compatible_users
 
   def compatible_targets
     Target.where(topic_id: topic_id)

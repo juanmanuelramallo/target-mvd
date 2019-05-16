@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   resources :conversations, only: %i[create index show update] do
     resources :messages, only: :create
   end
-  resources :targets, only: %i[create index destroy]
+  resources :targets, only: %i[create index destroy update]
   resources :topics, only: :index
 end
