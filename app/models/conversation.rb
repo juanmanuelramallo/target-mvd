@@ -6,6 +6,7 @@ class Conversation < ApplicationRecord
   belongs_to :target
   belongs_to :initiator, class_name: 'User'
 
+  validates :target, uniqueness: { scope: :initiator_id }
   validate :target_must_be_compatible_with_initiator
 
   def unread?(user)

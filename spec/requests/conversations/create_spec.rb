@@ -12,8 +12,7 @@ RSpec.describe 'POST /conversations', type: :request do
   let(:params) do
     {
       conversation: {
-        target_id: target.id,
-        initiator_id: user.id
+        target_id: target.id
       }
     }
   end
@@ -33,61 +32,21 @@ RSpec.describe 'POST /conversations', type: :request do
     context 'with an already started conversation' do
       before do
         create :conversation, target: target, initiator: user
+        subject
       end
 
-      it "doesn't create a conversation" do
-        expect { subject }.to_not change { Conversation.count }
-      end
-    end
-
-    context 'fetching a conversation initiated by another user' do
-      let(:my_target) { create :target, user: user, lat: lat, lng: lng, topic: topic }
-      let(:params) do
-        {
-          conversation: {
-            target_id: my_target.id,
-            initiator_id: target.user.id
-          }
-        }
-      end
-
-      context 'nonexistent conversation' do
-        it 'creates a conversation' do
-          expect { subject }.to change { Conversation.count }.by 1
-        end
-      end
-
-      context 'with an already started conversation' do
-        before do
-          create :conversation, target: my_target, initiator: target.user
-        end
-
-        it "doesn't create a conversation" do
-          expect { subject }.to_not change { Conversation.count }
-        end
+      it 'returns an error' do
+        expect(response).to have_http_status(:bad_request)
       end
     end
 
-    context 'trying to fetch a conversation the user does not belong to' do
-      let(:lat) { other_user.targets.first.lat }
-      let(:lng) { other_user.targets.first.lng }
-      let(:other_user) { create :user_with_targets, targets_count: 1 }
-      let(:target) { create :target, lat: lat, lng: lng, topic: topic }
-      let(:topic) { other_user.targets.first.topic }
-      let(:user) { create :user }
-      let(:params) do
-        {
-          conversation: {
-            target_id: target.id,
-            initiator_id: other_user.id
-          }
-        }
-      end
+    context 'with a target the user owns' do
+      let(:target) { user.targets.first }
 
       before { subject }
 
       it 'returns an error' do
-        expect(response).to have_http_status(:not_found)
+        expect(errors).to include "Can't start a conversation with yourself"
       end
     end
   end
@@ -95,20 +54,18 @@ RSpec.describe 'POST /conversations', type: :request do
   context 'missing params' do
     let(:params) do
       {
-        conversation: {
-          initiator_id: user.id
-        }
+        conversation: {}
       }
     end
 
     before { subject }
 
     it 'returns an error message' do
-      expect(errors['target']).to include 'must exist'
+      expect(errors).to include 'A required param is missing'
     end
 
     it 'does not return a successful response' do
-      expect(response.status).to eq 400
+      expect(response).to have_http_status(:unprocessable_entity)
     end
   end
 end

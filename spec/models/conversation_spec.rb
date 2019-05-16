@@ -14,6 +14,8 @@ RSpec.describe Conversation, type: :model do
   describe 'validations' do
     subject { create :conversation }
 
+    it { is_expected.to validate_uniqueness_of(:target).scoped_to(:initiator_id) }
+
     context 'has a target compatible with the initiator' do
       context 'conversation valid' do
         it 'is valid' do
