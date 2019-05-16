@@ -50,10 +50,6 @@ RSpec.describe 'PUT /targets/:id', type: :request do
     it 'has the correct area length' do
       expect { subject }.to change { target.reload.area_length }.to area_length
     end
-
-    it 'enqueues a broadcast job' do
-      expect { subject }.to have_enqueued_job
-    end
   end
 
   context 'missing title param' do

@@ -11,7 +11,7 @@ RSpec.describe Target, type: :model do
   end
 
   describe 'callbacks' do
-    context 'after save' do
+    context 'after create' do
       it 'enqueues job to broadcast to compatible users' do
         expect { subject.save }.to have_enqueued_job(BroadcastCompatibleTargetsJob)
       end
