@@ -9,11 +9,7 @@ resource 'Conversations' do
   header 'uid', :uid_header
 
   let(:conversation) { create :conversation }
-  let(:conversation_with_messages) do
-    create :conversation_with_messages, initiator: conversation.initiator,
-                                        target: conversation.target
-  end
-  let(:user) { conversation.initiator }
+  let(:conversation_with_messages) { create :conversation_with_messages }
 
   before { create_list :conversation, 3, initiator: user }
 
@@ -21,11 +17,11 @@ resource 'Conversations' do
     post 'Create' do
       with_options scope: :conversation, required: true do
         attribute :target_id, 'Target associated to the conversation'
-        attribute :initiator_id, 'ID of the user whom initiated the conversation'
       end
 
+      let(:user) { create :user_with_targets }
+      let(:conversation) { build :conversation, initiator: user }
       let(:target_id) { conversation.target_id }
-      let(:initiator_id) { conversation.initiator_id }
 
       example 'Ok' do
         do_request
@@ -35,6 +31,8 @@ resource 'Conversations' do
     end
 
     get 'Index' do
+      let(:user) { conversation.initiator }
+
       example 'Ok' do
         do_request
 
@@ -44,6 +42,7 @@ resource 'Conversations' do
   end
 
   route '/conversations/:id', 'Conversation member' do
+    let(:user) { conversation_with_messages.initiator }
     let(:id) { conversation_with_messages.id }
 
     get 'Show' do
@@ -55,6 +54,8 @@ resource 'Conversations' do
     end
 
     put 'Update' do
+      let(:user) { conversation_with_messages.initiator }
+
       with_options scope: :conversation, required: true do
         attribute :unread, 'Flag to mark the conversation as unread'
       end

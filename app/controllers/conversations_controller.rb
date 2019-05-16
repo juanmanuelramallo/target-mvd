@@ -7,8 +7,8 @@ class ConversationsController < ApplicationController
     conversation = ConversationService.call(conversation_params.merge(current_user: current_user))
 
     render json: conversation, status: :created if conversation.save!
-  rescue ConversationNotAllowedError => e
-    render_not_found(e)
+  rescue ConversationWithSameUserError => _e
+    render_error(:bad_request, I18n.t('errors.conversation_with_same_user_error'))
   end
 
   def index
@@ -30,7 +30,7 @@ class ConversationsController < ApplicationController
   end
 
   def conversation_params
-    params.require(:conversation).permit(:target_id, :initiator_id)
+    params.require(:conversation).permit(:target_id)
   end
 
   def conversation_update_params
