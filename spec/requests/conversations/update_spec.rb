@@ -14,7 +14,7 @@ RSpec.describe 'PUT /conversations/:id', type: :request do
   let(:user) { conversation.initiator }
 
   subject do
-    put "/conversations/#{conversation.id}", params: params, headers: headers
+    put conversation_path(conversation), params: params, headers: headers
     data
   end
 
@@ -53,6 +53,19 @@ RSpec.describe 'PUT /conversations/:id', type: :request do
       it "doesn't update the unread attribute" do
         expect { subject }.to_not change { conversation.reload.unread }
       end
+    end
+  end
+
+  context 'given a disabled conversation' do
+    let(:unread) { true }
+
+    before do
+      conversation.update!(status: :disabled)
+      subject
+    end
+
+    it 'returns an error' do
+      expect(errors['base']).to include "Can't update a disabled conversation"
     end
   end
 end

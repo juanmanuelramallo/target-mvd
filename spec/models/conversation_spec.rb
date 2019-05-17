@@ -12,10 +12,12 @@ RSpec.describe Conversation, type: :model do
   end
 
   describe 'validations' do
+    let(:target) { create :target }
     subject { create :conversation }
 
     it { is_expected.to validate_uniqueness_of(:target).scoped_to(:initiator_id) }
 
+    # target_must_be_compatible_with_initiator
     context 'has a target compatible with the initiator' do
       context 'conversation valid' do
         it 'is valid' do
@@ -25,11 +27,21 @@ RSpec.describe Conversation, type: :model do
 
       context 'conversation invalid' do
         subject { build :conversation, target: target, initiator: target.user }
-        let(:target) { create :target }
 
         it 'is invalid' do
           expect(subject.valid?).to be false
         end
+      end
+    end
+
+    # status_must_be_active
+    context 'given a disabled conversation' do
+      subject do
+        create :conversation, status: :disabled
+      end
+
+      it 'is invalid' do
+        expect(subject.valid?).to be false
       end
     end
   end

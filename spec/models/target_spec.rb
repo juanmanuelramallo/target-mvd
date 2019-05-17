@@ -16,6 +16,15 @@ RSpec.describe Target, type: :model do
         expect { subject.save }.to have_enqueued_job(BroadcastCompatibleTargetsJob)
       end
     end
+
+    context 'after update' do
+      let(:target) { create :target }
+      subject { target.update(title: 'New title') }
+
+      it 'enqueues job to update conversations involving the target' do
+        expect { subject }.to have_enqueued_job(UpdateConversationsStatusJob)
+      end
+    end
   end
 
   describe 'validations' do

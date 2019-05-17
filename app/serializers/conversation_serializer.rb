@@ -6,7 +6,7 @@ class ConversationSerializer < ActiveModel::Serializer
   belongs_to :target
   belongs_to :initiator, class_name: 'User'
 
-  attributes :id, :unread
+  attributes :id, :unread, :status
 
   def unread
     object.unread?(current_user)

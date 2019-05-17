@@ -8,6 +8,7 @@ FactoryBot.define do
                       lat: initiator.targets.first.lat, lng: initiator.targets.first.lng
     end
     unread { false }
+    status { 0 }
 
     factory :conversation_with_messages do
       transient do
