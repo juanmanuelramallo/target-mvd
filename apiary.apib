@@ -27,8 +27,8 @@ FORMAT: 1A
               "data": {
                 "id": 1,
                 "email": "user-1@example.com",
-                "created_at": "2019-05-16T19:14:18.622Z",
-                "updated_at": "2019-05-16T19:14:18.622Z",
+                "created_at": "2019-05-16T22:28:25.555Z",
+                "updated_at": "2019-05-16T22:28:25.555Z",
                 "provider": "email",
                 "uid": "user-1@example.com",
                 "allow_password_change": false,
@@ -69,8 +69,8 @@ FORMAT: 1A
                 "email": "new-email-1@example.com",
                 "provider": "email",
                 "uid": "new-email-1@example.com",
-                "created_at": "2019-05-16T19:14:18.848Z",
-                "updated_at": "2019-05-16T19:14:18.955Z",
+                "created_at": "2019-05-16T22:28:25.793Z",
+                "updated_at": "2019-05-16T22:28:25.898Z",
                 "allow_password_change": false,
                 "type": "user"
               }
@@ -97,7 +97,7 @@ FORMAT: 1A
             access-token: 1234567890123456789012
             token-type: Bearer
             client: abcdefghijklmnopqrstuv
-            expiry: 1559243659
+            expiry: 1559255305
             uid: user-3@example.com
 
     + Body
@@ -183,7 +183,7 @@ FORMAT: 1A
             access-token: 1234567890123456789012
             token-type: Bearer
             client: abcdefghijklmnopqrstuv
-            expiry: 1559243659
+            expiry: 1559255306
             uid: existing-user@example.com
 
     + Body
@@ -231,9 +231,9 @@ FORMAT: 1A
                   "type": "targets",
                   "attributes": {
                     "area-length": 2000,
-                    "lat": -32.4187839613241,
-                    "lng": -8.6765298639165,
-                    "title": "Dennise Will",
+                    "lat": -39.9981244955308,
+                    "lng": -35.7789001461031,
+                    "title": "Reynalda Ratke",
                     "topic-id": 1
                   }
                 }
@@ -601,7 +601,7 @@ FORMAT: 1A
 
     + Body
 
-            {"message":{"text":"I didn't work hard to make Ruby perfect for everyone, because you feel differently from me. No language can be perfect for everyone. I tried to make Ruby perfect for me, but maybe it's not perfect for you. The perfect language for Guido van Rossum is probably Python."}}
+            {"message":{"text":"Plant a memory, plant a tree, do it today for tomorrow."}}
 
 + Response 201 ()
 
@@ -620,8 +620,8 @@ FORMAT: 1A
                 "id": "11",
                 "type": "messages",
                 "attributes": {
-                  "text": "I didn't work hard to make Ruby perfect for everyone, because you feel differently from me. No language can be perfect for everyone. I tried to make Ruby perfect for me, but maybe it's not perfect for you. The perfect language for Guido van Rossum is probably Python.",
-                  "created-at": "2019-05-16T19:14:20.598Z",
+                  "text": "Plant a memory, plant a tree, do it today for tomorrow.",
+                  "created-at": "2019-05-16T22:28:27.637Z",
                   "user-id": 29
                 }
               }
@@ -666,10 +666,10 @@ FORMAT: 1A
                   "id": "29",
                   "type": "targets",
                   "attributes": {
-                    "area-length": 754,
-                    "lat": -77.5890248324887,
-                    "lng": 137.701218379275,
-                    "title": "Zita Mertz",
+                    "area-length": 171,
+                    "lat": 67.852081678215,
+                    "lng": -86.0490387036112,
+                    "title": "Jess Kiehn I",
                     "topic-id": 11
                   }
                 },
@@ -677,10 +677,10 @@ FORMAT: 1A
                   "id": "30",
                   "type": "targets",
                   "attributes": {
-                    "area-length": 950,
-                    "lat": -79.1039700557695,
-                    "lng": 152.411523145514,
-                    "title": "Mrs. Patrina Renner",
+                    "area-length": 461,
+                    "lat": -82.3580941953213,
+                    "lng": 10.6711909642989,
+                    "title": "Adolfo Flatley",
                     "topic-id": 12
                   }
                 }
@@ -699,7 +699,7 @@ FORMAT: 1A
 
     + Body
 
-            {"target":{"area_length":300,"lat":21.36153806347241,"lng":-127.00626586733921,"title":"Berry Kiehn DDS","topic_id":15}}
+            {"target":{"area_length":709,"lat":-11.725752512826787,"lng":22.91015550907335,"title":"Sanford Powlowski","topic_id":15}}
 
 + Response 201 ()
 
@@ -718,16 +718,23 @@ FORMAT: 1A
                 "id": "34",
                 "type": "targets",
                 "attributes": {
-                  "area-length": 300,
-                  "lat": 21.36153806347241,
-                  "lng": -127.00626586733921,
-                  "title": "Berry Kiehn DDS",
+                  "area-length": 709,
+                  "lat": -11.725752512826787,
+                  "lng": 22.91015550907335,
+                  "title": "Sanford Powlowski",
                   "topic-id": 15
                 }
               }
             }
 
 ## Target member [/targets/{id}]
+
++ Attributes (object)
+  + area_length (required) - Area length (meters)
+  + lat (required) - Latitude
+  + lng (required) - Longitude
+  + title (required) - Title
+  + topic_id (required) - Topic ID
 
 ### Destroy [DELETE]
 
@@ -756,11 +763,51 @@ FORMAT: 1A
                 "id": "37",
                 "type": "targets",
                 "attributes": {
-                  "area-length": 840,
-                  "lat": 86.3426527509932,
-                  "lng": 159.870729710108,
-                  "title": "Al Boyer",
+                  "area-length": 208,
+                  "lat": -70.758180100805,
+                  "lng": 122.002963021876,
+                  "title": "Adina Nienow",
                   "topic-id": 18
+                }
+              }
+            }
+
+### Update [PUT]
+
++ Request Ok
+
+    + Headers
+
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
+            Uid: user-34@example.com
+
+    + Body
+
+            {"target":{"area_length":352,"lat":68.45595681840993,"lng":-6.803045599077706,"title":"Ms. Ebonie Raynor","topic_id":22}}
+
++ Response 202 ()
+
+    + Headers
+
+            access-token:  
+            token-type: Bearer
+            client: abcdefghijklmnopqrstuv
+            expiry:  
+            uid: user-34@example.com
+
+    + Body
+
+            {
+              "data": {
+                "id": "40",
+                "type": "targets",
+                "attributes": {
+                  "area-length": 352,
+                  "lat": 68.45595681840993,
+                  "lng": -6.803045599077706,
+                  "title": "Ms. Ebonie Raynor",
+                  "topic-id": 22
                 }
               }
             }
@@ -777,7 +824,7 @@ FORMAT: 1A
 
             Access-Token: 1234567890123456789012
             Client: abcdefghijklmnopqrstuv
-            Uid: user-34@example.com
+            Uid: user-36@example.com
 
 + Response 200 ()
 
@@ -787,31 +834,31 @@ FORMAT: 1A
             token-type: Bearer
             client: abcdefghijklmnopqrstuv
             expiry:  
-            uid: user-34@example.com
+            uid: user-36@example.com
 
     + Body
 
             {
               "data": [
                 {
-                  "id": "19",
+                  "id": "23",
                   "type": "topics",
                   "attributes": {
-                    "name": "Cassi Wisozk III"
+                    "name": "Frank Vandervort"
                   }
                 },
                 {
-                  "id": "20",
+                  "id": "24",
                   "type": "topics",
                   "attributes": {
-                    "name": "Ms. Jonell Ondricka"
+                    "name": "Lora Sawayn"
                   }
                 },
                 {
-                  "id": "21",
+                  "id": "25",
                   "type": "topics",
                   "attributes": {
-                    "name": "Edwina Feil"
+                    "name": "Nelson Metz"
                   }
                 }
               ]

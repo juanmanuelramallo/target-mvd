@@ -9,12 +9,16 @@ class TargetsController < ApplicationController
     render json: target, status: :created if target.save!
   end
 
+  def destroy
+    render json: target.destroy
+  end
+
   def index
     render json: current_user.targets
   end
 
-  def destroy
-    render json: target.destroy
+  def update
+    render json: target, status: :accepted if target.update!(target_params)
   end
 
   private

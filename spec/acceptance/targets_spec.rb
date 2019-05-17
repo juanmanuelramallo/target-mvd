@@ -61,5 +61,30 @@ resource 'Targets' do
         expect(status).to eq 200
       end
     end
+
+    put 'Update' do
+      with_options scope: :target, required: true do
+        attribute :area_length, 'Area length (meters)'
+        attribute :lat, 'Latitude'
+        attribute :lng, 'Longitude'
+        attribute :title, 'Title'
+        attribute :topic_id, 'Topic ID'
+      end
+
+      let(:topic) { create :topic }
+      let(:target) { create :target, user: user }
+      let(:another_target) { build :target }
+      let(:area_length) { another_target.area_length }
+      let(:lat) { another_target.lat }
+      let(:lng) { another_target.lng }
+      let(:title) { another_target.title }
+      let(:topic_id) { topic.id }
+
+      example 'Ok' do
+        do_request
+
+        expect(status).to eq 202
+      end
+    end
   end
 end
