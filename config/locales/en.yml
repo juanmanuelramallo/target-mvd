@@ -41,6 +41,7 @@ en:
       message:
         conversation_must_be_active: 'must be active'
 
+    cable_ticket_invalid: 'Cable ticket is invalid'
     invalid_content_type: 'Invalid content type header'
     missing_param: 'A required param is missing'
     not_found: "Couldn't find the record"
