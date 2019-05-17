@@ -8,6 +8,7 @@ RSpec.describe Target, type: :model do
   describe 'associations' do
     it { is_expected.to belong_to(:topic) }
     it { is_expected.to belong_to(:user) }
+    it { is_expected.to have_many(:conversations) }
   end
 
   describe 'callbacks' do

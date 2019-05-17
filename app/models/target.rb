@@ -6,6 +6,8 @@ class Target < ApplicationRecord
   belongs_to :topic
   belongs_to :user
 
+  has_many :conversations, dependent: :nullify
+
   validates :title, :lat, :lng, presence: true
   validates :area_length, numericality: { greater_than: 0 }
   validate :user_must_have_less_than_maximum_targets

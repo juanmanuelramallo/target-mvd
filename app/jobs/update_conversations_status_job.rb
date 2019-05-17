@@ -7,7 +7,7 @@ class UpdateConversationsStatusJob < ApplicationJob
     compatible_users = target.compatible_users
 
     Conversation.transaction do
-      Conversation.where(target: target, status: :active).each do |conversation|
+      target.conversations.active.find_each do |conversation|
         conversation.disabled! unless compatible_users.include?(conversation.initiator)
       end
     end
