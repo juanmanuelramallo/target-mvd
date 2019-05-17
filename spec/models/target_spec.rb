@@ -8,12 +8,22 @@ RSpec.describe Target, type: :model do
   describe 'associations' do
     it { is_expected.to belong_to(:topic) }
     it { is_expected.to belong_to(:user) }
+    it { is_expected.to have_many(:conversations) }
   end
 
   describe 'callbacks' do
     context 'after create' do
       it 'enqueues job to broadcast to compatible users' do
         expect { subject.save }.to have_enqueued_job(BroadcastCompatibleTargetsJob)
+      end
+    end
+
+    context 'after update' do
+      let(:target) { create :target }
+      subject { target.update(title: 'New title') }
+
+      it 'enqueues job to update conversations involving the target' do
+        expect { subject }.to have_enqueued_job(UpdateConversationsStatusJob)
       end
     end
   end

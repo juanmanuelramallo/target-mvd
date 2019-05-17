@@ -27,8 +27,8 @@ FORMAT: 1A
               "data": {
                 "id": 1,
                 "email": "user-1@example.com",
-                "created_at": "2019-05-16T22:28:25.555Z",
-                "updated_at": "2019-05-16T22:28:25.555Z",
+                "created_at": "2019-05-17T13:48:53.975Z",
+                "updated_at": "2019-05-17T13:48:53.975Z",
                 "provider": "email",
                 "uid": "user-1@example.com",
                 "allow_password_change": false,
@@ -69,8 +69,8 @@ FORMAT: 1A
                 "email": "new-email-1@example.com",
                 "provider": "email",
                 "uid": "new-email-1@example.com",
-                "created_at": "2019-05-16T22:28:25.793Z",
-                "updated_at": "2019-05-16T22:28:25.898Z",
+                "created_at": "2019-05-17T13:48:54.204Z",
+                "updated_at": "2019-05-17T13:48:54.311Z",
                 "allow_password_change": false,
                 "type": "user"
               }
@@ -97,7 +97,7 @@ FORMAT: 1A
             access-token: 1234567890123456789012
             token-type: Bearer
             client: abcdefghijklmnopqrstuv
-            expiry: 1559255305
+            expiry: 1559310534
             uid: user-3@example.com
 
     + Body
@@ -183,7 +183,7 @@ FORMAT: 1A
             access-token: 1234567890123456789012
             token-type: Bearer
             client: abcdefghijklmnopqrstuv
-            expiry: 1559255306
+            expiry: 1559310534
             uid: existing-user@example.com
 
     + Body
@@ -231,9 +231,9 @@ FORMAT: 1A
                   "type": "targets",
                   "attributes": {
                     "area-length": 2000,
-                    "lat": -39.9981244955308,
-                    "lng": -35.7789001461031,
-                    "title": "Reynalda Ratke",
+                    "lat": 75.6040228365089,
+                    "lng": -33.5045664366026,
+                    "title": "Dr. Trudi Wilkinson",
                     "topic-id": 1
                   }
                 }
@@ -278,7 +278,8 @@ FORMAT: 1A
                 "id": "4",
                 "type": "conversations",
                 "attributes": {
-                  "unread": true
+                  "unread": true,
+                  "status": "active"
                 },
                 "relationships": {
                   "messages": {
@@ -330,7 +331,8 @@ FORMAT: 1A
                   "id": "5",
                   "type": "conversations",
                   "attributes": {
-                    "unread": false
+                    "unread": false,
+                    "status": "active"
                   },
                   "relationships": {
                     "messages": {
@@ -356,7 +358,8 @@ FORMAT: 1A
                   "id": "6",
                   "type": "conversations",
                   "attributes": {
-                    "unread": false
+                    "unread": false,
+                    "status": "active"
                   },
                   "relationships": {
                     "messages": {
@@ -382,7 +385,8 @@ FORMAT: 1A
                   "id": "7",
                   "type": "conversations",
                   "attributes": {
-                    "unread": false
+                    "unread": false,
+                    "status": "active"
                   },
                   "relationships": {
                     "messages": {
@@ -408,7 +412,8 @@ FORMAT: 1A
                   "id": "8",
                   "type": "conversations",
                   "attributes": {
-                    "unread": false
+                    "unread": false,
+                    "status": "active"
                   },
                   "relationships": {
                     "messages": {
@@ -465,7 +470,8 @@ FORMAT: 1A
                 "id": "9",
                 "type": "conversations",
                 "attributes": {
-                  "unread": false
+                  "unread": false,
+                  "status": "active"
                 },
                 "relationships": {
                   "messages": {
@@ -539,7 +545,8 @@ FORMAT: 1A
                 "id": "13",
                 "type": "conversations",
                 "attributes": {
-                  "unread": false
+                  "unread": false,
+                  "status": "active"
                 },
                 "relationships": {
                   "messages": {
@@ -601,7 +608,7 @@ FORMAT: 1A
 
     + Body
 
-            {"message":{"text":"Plant a memory, plant a tree, do it today for tomorrow."}}
+            {"message":{"text":"Everyone has an individual background. Someone may come from Python, someone else may come from Perl, and they may be surprised by different aspects of the language. Then they come up to me and say, 'I was surprised by this feature of the language, so therefore Ruby violates the principle of least surprise.' Wait. Wait. The principle of least surprise is not for you only."}}
 
 + Response 201 ()
 
@@ -620,8 +627,8 @@ FORMAT: 1A
                 "id": "11",
                 "type": "messages",
                 "attributes": {
-                  "text": "Plant a memory, plant a tree, do it today for tomorrow.",
-                  "created-at": "2019-05-16T22:28:27.637Z",
+                  "text": "Everyone has an individual background. Someone may come from Python, someone else may come from Perl, and they may be surprised by different aspects of the language. Then they come up to me and say, 'I was surprised by this feature of the language, so therefore Ruby violates the principle of least surprise.' Wait. Wait. The principle of least surprise is not for you only.",
+                  "created-at": "2019-05-17T13:48:55.880Z",
                   "user-id": 29
                 }
               }
@@ -666,10 +673,10 @@ FORMAT: 1A
                   "id": "29",
                   "type": "targets",
                   "attributes": {
-                    "area-length": 171,
-                    "lat": 67.852081678215,
-                    "lng": -86.0490387036112,
-                    "title": "Jess Kiehn I",
+                    "area-length": 23,
+                    "lat": 36.5171970371127,
+                    "lng": -150.207447590894,
+                    "title": "Harley Jast",
                     "topic-id": 11
                   }
                 },
@@ -677,10 +684,10 @@ FORMAT: 1A
                   "id": "30",
                   "type": "targets",
                   "attributes": {
-                    "area-length": 461,
-                    "lat": -82.3580941953213,
-                    "lng": 10.6711909642989,
-                    "title": "Adolfo Flatley",
+                    "area-length": 588,
+                    "lat": 33.0035191054114,
+                    "lng": 88.0339865220673,
+                    "title": "Ivy Marquardt",
                     "topic-id": 12
                   }
                 }
@@ -699,7 +706,7 @@ FORMAT: 1A
 
     + Body
 
-            {"target":{"area_length":709,"lat":-11.725752512826787,"lng":22.91015550907335,"title":"Sanford Powlowski","topic_id":15}}
+            {"target":{"area_length":49,"lat":22.85304113853404,"lng":97.21300162301088,"title":"Trudie Wyman","topic_id":15}}
 
 + Response 201 ()
 
@@ -718,10 +725,10 @@ FORMAT: 1A
                 "id": "34",
                 "type": "targets",
                 "attributes": {
-                  "area-length": 709,
-                  "lat": -11.725752512826787,
-                  "lng": 22.91015550907335,
-                  "title": "Sanford Powlowski",
+                  "area-length": 49,
+                  "lat": 22.85304113853404,
+                  "lng": 97.21300162301088,
+                  "title": "Trudie Wyman",
                   "topic-id": 15
                 }
               }
@@ -763,10 +770,10 @@ FORMAT: 1A
                 "id": "37",
                 "type": "targets",
                 "attributes": {
-                  "area-length": 208,
-                  "lat": -70.758180100805,
-                  "lng": 122.002963021876,
-                  "title": "Adina Nienow",
+                  "area-length": 42,
+                  "lat": 58.8716800241985,
+                  "lng": -164.742632498265,
+                  "title": "Phylicia D'Amore",
                   "topic-id": 18
                 }
               }
@@ -784,7 +791,7 @@ FORMAT: 1A
 
     + Body
 
-            {"target":{"area_length":352,"lat":68.45595681840993,"lng":-6.803045599077706,"title":"Ms. Ebonie Raynor","topic_id":22}}
+            {"target":{"area_length":427,"lat":15.321664552564613,"lng":-7.3824746090013775,"title":"Cherrie Runte DDS","topic_id":22}}
 
 + Response 202 ()
 
@@ -803,10 +810,10 @@ FORMAT: 1A
                 "id": "40",
                 "type": "targets",
                 "attributes": {
-                  "area-length": 352,
-                  "lat": 68.45595681840993,
-                  "lng": -6.803045599077706,
-                  "title": "Ms. Ebonie Raynor",
+                  "area-length": 427,
+                  "lat": 15.321664552564613,
+                  "lng": -7.3824746090013775,
+                  "title": "Cherrie Runte DDS",
                   "topic-id": 22
                 }
               }
@@ -844,21 +851,21 @@ FORMAT: 1A
                   "id": "23",
                   "type": "topics",
                   "attributes": {
-                    "name": "Frank Vandervort"
+                    "name": "Chere Macejkovic"
                   }
                 },
                 {
                   "id": "24",
                   "type": "topics",
                   "attributes": {
-                    "name": "Lora Sawayn"
+                    "name": "Chasidy Jones"
                   }
                 },
                 {
                   "id": "25",
                   "type": "topics",
                   "attributes": {
-                    "name": "Nelson Metz"
+                    "name": "Joelle Krajcik"
                   }
                 }
               ]

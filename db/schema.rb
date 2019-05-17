@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_08_192231) do
+ActiveRecord::Schema.define(version: 2019_05_16_173033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_05_08_192231) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "unread", default: true, null: false
+    t.integer "status", default: 0, null: false
     t.index ["initiator_id"], name: "index_conversations_on_initiator_id"
     t.index ["target_id"], name: "index_conversations_on_target_id"
   end

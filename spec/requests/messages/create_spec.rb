@@ -61,4 +61,15 @@ RSpec.describe 'POST /conversations/:conversation_id/messages', type: :request d
       expect(errors['text']).to include "can't be blank"
     end
   end
+
+  context 'given a disabled conversation' do
+    before do
+      conversation.update!(status: :disabled)
+      subject
+    end
+
+    it 'returns an error' do
+      expect(errors['conversation']).to include 'must be active'
+    end
+  end
 end
