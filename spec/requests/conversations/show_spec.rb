@@ -34,4 +34,38 @@ RSpec.describe 'GET /conversations/:id', type: :request do
       expect(response.status).to eq 404
     end
   end
+
+  context 'asking for included objects' do
+    let(:conversation) { create :conversation_with_messages }
+    let(:user) { conversation.initiator }
+
+    subject do
+      get "/conversations/#{conversation.id}?include=#{includes}", headers: headers
+      json_response
+    end
+
+    context 'including messages' do
+      let(:includes) { 'messages' }
+
+      it 'returns the messages along with the conversation' do
+        expect(subject['included'][0]['type']).to eq 'messages'
+      end
+    end
+
+    context 'including messages and target' do
+      let(:includes) { 'messages,target' }
+
+      it 'returns both included keys' do
+        expect(subject['included'].size).to eq(conversation.messages.count + 1)
+      end
+    end
+
+    context 'including a unpermitted object' do
+      let(:includes) { 'user' }
+
+      it 'does not return an included key' do
+        expect(subject['included']).to be nil
+      end
+    end
+  end
 end
