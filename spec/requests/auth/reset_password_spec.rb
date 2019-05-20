@@ -2,33 +2,35 @@
 
 require 'rails_helper'
 
-RSpec.describe 'POST /auth/password', type: :request do
+RSpec.describe 'PUT /auth/password', type: :request do
   let(:params) do
     {
-      email: email,
-      redirect_url: '/reset-password'
+      password: password,
+      password_confirmation: password_confirmation
     }
   end
+  let(:password) { 'p@55word' }
+  let(:password_confirmation) { password }
+  let(:user) { create :user }
 
   subject do
-    post '/auth/password', params: params
+    put '/auth/password', params: params, headers: headers
     response
   end
 
-  context 'valid user' do
-    let(:user) { create :user }
-    let(:email) { user.email }
-
-    it 'sends me an email' do
-      expect { subject }.to change { ActionMailer::Base.deliveries.count }.by 1
+  context 'valid params' do
+    it 'updates the password' do
+      expect(subject).to have_http_status(:ok)
     end
   end
 
-  context 'invalid user' do
-    let(:email) { 'fake-user@example.com' }
+  context 'password does not match' do
+    let(:password_confirmation) { 'another-password' }
 
-    it "doesn't send me an email" do
-      expect { subject }.to change { ActionMailer::Base.deliveries.count }.by 0
+    before { subject }
+
+    it 'returns an error' do
+      expect(errors).to include "doesn't match Password"
     end
   end
 end

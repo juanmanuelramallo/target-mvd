@@ -33,8 +33,10 @@ RSpec.describe 'POST /auth', type: :request do
       let(:email) { '' }
       let(:password) { Faker::Internet.password(8) }
 
+      before { subject }
+
       it "doesn't create the user" do
-        expect(subject).to have_http_status(:unprocessable_entity)
+        expect(errors).to include "can't be blank"
       end
     end
 
@@ -54,7 +56,7 @@ RSpec.describe 'POST /auth', type: :request do
       before { subject }
 
       it "doesn't create the user" do
-        expect(errors['password'][0]).to include 'is too short'
+        expect(errors).to include 'is too short (minimum is 6 characters)'
       end
     end
   end

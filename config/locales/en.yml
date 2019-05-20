@@ -37,10 +37,10 @@ en:
       conversation:
         target_must_be_compatible_with_initiator: "must be compatible with initiator"
         status_must_be_active: "Can't update a disabled conversation"
+        target_must_not_belong_to_initiator: 'must not belong to the initiator'
       message:
         conversation_must_be_active: 'must be active'
 
-    conversation_with_same_user_error: "Can't start a conversation with yourself"
     invalid_content_type: 'Invalid content type header'
     missing_param: 'A required param is missing'
     not_found: "Couldn't find the record"

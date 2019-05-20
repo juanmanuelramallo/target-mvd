@@ -10,6 +10,6 @@ module ResponseHelper
   end
 
   def errors
-    json_response['errors']
+    json_response['errors'].map { |error| error['detail'] }
   end
 end

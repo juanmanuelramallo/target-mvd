@@ -24,17 +24,22 @@ module Concerns
     end
 
     def render_record_invalid(exception)
-      render_error(:bad_request, exception.record.errors.as_json, exception.record.as_json)
+      render_resource_invalid(exception.record)
     end
 
     def render_parameter_missing(_exception)
       render_error(:unprocessable_entity, [I18n.t('errors.missing_param')])
     end
 
+    def render_resource_invalid(resource)
+      render json: resource, status: :unprocessable_entity,
+             serializer: ActiveModel::Serializer::ErrorSerializer
+    end
+
     def render_error(status, messages, data = nil)
       response = {
         success: false,
-        errors: messages
+        errors: messages.map { |message| { detail: message } }
       }
       response = response.merge(data) if data
       render json: response, status: status

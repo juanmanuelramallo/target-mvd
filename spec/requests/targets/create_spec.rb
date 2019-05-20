@@ -69,7 +69,7 @@ RSpec.describe 'POST /targets', type: :request do
     before { subject }
 
     it 'returns the error message' do
-      expect(errors['title']).to include "can't be blank"
+      expect(errors).to include "can't be blank"
     end
   end
 end

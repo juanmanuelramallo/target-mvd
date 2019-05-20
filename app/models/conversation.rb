@@ -11,6 +11,7 @@ class Conversation < ApplicationRecord
   validates :target, uniqueness: { scope: :initiator_id }
   validate :status_must_be_active
   validate :target_must_be_compatible_with_initiator
+  validate :target_must_not_belong_to_initiator
 
   def unread?(user)
     messages.last&.user != user && unread
@@ -30,5 +31,11 @@ class Conversation < ApplicationRecord
     errors.add :target, I18n.t(
       'errors.models.conversation.target_must_be_compatible_with_initiator'
     )
+  end
+
+  def target_must_not_belong_to_initiator
+    return unless initiator&.targets&.include?(target)
+
+    errors.add(:target, I18n.t('errors.models.conversation.target_must_not_belong_to_initiator'))
   end
 end

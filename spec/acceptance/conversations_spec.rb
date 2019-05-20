@@ -28,6 +28,12 @@ resource 'Conversations' do
 
         expect(status).to eq 201
       end
+
+      example 'Bad' do
+        do_request conversation: { target_id: user.targets.first.id }
+
+        expect(status).to eq 422
+      end
     end
 
     get 'Index' do

@@ -2,7 +2,10 @@
 
 Rails.application.routes.draw do
   mount ActionCable.server, at: '/cable'
-  mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks]
+  mount_devise_token_auth_for 'User', at: 'auth', skip: [:omniauth_callbacks], controllers: {
+    registrations: 'auth/registrations',
+    passwords: 'auth/passwords'
+  }
 
   namespace :auth do
     post 'facebook/callback', to: 'facebook_callbacks#create'

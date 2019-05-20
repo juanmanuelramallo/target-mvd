@@ -24,14 +24,6 @@ RSpec.describe Conversation, type: :model do
           expect(subject.valid?).to be true
         end
       end
-
-      context 'conversation invalid' do
-        subject { build :conversation, target: target, initiator: target.user }
-
-        it 'is invalid' do
-          expect(subject.valid?).to be false
-        end
-      end
     end
 
     # status_must_be_active
@@ -39,6 +31,15 @@ RSpec.describe Conversation, type: :model do
       subject do
         create :conversation, status: :disabled
       end
+
+      it 'is invalid' do
+        expect(subject.valid?).to be false
+      end
+    end
+
+    # target must not belong to the initiator
+    context 'given a conversation with a target from the initiator' do
+      subject { build :conversation, target: target, initiator: target.user }
 
       it 'is invalid' do
         expect(subject.valid?).to be false
