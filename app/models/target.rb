@@ -14,6 +14,7 @@ class Target < ApplicationRecord
 
   after_create :broadcast_to_compatible_users
   after_update :update_conversations_status
+  before_destroy :disable_conversations, prepend: true
 
   def compatible_targets
     Target.where(topic_id: topic_id)
@@ -29,6 +30,10 @@ class Target < ApplicationRecord
 
   def broadcast_to_compatible_users
     BroadcastCompatibleTargetsJob.perform_later(self)
+  end
+
+  def disable_conversations
+    DisableConversationsJob.perform_later(conversations.pluck(:id))
   end
 
   def update_conversations_status

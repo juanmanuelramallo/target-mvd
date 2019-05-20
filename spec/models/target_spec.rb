@@ -26,6 +26,16 @@ RSpec.describe Target, type: :model do
         expect { subject }.to have_enqueued_job(UpdateConversationsStatusJob)
       end
     end
+
+    context 'before destroy' do
+      let(:conversation) { create :conversation }
+      let(:target) { conversation.target }
+      subject { target.destroy }
+
+      it 'enqueues a job to disable the conversation' do
+        expect { subject }.to have_enqueued_job(DisableConversationsJob)
+      end
+    end
   end
 
   describe 'validations' do

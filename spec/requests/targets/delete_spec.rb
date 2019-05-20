@@ -26,4 +26,14 @@ RSpec.describe 'DELETE /targets/:id', type: :request do
       expect(errors).to include "Couldn't find the record"
     end
   end
+
+  context 'target with conversation' do
+    let(:conversation) { create :conversation }
+    let(:target) { conversation.target }
+    let(:user) { conversation.target.user }
+
+    it 'enqueues a job to disable the conversation' do
+      expect { subject }.to have_enqueued_job(DisableConversationsJob)
+    end
+  end
 end
