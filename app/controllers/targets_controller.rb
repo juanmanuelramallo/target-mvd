@@ -14,7 +14,7 @@ class TargetsController < ApplicationController
   end
 
   def index
-    render json: current_user.targets
+    render json: current_user.targets, include: permitted_include
   end
 
   def update
@@ -29,5 +29,9 @@ class TargetsController < ApplicationController
 
   def target_params
     params.require(:target).permit(:area_length, :lat, :lng, :title, :topic_id)
+  end
+
+  def permitted_inclusions
+    %w[topic user]
   end
 end
