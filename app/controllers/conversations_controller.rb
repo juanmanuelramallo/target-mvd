@@ -10,11 +10,11 @@ class ConversationsController < ApplicationController
   end
 
   def index
-    render json: current_user.conversations
+    render json: current_user.conversations, include: permitted_include
   end
 
   def show
-    render json: conversation
+    render json: conversation, include: permitted_include
   end
 
   def update
@@ -33,6 +33,10 @@ class ConversationsController < ApplicationController
 
   def conversation_update_params
     params.require(:conversation).permit(:unread)
+  end
+
+  def permitted_inclusions
+    %w[messages target initiator]
   end
 
   def update_params
