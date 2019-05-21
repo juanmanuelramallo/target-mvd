@@ -9,6 +9,10 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_many(:targets).dependent(:destroy) }
   end
 
+  describe 'validations' do
+    it { is_expected.to validate_presence_of(:full_name) }
+  end
+
   describe '#compatible_targets' do
     let(:user) { create :user }
 

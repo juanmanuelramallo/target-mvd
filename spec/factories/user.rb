@@ -5,9 +5,15 @@ FactoryBot.define do
     "user-#{n}@example.com"
   end
 
+  sequence :full_name do |n|
+    "John Lennon #{n}"
+  end
+
   factory :user do
     confirmed_at { DateTime.now.in_time_zone }
     email
+    full_name
+    gender { 'male' }
     password { 'P@55word' }
     password_confirmation { 'P@55word' }
     uid { email }

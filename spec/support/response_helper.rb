@@ -9,6 +9,10 @@ module ResponseHelper
     json_response['data']
   end
 
+  def attributes
+    data['attributes'] || {}
+  end
+
   def errors
     json_response['errors'].map { |error| error['detail'] }
   end

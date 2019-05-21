@@ -32,6 +32,7 @@ gem 'rack-cors', '~> 1.0.3'
 
 gem 'action-cable-testing', '~> 0.5.0'
 gem 'active_model_serializers', '~> 0.10.9'
+gem 'aws-sdk-s3', '~> 1', require: false
 gem 'devise', '~> 4.6.2'
 gem 'devise_token_auth', '~> 1.1.0'
 gem 'figaro', '~> 1.1.1'
