@@ -146,4 +146,18 @@ resource 'Auth' do
       end
     end
   end
+
+  route '/auth/cable', 'Cable' do
+    post 'Authorization ticket for websocket connection' do
+      header 'access-token', :access_token_header
+      header 'client', :client_header
+      header 'uid', :uid_header
+
+      example 'Ok' do
+        do_request
+
+        expect(status).to eq 200
+      end
+    end
+  end
 end
