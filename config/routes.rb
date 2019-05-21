@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   namespace :auth do
     post 'facebook/callback', to: 'facebook_callbacks#create'
+    post 'cable', to: 'cable#create'
   end
 
   resources :compatible_targets, only: :index
