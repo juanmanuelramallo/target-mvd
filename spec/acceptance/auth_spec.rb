@@ -23,6 +23,12 @@ resource 'Auth' do
 
         expect(status).to eq 200
       end
+
+      example 'Bad' do
+        do_request email: ''
+
+        expect(status).to eq 422
+      end
     end
 
     put 'Update' do
@@ -94,6 +100,26 @@ resource 'Auth' do
 
       let(:email) { user.email }
       let(:redirect_url) { 'http://anywhere.com' }
+
+      example 'Ok' do
+        do_request
+
+        expect(status).to eq 200
+      end
+    end
+
+    put 'Update password' do
+      header 'access-token', :access_token_header
+      header 'client', :client_header
+      header 'uid', :uid_header
+
+      with_options required: true do
+        attribute :password, 'New password'
+        attribute :password_confirmation, 'Confirm new password'
+      end
+
+      let(:password) { 'new-p@55word' }
+      let(:password_confirmation) { password }
 
       example 'Ok' do
         do_request

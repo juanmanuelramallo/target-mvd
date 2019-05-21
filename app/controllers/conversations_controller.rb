@@ -4,11 +4,9 @@ class ConversationsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    conversation = ConversationService.call(conversation_params.merge(current_user: current_user))
+    conversation = Conversation.new(conversation_params.merge(initiator_id: current_user.id))
 
     render json: conversation, status: :created if conversation.save!
-  rescue ConversationWithSameUserError => _e
-    render_error(:bad_request, I18n.t('errors.conversation_with_same_user_error'))
   end
 
   def index

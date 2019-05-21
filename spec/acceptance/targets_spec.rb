@@ -45,6 +45,12 @@ resource 'Targets' do
 
         expect(status).to eq 201
       end
+
+      example 'Bad' do
+        do_request target: { title: '' }
+
+        expect(status).to eq 422
+      end
     end
   end
 

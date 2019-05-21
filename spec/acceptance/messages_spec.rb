@@ -33,6 +33,12 @@ resource 'Messages' do
 
         expect(status).to eq 201
       end
+
+      example 'Bad' do
+        do_request message: { text: '' }
+
+        expect(status).to eq 422
+      end
     end
   end
 end

@@ -17,10 +17,7 @@ RSpec.describe 'POST /conversations', type: :request do
     }
   end
 
-  subject do
-    post '/conversations', params: params, headers: headers
-    data
-  end
+  subject { post '/conversations', params: params, headers: headers }
 
   context 'valid params' do
     context 'nonexistent conversation' do
@@ -36,7 +33,7 @@ RSpec.describe 'POST /conversations', type: :request do
       end
 
       it 'returns an error' do
-        expect(response).to have_http_status(:bad_request)
+        expect(response).to have_http_status(:unprocessable_entity)
       end
     end
 
@@ -46,7 +43,7 @@ RSpec.describe 'POST /conversations', type: :request do
       before { subject }
 
       it 'returns an error' do
-        expect(errors).to include "Can't start a conversation with yourself"
+        expect(errors).to include 'must not belong to the initiator'
       end
     end
   end
