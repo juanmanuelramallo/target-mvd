@@ -10,7 +10,7 @@ class ConversationsController < ApplicationController
   end
 
   def index
-    render json: current_user.conversations, include: permitted_include
+    render json: paginate(current_user.conversations), include: permitted_include
   end
 
   def show

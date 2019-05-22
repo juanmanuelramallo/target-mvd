@@ -37,6 +37,7 @@ gem 'devise', '~> 4.6.2'
 gem 'devise_token_auth', '~> 1.1.0'
 gem 'figaro', '~> 1.1.1'
 gem 'geokit-rails', '~> 2.3.1'
+gem 'pagy', '~> 3.2.0'
 gem 'rollbar', '~> 2.19.4'
 gem 'sidekiq', '~> 5.2.7'
 

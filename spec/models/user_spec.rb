@@ -41,7 +41,7 @@ RSpec.describe User, type: :model do
       end
 
       it 'returns 2 unique targets' do
-        expect(subject).to eq expected_targets
+        expect(subject.pluck(:id).sort).to eq expected_targets.pluck(:id).sort
       end
     end
 
