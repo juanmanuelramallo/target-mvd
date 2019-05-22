@@ -36,7 +36,7 @@ class ConversationsController < ApplicationController
   end
 
   def permitted_inclusions
-    %w[messages target initiator]
+    %w[target initiator]
   end
 
   def update_params

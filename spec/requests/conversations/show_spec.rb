@@ -47,16 +47,16 @@ RSpec.describe 'GET /conversations/:id', type: :request do
     context 'including messages' do
       let(:includes) { 'messages' }
 
-      it 'returns the messages along with the conversation' do
-        expect(subject['included'][0]['type']).to eq 'messages'
+      it 'does not return messages' do
+        expect(subject['included']).to eq nil
       end
     end
 
-    context 'including messages and target' do
-      let(:includes) { 'messages,target' }
+    context 'including initiator and target' do
+      let(:includes) { 'initiator,target' }
 
       it 'returns both included keys' do
-        expect(subject['included'].size).to eq(conversation.messages.count + 1)
+        expect(subject['included'].size).to eq 2
       end
     end
 

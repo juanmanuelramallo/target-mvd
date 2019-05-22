@@ -9,6 +9,10 @@ class MessagesController < ApplicationController
     render json: message, status: :created if message.save!
   end
 
+  def index
+    render json: conversation.messages
+  end
+
   private
 
   def conversation
