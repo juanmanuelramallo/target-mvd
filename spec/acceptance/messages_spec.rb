@@ -8,7 +8,7 @@ resource 'Messages' do
   header 'client', :client_header
   header 'uid', :uid_header
 
-  let(:conversation) { create :conversation }
+  let(:conversation) { create :conversation_with_messages }
   let(:message) { build :message, conversation: conversation, user: user }
   let(:user) { conversation.initiator }
 
@@ -38,6 +38,14 @@ resource 'Messages' do
         do_request message: { text: '' }
 
         expect(status).to eq 422
+      end
+    end
+
+    get 'Index' do
+      example 'Ok' do
+        do_request
+
+        expect(status).to eq 200
       end
     end
   end

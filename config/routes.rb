@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :compatible_targets, only: :index
   resources :conversations, only: %i[create index show update] do
-    resources :messages, only: :create
+    resources :messages, only: %i[create index]
   end
   resources :targets, only: %i[create index destroy update]
   resources :topics, only: :index
