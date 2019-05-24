@@ -11,17 +11,21 @@ resource 'Auth' do
     post 'Create' do
       with_options required: true do
         attribute :email, 'Email'
+        attribute :full_name, 'Full name'
+        attribute :gender, 'Gender'
         attribute :password, 'Password'
       end
 
       let(:new_user) { build :user }
       let(:email) { new_user.email }
+      let(:full_name) { new_user.full_name }
+      let(:gender) { new_user.gender }
       let(:password) { 'P@55word' }
 
       example 'Ok' do
         do_request
 
-        expect(status).to eq 200
+        expect(status).to eq 201
       end
 
       example 'Bad' do

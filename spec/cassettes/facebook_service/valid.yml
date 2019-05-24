@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://graph.facebook.com/me?access_token=acc35T0k3n&fields=email
+    uri: https://graph.facebook.com/me?access_token=acc35T0k3n&fields=email,name
     body:
       encoding: US-ASCII
       string: ''
@@ -19,9 +19,9 @@ http_interactions:
       message: OK
     headers:
       Etag:
-      - '"21c65ef004f57ff39c5310405068d31d3fa500e3"'
+      - '"c3022fda5b18bbce393633590173b11b2844a2a9"'
       X-App-Usage:
-      - '{"call_count":0,"total_cputime":0,"total_time":0}'
+      - '{"call_count":5,"total_cputime":0,"total_time":0}'
       Content-Type:
       - application/json; charset=UTF-8
       Facebook-Api-Version:
@@ -31,28 +31,28 @@ http_interactions:
       Pragma:
       - no-cache
       X-Fb-Rev:
-      - '1000708627'
+      - '1000736547'
       Access-Control-Allow-Origin:
       - "*"
       Cache-Control:
       - private, no-cache, no-store, must-revalidate
       X-Fb-Trace-Id:
-      - AHG9tL1MJJy
+      - A323gH6/Z2z
       X-Fb-Request-Id:
-      - AWJZOqWBBIPy1HP8Yg3rnbQ
+      - AVXOcJRtDCH1o-qFFXJHay5
       Expires:
       - Sat, 01 Jan 2000 00:00:00 GMT
       X-Fb-Debug:
-      - EUtkMwFO3ubEv2UinzrqtSapSMJmdCqhd/mYvISpU/Se1u5smezNDoG626F+9nXO7+S+Kfr9gGxue1MeBvMxPQ==
+      - czjXHlid67g34J1MFWsCp/7JlxFZ2M42TRea+IDmONrXydSuoW6k1S9HrjPT1wwMPCNQVG0FS6pWPpIxtAfxrg==
       Date:
-      - Tue, 14 May 2019 15:49:07 GMT
+      - Tue, 21 May 2019 19:44:51 GMT
       Connection:
       - keep-alive
       Content-Length:
-      - '64'
+      - '93'
     body:
       encoding: UTF-8
-      string: '{"email":"existing-user\u0040example.com","id":"10156645598139232"}'
+      string: '{"email":"existing-user\u0040example.com","name":"Juan Manuel Ramallo","id":"10156645598139232"}'
     http_version:
-  recorded_at: Tue, 14 May 2019 15:49:07 GMT
+  recorded_at: Tue, 21 May 2019 19:44:51 GMT
 recorded_with: VCR 4.0.0

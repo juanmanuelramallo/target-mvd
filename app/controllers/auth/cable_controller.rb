@@ -9,8 +9,6 @@ module Auth
                           created_at: Time.now.in_time_zone)
 
       render json: ticket if ticket.encode!
-    rescue TicketInvalidError
-      render_error(:bad_request, I18n.t('errors.cable_ticket_invalid'))
     end
   end
 end
