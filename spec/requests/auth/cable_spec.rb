@@ -10,11 +10,11 @@ RSpec.describe 'POST /auth/cable', type: :request do
     data
   end
 
-  it 'generates a valid ticket' do
-    expect(CableTicketValidationService.call!(subject['attributes']['value'])).to eq user
-  end
-
   it 'updates the cache' do
     expect { subject }.to change { Rails.cache.exist?("users/#{user.id}/cable_ticket") }
+  end
+
+  it 'generates a valid ticket' do
+    expect(CableTicketValidationService.call!(subject['attributes']['value'])).to eq user
   end
 end

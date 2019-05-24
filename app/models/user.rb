@@ -23,7 +23,7 @@ class User < ApplicationRecord
   end
 
   def compatible_targets
-    targets.flat_map(&:compatible_targets).uniq
+    Target.where(id: targets.flat_map(&:compatible_targets).pluck(:id))
   end
 
   def conversations

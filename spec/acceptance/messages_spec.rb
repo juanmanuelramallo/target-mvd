@@ -8,7 +8,7 @@ resource 'Messages' do
   header 'client', :client_header
   header 'uid', :uid_header
 
-  let(:conversation) { create :conversation_with_messages }
+  let(:conversation) { create :conversation_with_messages, messages_count: 35 }
   let(:message) { build :message, conversation: conversation, user: user }
   let(:user) { conversation.initiator }
 

@@ -10,6 +10,7 @@ resource 'Auth' do
   route '/auth', 'Registrations' do
     post 'Create' do
       with_options required: true do
+        attribute :avatar, 'Avatar'
         attribute :email, 'Email'
         attribute :full_name, 'Full name'
         attribute :gender, 'Gender'
@@ -41,8 +42,11 @@ resource 'Auth' do
       header 'uid', :uid_header
 
       with_options required: true do
+        attribute :avatar, 'New avatar'
         attribute :current_password, 'Current password'
         attribute :email, 'New email'
+        attribute :full_name, 'New full name'
+        attribute :gender, 'New gender'
         attribute :password, 'New password'
       end
 
