@@ -20,6 +20,7 @@ class FacebookService
 
     User.where(uid: response['email']).first_or_create! do |user|
       user.email = response['email']
+      user.full_name = response['name']
       user.password = Devise.friendly_token[0, 20]
       user.provider = 'facebook'
       user.skip_confirmation!
@@ -47,6 +48,6 @@ class FacebookService
   end
 
   def url
-    @url ||= URI.parse "#{BASE_URL}/me?fields=email&access_token=#{access_token}"
+    @url ||= URI.parse "#{BASE_URL}/me?fields=email,name&access_token=#{access_token}"
   end
 end

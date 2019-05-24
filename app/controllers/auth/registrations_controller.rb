@@ -8,8 +8,16 @@ module Auth
       render_resource_invalid(@resource)
     end
 
+    def render_create_success
+      render json: @resource, status: :created
+    end
+
     def render_update_error
       render_resource_invalid(@resource)
+    end
+
+    def render_update_success
+      render json: @resource, status: :ok
     end
   end
 end
