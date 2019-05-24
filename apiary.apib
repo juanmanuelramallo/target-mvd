@@ -7,6 +7,8 @@ FORMAT: 1A
 
 + Attributes (object)
   + email (required) - Email
+  + full_name (required) - Full name
+  + gender (required) - Gender
   + password (required) - Password
   + current_password (required) - Current password
 
@@ -16,7 +18,7 @@ FORMAT: 1A
 
     + Body
 
-            {"email":"","password":"P@55word"}
+            {"email":"","full_name":"John Lennon 2","gender":"male","password":"P@55word"}
 
 + Response 422 ()
 
@@ -37,23 +39,29 @@ FORMAT: 1A
 
     + Body
 
-            {"email":"user-1@example.com","password":"P@55word"}
+            {"email":"user-1@example.com","full_name":"John Lennon 1","gender":"male","password":"P@55word"}
 
-+ Response 200 ()
++ Response 201 ()
 
     + Body
 
             {
-              "status": "success",
               "data": {
-                "id": 1,
-                "email": "user-1@example.com",
-                "created_at": "2019-05-21T18:42:28.227Z",
-                "updated_at": "2019-05-21T18:42:28.227Z",
-                "provider": "email",
-                "uid": "user-1@example.com",
-                "allow_password_change": false,
-                "type": "user"
+                "id": "1",
+                "type": "users",
+                "attributes": {
+                  "avatar-url": null,
+                  "email": "user-1@example.com",
+                  "full-name": "John Lennon 1",
+                  "gender": "male"
+                },
+                "relationships": {
+                  "targets": {
+                    "data": [
+            
+                    ]
+                  }
+                }
               }
             }
 
@@ -84,16 +92,22 @@ FORMAT: 1A
     + Body
 
             {
-              "status": "success",
               "data": {
-                "id": 2,
-                "email": "new-email-1@example.com",
-                "provider": "email",
-                "uid": "new-email-1@example.com",
-                "created_at": "2019-05-21T18:42:28.570Z",
-                "updated_at": "2019-05-21T18:42:28.691Z",
-                "allow_password_change": false,
-                "type": "user"
+                "id": "2",
+                "type": "users",
+                "attributes": {
+                  "avatar-url": null,
+                  "email": "new-email-1@example.com",
+                  "full-name": "John Lennon 3",
+                  "gender": "male"
+                },
+                "relationships": {
+                  "targets": {
+                    "data": [
+            
+                    ]
+                  }
+                }
               }
             }
 
@@ -118,7 +132,7 @@ FORMAT: 1A
             access-token: 1234567890123456789012
             token-type: Bearer
             client: abcdefghijklmnopqrstuv
-            expiry: 1559673748
+            expiry: 1559917653
             uid: user-4@example.com
 
     + Body
@@ -128,8 +142,10 @@ FORMAT: 1A
                 "id": 3,
                 "email": "user-4@example.com",
                 "provider": "email",
+                "full_name": "John Lennon 4",
                 "uid": "user-4@example.com",
                 "allow_password_change": false,
+                "gender": "male",
                 "type": "user"
               }
             }
@@ -219,9 +235,11 @@ FORMAT: 1A
                 "provider": "email",
                 "allow_password_change": false,
                 "email": "user-7@example.com",
+                "full_name": "John Lennon 7",
                 "uid": "user-7@example.com",
-                "created_at": "2019-05-21T18:42:29.165Z",
-                "updated_at": "2019-05-21T18:42:29.269Z",
+                "created_at": "2019-05-24T14:27:33.522Z",
+                "updated_at": "2019-05-24T14:27:33.623Z",
+                "gender": "male",
                 "type": "user"
               },
               "message": "Your password has been successfully updated."
@@ -247,7 +265,7 @@ FORMAT: 1A
             access-token: 1234567890123456789012
             token-type: Bearer
             client: abcdefghijklmnopqrstuv
-            expiry: 1559673749
+            expiry: 1559917653
             uid: existing-user@example.com
 
     + Body
@@ -257,7 +275,10 @@ FORMAT: 1A
                 "id": "7",
                 "type": "users",
                 "attributes": {
-                  "email": "existing-user@example.com"
+                  "avatar-url": null,
+                  "email": "existing-user@example.com",
+                  "full-name": "Juan Manuel Ramallo",
+                  "gender": "unset"
                 },
                 "relationships": {
                   "targets": {
@@ -298,7 +319,7 @@ FORMAT: 1A
                 "id": "ticket",
                 "type": "tickets",
                 "attributes": {
-                  "value": "eyJ1c2VyX2lkIjo4LCJpcCI6IjEyNy4wLjAuMSIsImNyZWF0ZWRfYXQiOiIyMDE5LTA1LTIxVDE4OjQyOjI5LjQ5NFoifQ=="
+                  "value": "eyJ1c2VyX2lkIjo4LCJpcCI6IjEyNy4wLjAuMSIsImNyZWF0ZWRfYXQiOiIyMDE5LTA1LTI0VDE0OjI3OjMzLjgxMloifQ=="
                 }
               }
             }
@@ -336,9 +357,9 @@ FORMAT: 1A
                   "type": "targets",
                   "attributes": {
                     "area-length": 2000,
-                    "lat": -24.329621767578,
-                    "lng": 73.89860518313,
-                    "title": "Miss Anthony Heathcote"
+                    "lat": -86.5917498575336,
+                    "lng": -68.6073074278556,
+                    "title": "Wilburn Runolfsdottir"
                   },
                   "relationships": {
                     "topic": {
@@ -444,11 +465,6 @@ FORMAT: 1A
                       "id": "11",
                       "type": "targets"
                     }
-                  },
-                  "messages": {
-                    "data": [
-            
-                    ]
                   }
                 }
               }
@@ -497,11 +513,6 @@ FORMAT: 1A
                         "id": "22",
                         "type": "targets"
                       }
-                    },
-                    "messages": {
-                      "data": [
-            
-                      ]
                     }
                   }
                 },
@@ -524,11 +535,6 @@ FORMAT: 1A
                         "id": "23",
                         "type": "targets"
                       }
-                    },
-                    "messages": {
-                      "data": [
-            
-                      ]
                     }
                   }
                 },
@@ -551,11 +557,6 @@ FORMAT: 1A
                         "id": "24",
                         "type": "targets"
                       }
-                    },
-                    "messages": {
-                      "data": [
-            
-                      ]
                     }
                   }
                 },
@@ -578,11 +579,6 @@ FORMAT: 1A
                         "id": "25",
                         "type": "targets"
                       }
-                    },
-                    "messages": {
-                      "data": [
-            
-                      ]
                     }
                   }
                 }
@@ -636,30 +632,6 @@ FORMAT: 1A
                       "id": "27",
                       "type": "targets"
                     }
-                  },
-                  "messages": {
-                    "data": [
-                      {
-                        "id": "1",
-                        "type": "messages"
-                      },
-                      {
-                        "id": "2",
-                        "type": "messages"
-                      },
-                      {
-                        "id": "3",
-                        "type": "messages"
-                      },
-                      {
-                        "id": "4",
-                        "type": "messages"
-                      },
-                      {
-                        "id": "5",
-                        "type": "messages"
-                      }
-                    ]
                   }
                 }
               }
@@ -711,30 +683,6 @@ FORMAT: 1A
                       "id": "32",
                       "type": "targets"
                     }
-                  },
-                  "messages": {
-                    "data": [
-                      {
-                        "id": "6",
-                        "type": "messages"
-                      },
-                      {
-                        "id": "7",
-                        "type": "messages"
-                      },
-                      {
-                        "id": "8",
-                        "type": "messages"
-                      },
-                      {
-                        "id": "9",
-                        "type": "messages"
-                      },
-                      {
-                        "id": "10",
-                        "type": "messages"
-                      }
-                    ]
                   }
                 }
               }
@@ -786,7 +734,7 @@ FORMAT: 1A
 
     + Body
 
-            {"message":{"text":"You want to enjoy life, don't you? If you get your job done quickly and your job is fun, that's good isn't it? That's the purpose of life, partly. Your life is better."}}
+            {"message":{"text":"Man is driven to create; I know I really love to create things. And while I'm not good at painting, drawing, or music, I can write software."}}
 
 + Response 201 ()
 
@@ -802,11 +750,11 @@ FORMAT: 1A
 
             {
               "data": {
-                "id": "11",
+                "id": "16",
                 "type": "messages",
                 "attributes": {
-                  "text": "You want to enjoy life, don't you? If you get your job done quickly and your job is fun, that's good isn't it? That's the purpose of life, partly. Your life is better.",
-                  "created-at": "2019-05-21T18:42:30.714Z"
+                  "text": "Man is driven to create; I know I really love to create things. And while I'm not good at painting, drawing, or music, I can write software.",
+                  "created-at": "2019-05-24T14:27:35.011Z"
                 },
                 "relationships": {
                   "conversation": {
@@ -818,97 +766,6 @@ FORMAT: 1A
                   "user": {
                     "data": {
                       "id": "36",
-                      "type": "users"
-                    }
-                  }
-                }
-              }
-            }
-
-# Group Targets
-
-## Targets collection [/targets]
-
-+ Attributes (object)
-  + area_length (required) - Area length (meters)
-  + lat (required) - Latitude
-  + lng (required) - Longitude
-  + title (required) - Title
-  + topic_id (required) - Topic ID
-
-### Create [POST]
-
-+ Request Bad
-
-    + Headers
-
-            Access-Token: 1234567890123456789012
-            Client: abcdefghijklmnopqrstuv
-            Uid: user-43@example.com
-
-    + Body
-
-            {"target":{"area_length":721,"lat":-83.31988711357931,"lng":-135.33671617971078,"title":"","topic_id":24}}
-
-+ Response 422 ()
-
-    + Body
-
-            {
-              "errors": [
-                {
-                  "source": {
-                    "pointer": "/data/attributes/title"
-                  },
-                  "detail": "can't be blank"
-                }
-              ]
-            }
-
-+ Request Ok
-
-    + Headers
-
-            Access-Token: 1234567890123456789012
-            Client: abcdefghijklmnopqrstuv
-            Uid: user-41@example.com
-
-    + Body
-
-            {"target":{"area_length":227,"lat":-27.842093754289536,"lng":154.4513399925841,"title":"Refugio McGlynn DVM","topic_id":21}}
-
-+ Response 201 ()
-
-    + Headers
-
-            access-token:  
-            token-type: Bearer
-            client: abcdefghijklmnopqrstuv
-            expiry:  
-            uid: user-41@example.com
-
-    + Body
-
-            {
-              "data": {
-                "id": "45",
-                "type": "targets",
-                "attributes": {
-                  "area-length": 227,
-                  "lat": -27.842093754289536,
-                  "lng": 154.4513399925841,
-                  "title": "Refugio McGlynn DVM"
-                },
-                "relationships": {
-                  "topic": {
-                    "data": {
-                      "id": "21",
-                      "type": "topics"
-                    }
-                  },
-                  "user": {
-                    "data": {
-                      "id": "41",
                       "type": "users"
                     }
                   }
@@ -941,19 +798,17 @@ FORMAT: 1A
             {
               "data": [
                 {
-                  "id": "40",
-                  "type": "targets",
+                  "id": "22",
+                  "type": "messages",
                   "attributes": {
-                    "area-length": 997,
-                    "lat": -7.39415303824981,
-                    "lng": -153.564716077266,
-                    "title": "Ms. Julian Leuschke"
+                    "text": "Smart people underestimate the ordinarity of ordinary people.",
+                    "created-at": "2019-05-24T14:27:35.179Z"
                   },
                   "relationships": {
-                    "topic": {
+                    "conversation": {
                       "data": {
-                        "id": "17",
-                        "type": "topics"
+                        "id": "22",
+                        "type": "conversations"
                       }
                     },
                     "user": {
@@ -965,13 +820,219 @@ FORMAT: 1A
                   }
                 },
                 {
-                  "id": "41",
+                  "id": "23",
+                  "type": "messages",
+                  "attributes": {
+                    "text": "Most of the tasks we do are for humans. For example, a tax calculation is counting numbers so the government can pull money out from my wallet, but government consists of humans.",
+                    "created-at": "2019-05-24T14:27:35.180Z"
+                  },
+                  "relationships": {
+                    "conversation": {
+                      "data": {
+                        "id": "22",
+                        "type": "conversations"
+                      }
+                    },
+                    "user": {
+                      "data": {
+                        "id": "41",
+                        "type": "users"
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "24",
+                  "type": "messages",
+                  "attributes": {
+                    "text": "I didn't work hard to make Ruby perfect for everyone, because you feel differently from me. No language can be perfect for everyone. I tried to make Ruby perfect for me, but maybe it's not perfect for you. The perfect language for Guido van Rossum is probably Python.",
+                    "created-at": "2019-05-24T14:27:35.182Z"
+                  },
+                  "relationships": {
+                    "conversation": {
+                      "data": {
+                        "id": "22",
+                        "type": "conversations"
+                      }
+                    },
+                    "user": {
+                      "data": {
+                        "id": "40",
+                        "type": "users"
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "25",
+                  "type": "messages",
+                  "attributes": {
+                    "text": "I hope to see Ruby help every programmer in the world to be productive, and to enjoy programming, and to be happy. That is the primary purpose of Ruby language.",
+                    "created-at": "2019-05-24T14:27:35.184Z"
+                  },
+                  "relationships": {
+                    "conversation": {
+                      "data": {
+                        "id": "22",
+                        "type": "conversations"
+                      }
+                    },
+                    "user": {
+                      "data": {
+                        "id": "41",
+                        "type": "users"
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "26",
+                  "type": "messages",
+                  "attributes": {
+                    "text": "I didn't work hard to make Ruby perfect for everyone, because you feel differently from me. No language can be perfect for everyone. I tried to make Ruby perfect for me, but maybe it's not perfect for you. The perfect language for Guido van Rossum is probably Python.",
+                    "created-at": "2019-05-24T14:27:35.185Z"
+                  },
+                  "relationships": {
+                    "conversation": {
+                      "data": {
+                        "id": "22",
+                        "type": "conversations"
+                      }
+                    },
+                    "user": {
+                      "data": {
+                        "id": "40",
+                        "type": "users"
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+
+# Group Targets
+
+## Targets collection [/targets]
+
++ Attributes (object)
+  + area_length (required) - Area length (meters)
+  + lat (required) - Latitude
+  + lng (required) - Longitude
+  + title (required) - Title
+  + topic_id (required) - Topic ID
+
+### Create [POST]
+
++ Request Bad
+
+    + Headers
+
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
+            Uid: user-45@example.com
+
+    + Body
+
+            {"target":{"area_length":711,"lat":52.94819118357151,"lng":64.80483783436537,"title":"","topic_id":25}}
+
++ Response 422 ()
+
+    + Body
+
+            {
+              "errors": [
+                {
+                  "source": {
+                    "pointer": "/data/attributes/title"
+                  },
+                  "detail": "can't be blank"
+                }
+              ]
+            }
+
++ Request Ok
+
+    + Headers
+
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
+            Uid: user-43@example.com
+
+    + Body
+
+            {"target":{"area_length":323,"lat":-29.728731250694544,"lng":150.74420224924438,"title":"Dianna Schultz","topic_id":22}}
+
++ Response 201 ()
+
+    + Headers
+
+            access-token:  
+            token-type: Bearer
+            client: abcdefghijklmnopqrstuv
+            expiry:  
+            uid: user-43@example.com
+
+    + Body
+
+            {
+              "data": {
+                "id": "47",
+                "type": "targets",
+                "attributes": {
+                  "area-length": 323,
+                  "lat": -29.728731250694544,
+                  "lng": 150.74420224924438,
+                  "title": "Dianna Schultz"
+                },
+                "relationships": {
+                  "topic": {
+                    "data": {
+                      "id": "22",
+                      "type": "topics"
+                    }
+                  },
+                  "user": {
+                    "data": {
+                      "id": "43",
+                      "type": "users"
+                    }
+                  }
+                }
+              }
+            }
+
+### Index [GET]
+
++ Request Ok
+
+    + Headers
+
+            Access-Token: 1234567890123456789012
+            Client: abcdefghijklmnopqrstuv
+            Uid: user-42@example.com
+
++ Response 200 ()
+
+    + Headers
+
+            access-token:  
+            token-type: Bearer
+            client: abcdefghijklmnopqrstuv
+            expiry:  
+            uid: user-42@example.com
+
+    + Body
+
+            {
+              "data": [
+                {
+                  "id": "42",
                   "type": "targets",
                   "attributes": {
-                    "area-length": 595,
-                    "lat": 73.1510871946868,
-                    "lng": -33.2906273075162,
-                    "title": "Mr. Hoyt Labadie"
+                    "area-length": 835,
+                    "lat": 6.0910926100098,
+                    "lng": -56.3897233879792,
+                    "title": "Ms. Elton Gorczany"
                   },
                   "relationships": {
                     "topic": {
@@ -982,7 +1043,31 @@ FORMAT: 1A
                     },
                     "user": {
                       "data": {
-                        "id": "40",
+                        "id": "42",
+                        "type": "users"
+                      }
+                    }
+                  }
+                },
+                {
+                  "id": "43",
+                  "type": "targets",
+                  "attributes": {
+                    "area-length": 891,
+                    "lat": 4.455688628871,
+                    "lng": 154.205738430685,
+                    "title": "Saturnina Runolfsson"
+                  },
+                  "relationships": {
+                    "topic": {
+                      "data": {
+                        "id": "19",
+                        "type": "topics"
+                      }
+                    },
+                    "user": {
+                      "data": {
+                        "id": "42",
                         "type": "users"
                       }
                     }
@@ -1008,7 +1093,7 @@ FORMAT: 1A
 
             Access-Token: 1234567890123456789012
             Client: abcdefghijklmnopqrstuv
-            Uid: user-45@example.com
+            Uid: user-47@example.com
 
 + Response 200 ()
 
@@ -1018,30 +1103,30 @@ FORMAT: 1A
             token-type: Bearer
             client: abcdefghijklmnopqrstuv
             expiry:  
-            uid: user-45@example.com
+            uid: user-47@example.com
 
     + Body
 
             {
               "data": {
-                "id": "51",
+                "id": "53",
                 "type": "targets",
                 "attributes": {
-                  "area-length": 988,
-                  "lat": -89.923673751154,
-                  "lng": -12.4905141852117,
-                  "title": "Carter Gutmann"
+                  "area-length": 755,
+                  "lat": 4.91845049407466,
+                  "lng": 109.363503650676,
+                  "title": "Donn Ullrich Jr."
                 },
                 "relationships": {
                   "topic": {
                     "data": {
-                      "id": "27",
+                      "id": "28",
                       "type": "topics"
                     }
                   },
                   "user": {
                     "data": {
-                      "id": "45",
+                      "id": "47",
                       "type": "users"
                     }
                   }
@@ -1057,11 +1142,11 @@ FORMAT: 1A
 
             Access-Token: 1234567890123456789012
             Client: abcdefghijklmnopqrstuv
-            Uid: user-46@example.com
+            Uid: user-48@example.com
 
     + Body
 
-            {"target":{"area_length":541,"lat":-77.34988018643284,"lng":9.48481312909513,"title":"Ellis Hahn","topic_id":31}}
+            {"target":{"area_length":761,"lat":81.14695851175449,"lng":-121.59257841171197,"title":"Alverta Champlin","topic_id":32}}
 
 + Response 202 ()
 
@@ -1071,30 +1156,30 @@ FORMAT: 1A
             token-type: Bearer
             client: abcdefghijklmnopqrstuv
             expiry:  
-            uid: user-46@example.com
+            uid: user-48@example.com
 
     + Body
 
             {
               "data": {
-                "id": "54",
+                "id": "56",
                 "type": "targets",
                 "attributes": {
-                  "area-length": 541,
-                  "lat": -77.34988018643284,
-                  "lng": 9.48481312909513,
-                  "title": "Ellis Hahn"
+                  "area-length": 761,
+                  "lat": 81.14695851175449,
+                  "lng": -121.59257841171197,
+                  "title": "Alverta Champlin"
                 },
                 "relationships": {
                   "topic": {
                     "data": {
-                      "id": "31",
+                      "id": "32",
                       "type": "topics"
                     }
                   },
                   "user": {
                     "data": {
-                      "id": "46",
+                      "id": "48",
                       "type": "users"
                     }
                   }
@@ -1114,7 +1199,7 @@ FORMAT: 1A
 
             Access-Token: 1234567890123456789012
             Client: abcdefghijklmnopqrstuv
-            Uid: user-48@example.com
+            Uid: user-50@example.com
 
 + Response 200 ()
 
@@ -1124,31 +1209,17 @@ FORMAT: 1A
             token-type: Bearer
             client: abcdefghijklmnopqrstuv
             expiry:  
-            uid: user-48@example.com
+            uid: user-50@example.com
 
     + Body
 
             {
               "data": [
                 {
-                  "id": "32",
-                  "type": "topics",
-                  "attributes": {
-                    "name": "Craig Heathcote"
-                  },
-                  "relationships": {
-                    "targets": {
-                      "data": [
-            
-                      ]
-                    }
-                  }
-                },
-                {
                   "id": "33",
                   "type": "topics",
                   "attributes": {
-                    "name": "Dr. Delia Wehner"
+                    "name": "Dr. Josiah Marquardt"
                   },
                   "relationships": {
                     "targets": {
@@ -1162,7 +1233,21 @@ FORMAT: 1A
                   "id": "34",
                   "type": "topics",
                   "attributes": {
-                    "name": "Ora Morissette DVM"
+                    "name": "Dr. Leopoldo Purdy"
+                  },
+                  "relationships": {
+                    "targets": {
+                      "data": [
+            
+                      ]
+                    }
+                  }
+                },
+                {
+                  "id": "35",
+                  "type": "topics",
+                  "attributes": {
+                    "name": "Alita Williamson"
                   },
                   "relationships": {
                     "targets": {
