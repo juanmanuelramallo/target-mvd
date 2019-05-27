@@ -10,7 +10,7 @@ class MessagesController < ApplicationController
   end
 
   def index
-    render json: conversation.messages
+    render json: paginate(conversation.messages)
   end
 
   private
