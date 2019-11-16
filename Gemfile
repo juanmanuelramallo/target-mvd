@@ -28,7 +28,7 @@ gem 'redis', '~> 4.1.1'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-gem 'rack-cors', '~> 1.0.3'
+gem 'rack-cors', '~> 1.0.5'
 
 gem 'action-cable-testing', '~> 0.5.0'
 gem 'active_model_serializers', '~> 0.10.9'
