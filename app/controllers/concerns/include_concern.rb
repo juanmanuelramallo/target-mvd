@@ -15,5 +15,7 @@ module Concerns
     def include_params
       params.permit(:include)
     end
+
+    def permitted_inclusions; end
   end
 end

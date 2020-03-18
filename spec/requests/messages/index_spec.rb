@@ -16,7 +16,7 @@ RSpec.describe 'GET /conversations/:conversation_id/messages', type: :request do
   end
 
   it 'returns messages objects' do
-    expect(subject[0]['type']).to eq 'messages'
+    expect(subject[0]['type']).to eq 'message'
   end
 
   it 'returns messages from the conversation' do

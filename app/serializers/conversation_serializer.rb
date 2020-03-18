@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
-class ConversationSerializer < ActiveModel::Serializer
-  attributes :id, :unread, :status
-
-  belongs_to :initiator, class_name: 'User'
-  belongs_to :target
-
-  def unread
-    object.unread?(current_user)
+class ConversationSerializer < ApplicationSerializer
+  attributes :id, :status
+  attribute :unread do |object, args|
+    object.unread?(args[:current_user])
   end
+
+  belongs_to :initiator, serializer: UserSerializer
+  belongs_to :target
 end

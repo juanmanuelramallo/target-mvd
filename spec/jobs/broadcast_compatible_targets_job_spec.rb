@@ -9,7 +9,7 @@ RSpec.describe BroadcastCompatibleTargetsJob, type: :job do
 
   let(:lat) { Faker::Address.latitude }
   let(:lng) { Faker::Address.longitude }
-  let(:serialized_target) { ActiveModelSerializers::SerializableResource.new(target).as_json }
+  let(:serialized_target) { TargetSerializer.new(target).serialized_json }
   let(:target) { create :target, topic: topic, lat: lat, lng: lng, area_length: 1500 }
   let(:topic) { create :topic }
 

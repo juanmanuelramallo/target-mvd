@@ -9,7 +9,7 @@ module Auth
     end
 
     def render_create_success
-      render json: @resource, status: :created
+      render json: UserSerializer.new(@resource), status: :created
     end
 
     def render_update_error
@@ -17,7 +17,7 @@ module Auth
     end
 
     def render_update_success
-      render json: @resource, status: :ok
+      render json: UserSerializer.new(@resource), status: :ok
     end
   end
 end

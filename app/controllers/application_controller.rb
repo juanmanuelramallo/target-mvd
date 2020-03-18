@@ -2,8 +2,9 @@
 
 class ApplicationController < ActionController::API
   include Concerns::CommonErrorsConcern
+  include Concerns::SerializeConcern
   include Concerns::IncludeConcern
-  include Concerns::PaginationConcern
+  include Pagy::Backend
   include DeviseTokenAuth::Concerns::SetUserByToken
 
   before_action :configure_permitted_parameters, if: :devise_controller?

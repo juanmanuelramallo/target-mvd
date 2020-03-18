@@ -45,7 +45,7 @@ RSpec.describe 'POST /targets', type: :request do
     end
 
     it 'has the correct area length' do
-      expect(subject['attributes']['area-length']).to eq area_length
+      expect(subject['attributes']['areaLength']).to eq area_length
     end
 
     it 'enqueues a broadcast job' do

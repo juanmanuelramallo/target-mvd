@@ -6,7 +6,7 @@ class BroadcastNewMessageJob < ApplicationJob
   def perform(message)
     ConversationsChannel.broadcast_to(
       message.conversation,
-      ActiveModelSerializers::SerializableResource.new(message).as_json
+      MessageSerializer.new(message).serialized_json
     )
   end
 end

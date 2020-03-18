@@ -4,7 +4,9 @@ class CompatibleTargetsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    render json: paginate(current_user.compatible_targets), include: permitted_include
+    _, targets = pagy(current_user.compatible_targets)
+
+    render json: serialize_collection(targets, TargetSerializer)
   end
 
   private

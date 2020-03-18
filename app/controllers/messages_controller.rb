@@ -6,11 +6,13 @@ class MessagesController < ApplicationController
   def create
     message = conversation.messages.new(message_params.merge(user_id: current_user.id))
 
-    render json: message, status: :created if message.save!
+    render json: serialize_resource(message, MessageSerializer), status: :created if message.save!
   end
 
   def index
-    render json: paginate(conversation.messages)
+    _, messages = pagy(conversation.messages)
+
+    render json: serialize_collection(messages, MessageSerializer)
   end
 
   private

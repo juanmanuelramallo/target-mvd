@@ -32,7 +32,7 @@ RSpec.describe 'POST /auth', type: :request do
     end
 
     it 'has the correct name' do
-      expect(attributes['full-name']).to eq full_name
+      expect(attributes['fullName']).to eq full_name
     end
   end
 
@@ -44,7 +44,7 @@ RSpec.describe 'POST /auth', type: :request do
     before { subject }
 
     it 'has an avatar attached' do
-      expect(attributes['avatar-url']).to include '/avatar.png'
+      expect(attributes['avatarUrl']).to include '/avatar.png'
     end
   end
 

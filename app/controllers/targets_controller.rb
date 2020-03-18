@@ -6,19 +6,21 @@ class TargetsController < ApplicationController
   def create
     target = Target.new target_params.merge(user_id: current_user.id)
 
-    render json: target, status: :created if target.save!
+    render json: serialize_resource(target, TargetSerializer), status: :created if target.save!
   end
 
   def destroy
-    render json: target.destroy
+    render json: serialize_resource(target.destroy, TargetSerializer)
   end
 
   def index
-    render json: current_user.targets, include: permitted_include
+    render json: serialize_collection(current_user.targets, TargetSerializer)
   end
 
   def update
-    render json: target, status: :accepted if target.update!(target_params)
+    return unless target.update!(target_params)
+
+    render json: serialize_resource(target, TargetSerializer), status: :accepted
   end
 
   private

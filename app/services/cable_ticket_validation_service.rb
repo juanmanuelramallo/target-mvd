@@ -28,7 +28,9 @@ class CableTicketValidationService
   def decode_ticket(enc)
     raise TicketInvalidError if enc.blank?
 
-    Ticket.new(JSON.parse(Base64.urlsafe_decode64(enc)))
+    parsed_json = JSON.parse(Base64.urlsafe_decode64(enc))
+
+    Ticket.new(parsed_json.slice('user_id', 'ip', 'created_at'))
   end
 
   def ticket

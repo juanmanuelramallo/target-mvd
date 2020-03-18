@@ -31,10 +31,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rack-cors', '~> 1.0.5'
 
 gem 'action-cable-testing', '~> 0.5.0'
-gem 'active_model_serializers', '~> 0.10.9'
 gem 'aws-sdk-s3', '~> 1', require: false
 gem 'devise', '~> 4.6.2'
 gem 'devise_token_auth', '~> 1.1.0'
+gem 'fast_jsonapi', '~> 1.5'
 gem 'figaro', '~> 1.1.1'
 gem 'geokit-rails', '~> 2.3.1'
 gem 'pagy', '~> 3.2.0'

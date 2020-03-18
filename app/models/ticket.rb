@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
-class Ticket < ActiveModelSerializers::Model
-  attributes :user_id, :ip, :created_at
+class Ticket
+  include ActiveModel::Model
+
+  attr_accessor :user_id, :ip, :created_at
 
   validates :user_id, :ip, :created_at, presence: true
   validate :created_at_must_be_less_than_5_minutes
@@ -22,6 +24,10 @@ class Ticket < ActiveModelSerializers::Model
     end
 
     Base64.urlsafe_encode64(to_json)
+  end
+
+  def id
+    nil
   end
 
   private

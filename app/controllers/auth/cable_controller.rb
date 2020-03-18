@@ -8,7 +8,7 @@ module Auth
       ticket = Ticket.new(user_id: current_user.id, ip: request.remote_ip,
                           created_at: Time.now.in_time_zone)
 
-      render json: ticket if ticket.encode!
+      render json: serialize_resource(ticket, TicketSerializer) if ticket.encode!
     end
   end
 end

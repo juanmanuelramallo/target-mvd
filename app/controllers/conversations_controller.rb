@@ -6,22 +6,28 @@ class ConversationsController < ApplicationController
   def create
     conversation = Conversation.new(conversation_params.merge(initiator_id: current_user.id))
 
-    render json: conversation, status: :created if conversation.save!
+    render json: serialized_conversation(conversation) if conversation.save!
   end
 
   def index
-    render json: paginate(current_user.conversations), include: permitted_include
+    render json: serialize_collection(current_user.conversations, ConversationSerializer)
   end
 
   def show
-    render json: conversation, include: permitted_include
+    render json: serialized_conversation(conversation)
   end
 
   def update
-    render json: conversation, status: :ok if conversation.update!(update_params)
+    return unless conversation.update!(update_params)
+
+    render json: serialized_conversation(conversation), status: :ok
   end
 
   private
+
+  def serialized_conversation(conversation)
+    serialize_resource(conversation, ConversationSerializer, params: { current_user: current_user })
+  end
 
   def conversation
     @conversation ||= current_user.conversations.find params[:id]
