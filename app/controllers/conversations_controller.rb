@@ -4,14 +4,12 @@ class ConversationsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    # byebug
     conversation = Conversation.new(conversation_params.merge(initiator_id: current_user.id))
 
     render jsonapi: conversation, status: :created if conversation.save!
   end
 
   def index
-    # byebug
     jsonapi_paginate(current_user.conversations) do |paginated|
       render jsonapi: paginated, include: permitted_include
     end

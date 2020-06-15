@@ -8,10 +8,6 @@ class Ticket
   validates :user_id, :ip, :created_at, presence: true
   validate :created_at_must_be_less_than_5_minutes
 
-  def initialize(args)
-    super(args)
-  end
-
   def id
     0
   end
