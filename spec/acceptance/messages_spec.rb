@@ -29,13 +29,29 @@ resource 'Messages' do
       let(:text) { message.text }
 
       example 'Ok' do
-        do_request
+        request = {
+          'data' => {
+            'type' => 'message',
+            'attributes' => {
+              'text' => text
+            }
+          }
+        }
+        do_request(request)
 
         expect(status).to eq 201
       end
 
       example 'Bad' do
-        do_request message: { text: '' }
+        request = {
+          'data' => {
+            'type' => 'message',
+            'attributes' => {
+              'text' => ''
+            }
+          }
+        }
+        do_request(request)
 
         expect(status).to eq 422
       end

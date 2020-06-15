@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
 class ConversationsController < ApplicationController
-  include JSONAPI::Pagination
-
   before_action :authenticate_user!
 
   def create
+    # byebug
     conversation = Conversation.new(conversation_params.merge(initiator_id: current_user.id))
 
     render jsonapi: conversation, status: :created if conversation.save!
   end
 
   def index
+    # byebug
     jsonapi_paginate(current_user.conversations) do |paginated|
       render jsonapi: paginated, include: permitted_include
     end
@@ -32,22 +32,20 @@ class ConversationsController < ApplicationController
   end
 
   def conversation_params
-    params.require(:conversation).permit(:target_id)
+    jsonapi_deserialize(params, only: [:target])
   end
 
-  def conversation_update_params
-    params.require(:conversation).permit(:unread)
+  def update_params
+    jsonapi_deserialize(params, only: update_params_only)
   end
 
   def permitted_inclusions
     %w[target initiator]
   end
 
-  def update_params
-    @update_params ||= if conversation.messages.last&.user == current_user
-                         conversation_update_params.except :unread
-                       else
-                         conversation_update_params
-                       end
+  def update_params_only
+    return [:unread] if conversation.messages.last&.user != current_user
+
+    :nothing
   end
 end

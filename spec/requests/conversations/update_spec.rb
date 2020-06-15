@@ -11,10 +11,21 @@ RSpec.describe 'PUT /conversations/:id', type: :request do
       }
     }
   end
+
+  let(:body) do
+    {
+      'data' => {
+        'type' => 'conversation',
+        'attributes' => {
+          'unread' => unread
+        }
+      }
+    }.to_json
+  end
   let(:user) { conversation.initiator }
 
   subject do
-    put conversation_path(conversation), params: params, headers: headers
+    put conversation_path(conversation), params: body, headers: headers
     data
   end
 

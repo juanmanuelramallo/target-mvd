@@ -6,17 +6,19 @@ RSpec.describe 'POST /conversations/:conversation_id/messages', type: :request d
   let(:conversation) { create :conversation }
   let(:message) { build :message, conversation: conversation, user: user }
   let(:user) { conversation.initiator }
-
-  let(:params) do
+  let(:body) do
     {
-      message: {
-        text: message.text
+      'data' => {
+        'type' => 'message',
+        'attributes' => {
+          'text' => message.text
+        }
       }
-    }
+    }.to_json
   end
 
   subject do
-    post "/conversations/#{conversation.id}/messages", params: params, headers: headers
+    post "/conversations/#{conversation.id}/messages", params: body, headers: headers
     data
   end
 
@@ -47,12 +49,15 @@ RSpec.describe 'POST /conversations/:conversation_id/messages', type: :request d
   end
 
   context 'missing params' do
-    let(:params) do
+    let(:body) do
       {
-        message: {
-          text: nil
+        'data' => {
+          'type' => 'message',
+          'attributes' => {
+            'text' => nil
+          }
         }
-      }
+      }.to_json
     end
 
     before { subject }

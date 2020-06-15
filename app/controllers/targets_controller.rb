@@ -28,7 +28,7 @@ class TargetsController < ApplicationController
   end
 
   def target_params
-    params.require(:target).permit(:area_length, :lat, :lng, :title, :topic_id)
+    jsonapi_deserialize(params, only: %i[area_length lat lng title topic])
   end
 
   def permitted_inclusions

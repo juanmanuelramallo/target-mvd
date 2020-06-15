@@ -2,8 +2,18 @@
 
 class Ticket
   include ActiveModel::Model
+
+  attr_accessor :user_id, :ip, :created_at
+
+  validates :user_id, :ip, :created_at, presence: true
+  validate :created_at_must_be_less_than_5_minutes
+
   def initialize(args)
     super(args)
+  end
+
+  def id
+    0
   end
 
   def cache_key
@@ -28,14 +38,5 @@ class Ticket
 
   def created_at_must_be_less_than_5_minutes
     errors.add(:created_at) if created_at < (Time.now.in_time_zone - 5.minutes)
-  end
-
-  attr_accessor :user_id, :ip, :created_at
-
-  validates :user_id, :ip, :created_at, presence: true
-  validate :created_at_must_be_less_than_5_minutes
-
-  def id
-    0
   end
 end

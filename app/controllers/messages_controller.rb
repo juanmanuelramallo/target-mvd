@@ -20,6 +20,6 @@ class MessagesController < ApplicationController
   end
 
   def message_params
-    params.require(:message).permit(:text)
+    jsonapi_deserialize(params, only: [:text])
   end
 end

@@ -3,18 +3,18 @@
 require 'rails_helper'
 
 RSpec.describe 'PUT /auth/password', type: :request do
-  let(:params) do
+  let(:body) do
     {
       password: password,
       password_confirmation: password_confirmation
-    }
+    }.to_json
   end
   let(:password) { 'p@55word' }
   let(:password_confirmation) { password }
   let(:user) { create :user }
 
   subject do
-    put '/auth/password', params: params, headers: headers
+    put '/auth/password', params: body, headers: headers
     response
   end
 

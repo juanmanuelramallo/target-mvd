@@ -10,20 +10,30 @@ RSpec.describe 'POST /targets', type: :request do
   let(:topic) { create :topic }
   let(:user) { create :user }
 
-  let(:params) do
+  let(:body) do
     {
-      target: {
-        area_length: area_length,
-        lat: lat,
-        lng: lng,
-        title: title,
-        topic_id: topic.id
+      'data' => {
+        'type' => 'target',
+        'attributes' => {
+          'area_length' => area_length,
+          'lat' => lat,
+          'lng' => lng,
+          'title' => title
+        },
+        'relationships' => {
+          'topic' => {
+            'data' => {
+              'type' => 'topic',
+              'id' => topic.id
+            }
+          }
+        }
       }
-    }
+    }.to_json
   end
 
   subject do
-    post '/targets', params: params, headers: headers
+    post '/targets', params: body, headers: headers
     data
   end
 
@@ -54,7 +64,7 @@ RSpec.describe 'POST /targets', type: :request do
   end
 
   context 'missing params' do
-    let(:params) { nil }
+    let(:body) { nil }
 
     before { subject }
 

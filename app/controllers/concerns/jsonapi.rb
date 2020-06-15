@@ -4,6 +4,9 @@ module Concerns
   module Jsonapi
     extend ActiveSupport::Concern
 
+    include JSONAPI::Pagination
+    include JSONAPI::Deserialization
+
     private
 
     def jsonapi_serializer_params

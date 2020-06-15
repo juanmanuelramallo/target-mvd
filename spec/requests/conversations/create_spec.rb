@@ -9,15 +9,24 @@ RSpec.describe 'POST /conversations', type: :request do
   let(:topic) { user.targets.first.topic }
   let(:user) { create :user_with_targets, targets_count: 1 }
 
-  let(:params) do
+  let(:body) do
     {
-      conversation: {
-        target_id: target.id
+      'data' => {
+        'type' => 'conversation',
+        'attributes' => {},
+        'relationships' => {
+          'target' => {
+            'data' => {
+              'type' => 'target',
+              'id' => target.id
+            }
+          }
+        }
       }
-    }
+    }.to_json
   end
 
-  subject { post '/conversations', params: params, headers: headers }
+  subject { post '/conversations', params: body, headers: headers }
 
   context 'valid params' do
     context 'nonexistent conversation' do
@@ -48,11 +57,9 @@ RSpec.describe 'POST /conversations', type: :request do
     end
   end
 
-  context 'missing params' do
-    let(:params) do
-      {
-        conversation: {}
-      }
+  context 'missing body' do
+    let(:body) do
+      {}
     end
 
     before { subject }

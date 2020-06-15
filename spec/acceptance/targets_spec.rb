@@ -41,7 +41,26 @@ resource 'Targets' do
       let(:topic_id) { target.topic_id }
 
       example 'Ok' do
-        do_request
+        request = {
+          'data' => {
+            'type' => 'target',
+            'attributes' => {
+              'area_length' => area_length,
+              'lat' => lat,
+              'lng' => lng,
+              'title' => title
+            },
+            'relationships' => {
+              'topic' => {
+                'data' => {
+                  'type' => 'topic',
+                  'id' => topic.id
+                }
+              }
+            }
+          }
+        }
+        do_request(request)
 
         expect(status).to eq 201
       end
@@ -87,7 +106,26 @@ resource 'Targets' do
       let(:topic_id) { topic.id }
 
       example 'Ok' do
-        do_request
+        request = {
+          'data' => {
+            'type' => 'target',
+            'attributes' => {
+              'area_length' => area_length,
+              'lat' => lat,
+              'lng' => lng,
+              'title' => title
+            },
+            'relationships' => {
+              'topic' => {
+                'data' => {
+                  'type' => 'topic',
+                  'id' => topic.id
+                }
+              }
+            }
+          }
+        }
+        do_request(request)
 
         expect(status).to eq 202
       end
