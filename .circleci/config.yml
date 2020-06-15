@@ -5,7 +5,7 @@ jobs:
       CC_TEST_REPORTER_ID: a8cbbcd37d4be0ca59389e3af26871a3d70c406e9655e2e04faa0b41db36da2a
     working_directory: ~/target-mvd
     docker:
-      - image: circleci/ruby:2.6.2
+      - image: circleci/ruby:2.6.6
       - image: circleci/postgres:11.2
 
     steps:
