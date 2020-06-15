@@ -5,6 +5,7 @@ class ApplicationController < ActionController::API
   include Concerns::IncludeConcern
   include Concerns::PaginationConcern
   include DeviseTokenAuth::Concerns::SetUserByToken
+  include Concerns::Jsonapi
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 

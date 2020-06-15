@@ -6,19 +6,19 @@ class TargetsController < ApplicationController
   def create
     target = Target.new target_params.merge(user_id: current_user.id)
 
-    render json: target, status: :created if target.save!
+    render jsonapi: target, status: :created if target.save!
   end
 
   def destroy
-    render json: target.destroy
+    render jsonapi: target.destroy
   end
 
   def index
-    render json: current_user.targets, include: permitted_include
+    render jsonapi: current_user.targets, include: permitted_include
   end
 
   def update
-    render json: target, status: :accepted if target.update!(target_params)
+    render jsonapi: target, status: :accepted if target.update!(target_params)
   end
 
   private

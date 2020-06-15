@@ -58,7 +58,7 @@ RSpec.describe 'PUT /targets/:id', type: :request do
     before { subject }
 
     it 'returns an error message' do
-      expect(errors).to include "can't be blank"
+      expect(errors).to include "Title can't be blank"
     end
   end
 end

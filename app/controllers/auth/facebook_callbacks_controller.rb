@@ -9,7 +9,7 @@ module Auth
       sign_in :user, user, store: false, bypass: false
       update_headers
 
-      render json: user, status: :ok
+      render jsonapi: user, status: :ok
     rescue FacebookError => e
       render_error(:bad_request, [e.message])
     end

@@ -18,6 +18,6 @@ class Message < ApplicationRecord
   def conversation_must_be_active
     return if conversation&.active?
 
-    errors.add(:conversation, I18n.t('errors.models.message.conversation_must_be_active'))
+    errors.add(:conversation, :must_be_active)
   end
 end

@@ -1,24 +1,28 @@
 # frozen_string_literal: true
 
 class ConversationsController < ApplicationController
+  include JSONAPI::Pagination
+
   before_action :authenticate_user!
 
   def create
     conversation = Conversation.new(conversation_params.merge(initiator_id: current_user.id))
 
-    render json: conversation, status: :created if conversation.save!
+    render jsonapi: conversation, status: :created if conversation.save!
   end
 
   def index
-    render json: paginate(current_user.conversations), include: permitted_include
+    jsonapi_paginate(current_user.conversations) do |paginated|
+      render jsonapi: paginated, include: permitted_include
+    end
   end
 
   def show
-    render json: conversation, include: permitted_include
+    render jsonapi: conversation, include: permitted_include
   end
 
   def update
-    render json: conversation, status: :ok if conversation.update!(update_params)
+    render jsonapi: conversation, status: :ok if conversation.update!(update_params)
   end
 
   private

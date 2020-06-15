@@ -43,7 +43,7 @@ RSpec.describe 'POST /conversations', type: :request do
       before { subject }
 
       it 'returns an error' do
-        expect(errors).to include 'must not belong to the initiator'
+        expect(errors).to include 'Target must not belong to the initiator'
       end
     end
   end

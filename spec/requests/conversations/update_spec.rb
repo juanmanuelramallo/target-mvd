@@ -65,7 +65,7 @@ RSpec.describe 'PUT /conversations/:id', type: :request do
     end
 
     it 'returns an error' do
-      expect(errors).to include "Can't update a disabled conversation"
+      expect(errors).to include "Status can't be updated on a disabled conversation"
     end
   end
 end

@@ -32,7 +32,7 @@ RSpec.describe 'POST /auth', type: :request do
     end
 
     it 'has the correct name' do
-      expect(attributes['full-name']).to eq full_name
+      expect(attributes['fullName']).to eq full_name
     end
   end
 
@@ -44,7 +44,7 @@ RSpec.describe 'POST /auth', type: :request do
     before { subject }
 
     it 'has an avatar attached' do
-      expect(attributes['avatar-url']).to include '/avatar.png'
+      expect(attributes['avatarUrl']).to include '/avatar.png'
     end
   end
 
@@ -55,7 +55,7 @@ RSpec.describe 'POST /auth', type: :request do
       let(:email) { '' }
 
       it "doesn't create the user" do
-        expect(errors).to include "can't be blank"
+        expect(errors).to include "Email can't be blank"
       end
     end
 
@@ -71,7 +71,7 @@ RSpec.describe 'POST /auth', type: :request do
       let(:password) { Faker::Internet.password(1, 5) }
 
       it "doesn't create the user" do
-        expect(errors).to include 'is too short (minimum is 6 characters)'
+        expect(errors).to include 'Password is too short (minimum is 6 characters)'
       end
     end
   end

@@ -58,7 +58,7 @@ RSpec.describe 'POST /conversations/:conversation_id/messages', type: :request d
     before { subject }
 
     it 'returns an error message' do
-      expect(errors).to include "can't be blank"
+      expect(errors).to include "Text can't be blank"
     end
   end
 
@@ -69,7 +69,7 @@ RSpec.describe 'POST /conversations/:conversation_id/messages', type: :request d
     end
 
     it 'returns an error' do
-      expect(errors).to include 'must be active'
+      expect(errors).to include 'Conversation must be active'
     end
   end
 end

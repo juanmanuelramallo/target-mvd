@@ -9,7 +9,7 @@ RSpec.describe BroadcastNewMessageJob, type: :job do
 
   let(:conversation) { create :conversation }
   let(:message) { build :message, conversation: conversation, user: conversation.initiator }
-  let(:serialized_message) { ActiveModelSerializers::SerializableResource.new(message).as_json }
+  let(:serialized_message) { MessageSerializer.new(message).serialized_json }
 
   it 'broadcasts to the conversation channel' do
     expect { subject }.to have_broadcasted_to(conversation)

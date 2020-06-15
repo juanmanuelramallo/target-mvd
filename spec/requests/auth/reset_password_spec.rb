@@ -30,7 +30,7 @@ RSpec.describe 'PUT /auth/password', type: :request do
     before { subject }
 
     it 'returns an error' do
-      expect(errors).to include "doesn't match Password"
+      expect(errors).to include "Password confirmation doesn't match Password"
     end
   end
 end

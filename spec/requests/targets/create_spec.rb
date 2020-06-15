@@ -45,7 +45,7 @@ RSpec.describe 'POST /targets', type: :request do
     end
 
     it 'has the correct area length' do
-      expect(subject['attributes']['area-length']).to eq area_length
+      expect(subject['attributes']['areaLength']).to eq area_length
     end
 
     it 'enqueues a broadcast job' do
@@ -69,7 +69,7 @@ RSpec.describe 'POST /targets', type: :request do
     before { subject }
 
     it 'returns the error message' do
-      expect(errors).to include "can't be blank"
+      expect(errors).to include "Title can't be blank"
     end
   end
 end
