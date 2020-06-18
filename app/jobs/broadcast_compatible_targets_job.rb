@@ -7,7 +7,7 @@ class BroadcastCompatibleTargetsJob < ApplicationJob
     target.compatible_users.each do |user|
       CompatibleTargetsChannel.broadcast_to(
         user,
-        ActiveModelSerializers::SerializableResource.new(target).as_json
+        TargetSerializer.new(target).serialized_json
       )
     end
   end

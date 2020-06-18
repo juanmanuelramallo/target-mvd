@@ -10,20 +10,30 @@ RSpec.describe 'POST /targets', type: :request do
   let(:topic) { create :topic }
   let(:user) { create :user }
 
-  let(:params) do
+  let(:body) do
     {
-      target: {
-        area_length: area_length,
-        lat: lat,
-        lng: lng,
-        title: title,
-        topic_id: topic.id
+      'data' => {
+        'type' => 'target',
+        'attributes' => {
+          'area_length' => area_length,
+          'lat' => lat,
+          'lng' => lng,
+          'title' => title
+        },
+        'relationships' => {
+          'topic' => {
+            'data' => {
+              'type' => 'topic',
+              'id' => topic.id
+            }
+          }
+        }
       }
-    }
+    }.to_json
   end
 
   subject do
-    post '/targets', params: params, headers: headers
+    post '/targets', params: body, headers: headers
     data
   end
 
@@ -45,7 +55,7 @@ RSpec.describe 'POST /targets', type: :request do
     end
 
     it 'has the correct area length' do
-      expect(subject['attributes']['area-length']).to eq area_length
+      expect(subject['attributes']['areaLength']).to eq area_length
     end
 
     it 'enqueues a broadcast job' do
@@ -54,7 +64,7 @@ RSpec.describe 'POST /targets', type: :request do
   end
 
   context 'missing params' do
-    let(:params) { nil }
+    let(:body) { nil }
 
     before { subject }
 
@@ -69,7 +79,7 @@ RSpec.describe 'POST /targets', type: :request do
     before { subject }
 
     it 'returns the error message' do
-      expect(errors).to include "can't be blank"
+      expect(errors).to include "Title can't be blank"
     end
   end
 end

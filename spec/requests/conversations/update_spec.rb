@@ -11,10 +11,21 @@ RSpec.describe 'PUT /conversations/:id', type: :request do
       }
     }
   end
+
+  let(:body) do
+    {
+      'data' => {
+        'type' => 'conversation',
+        'attributes' => {
+          'unread' => unread
+        }
+      }
+    }.to_json
+  end
   let(:user) { conversation.initiator }
 
   subject do
-    put conversation_path(conversation), params: params, headers: headers
+    put conversation_path(conversation), params: body, headers: headers
     data
   end
 
@@ -65,7 +76,7 @@ RSpec.describe 'PUT /conversations/:id', type: :request do
     end
 
     it 'returns an error' do
-      expect(errors).to include "Can't update a disabled conversation"
+      expect(errors).to include "Status can't be updated on a disabled conversation"
     end
   end
 end

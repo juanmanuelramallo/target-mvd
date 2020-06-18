@@ -10,7 +10,10 @@ module RequestHelper
   end
 
   def headers
-    @headers ||= user.create_new_auth_token
+    @headers ||= user.create_new_auth_token.merge(
+      'Content-Type' => 'application/vnd.api+json',
+      'Accept' => 'application/vnd.api+json'
+    )
   end
 
   def uid_header

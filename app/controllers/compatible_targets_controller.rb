@@ -4,7 +4,7 @@ class CompatibleTargetsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    render json: paginate(current_user.compatible_targets), include: permitted_include
+    render jsonapi: paginate(current_user.compatible_targets), include: permitted_include
   end
 
   private

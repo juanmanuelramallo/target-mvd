@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class MessageSerializer < ActiveModel::Serializer
+class MessageSerializer < ApplicationSerializer
   attributes :text, :created_at
 
   belongs_to :conversation

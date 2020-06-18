@@ -32,8 +32,7 @@ module Concerns
     end
 
     def render_resource_invalid(resource)
-      render json: resource, status: :unprocessable_entity,
-             serializer: ActiveModel::Serializer::ErrorSerializer
+      render jsonapi_errors: resource.errors, status: :unprocessable_entity
     end
 
     def render_error(status, messages, data = nil)

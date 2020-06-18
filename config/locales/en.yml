@@ -30,17 +30,22 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        conversation:
+          attributes:
+            status:
+              must_be_active: can't be updated on a disabled conversation
+            target:
+              must_be_compatible_with_initiator: must be compatible with initiator
+              must_not_belong_to_initiator: must not belong to the initiator
+        message:
+          attributes:
+            conversation:
+              must_be_active: must be active
   user_must_have_less_than_maximum_targets: "User must have less than %{max} targets"
   errors:
-    models:
-      conversation:
-        target_must_be_compatible_with_initiator: "must be compatible with initiator"
-        status_must_be_active: "Can't update a disabled conversation"
-        target_must_not_belong_to_initiator: 'must not belong to the initiator'
-      message:
-        conversation_must_be_active: 'must be active'
-
     cable_ticket_invalid: 'Cable ticket is invalid'
     invalid_content_type: 'Invalid content type header'
     missing_param: 'A required param is missing'

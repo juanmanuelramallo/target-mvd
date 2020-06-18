@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class TopicSerializer < ActiveModel::Serializer
+class TopicSerializer < ApplicationSerializer
   attributes :id, :name
 
   has_many :targets

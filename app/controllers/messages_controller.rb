@@ -6,11 +6,11 @@ class MessagesController < ApplicationController
   def create
     message = conversation.messages.new(message_params.merge(user_id: current_user.id))
 
-    render json: message, status: :created if message.save!
+    render jsonapi: message, status: :created if message.save!
   end
 
   def index
-    render json: paginate(conversation.messages)
+    render jsonapi: paginate(conversation.messages)
   end
 
   private
@@ -20,6 +20,6 @@ class MessagesController < ApplicationController
   end
 
   def message_params
-    params.require(:message).permit(:text)
+    jsonapi_deserialize(params, only: [:text])
   end
 end

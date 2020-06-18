@@ -24,7 +24,22 @@ resource 'Conversations' do
       let(:target_id) { conversation.target_id }
 
       example 'Ok' do
-        do_request
+        request = {
+          'data' => {
+            'type' => 'conversation',
+            'attributes' => {},
+            'relationships' => {
+              'target' => {
+                'data' => {
+                  'type' => 'target',
+                  'id' => target_id
+                }
+              }
+            }
+          }
+        }
+
+        do_request(request)
 
         expect(status).to eq 201
       end
@@ -69,7 +84,15 @@ resource 'Conversations' do
       let(:unread) { false }
 
       example 'Ok' do
-        do_request
+        request = {
+          'data' => {
+            'type' => 'conversation',
+            'attributes' => {
+              'unread' => unread
+            }
+          }
+        }
+        do_request(request)
 
         expect(status).to eq 200
       end

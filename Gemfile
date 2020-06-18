@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.2'
+ruby '2.6.6'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
@@ -31,12 +31,13 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rack-cors', '~> 1.0.5'
 
 gem 'action-cable-testing', '~> 0.5.0'
-gem 'active_model_serializers', '~> 0.10.9'
+# gem 'active_model_serializers', '~> 0.10.9'
 gem 'aws-sdk-s3', '~> 1', require: false
 gem 'devise', '~> 4.6.2'
 gem 'devise_token_auth', '~> 1.1.0'
 gem 'figaro', '~> 1.1.1'
 gem 'geokit-rails', '~> 2.3.1'
+gem 'jsonapi.rb', '~> 1.5.7'
 gem 'pagy', '~> 3.2.0'
 gem 'rollbar', '~> 2.19.4'
 gem 'sidekiq', '~> 5.2.7'

@@ -29,7 +29,11 @@ RSpec.describe 'GET /conversations', type: :request do
     end
 
     it 'returns the pagination links' do
-      expect(subject['links'].keys).to eq %w[self first prev next last]
+      expect(subject['links'].keys).to eq %w[self current next last]
+      expect(subject['links']['current']).to be_truthy
+      expect(subject['links']['last']).to be_truthy
+      expect(subject['links']['next']).to be_truthy
+      expect(subject['links']['self']).to be_truthy
     end
 
     context 'asking for the third page' do

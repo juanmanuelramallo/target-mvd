@@ -11,20 +11,30 @@ RSpec.describe 'PUT /targets/:id', type: :request do
   let(:topic) { create :topic }
   let(:user) { target.user }
 
-  let(:params) do
+  let(:body) do
     {
-      target: {
-        area_length: area_length,
-        lat: lat,
-        lng: lng,
-        title: title,
-        topic_id: topic.id
+      'data' => {
+        'type' => 'target',
+        'attributes' => {
+          'area_length' => area_length,
+          'lat' => lat,
+          'lng' => lng,
+          'title' => title
+        },
+        'relationships' => {
+          'topic' => {
+            'data' => {
+              'type' => 'topic',
+              'id' => topic.id
+            }
+          }
+        }
       }
-    }
+    }.to_json
   end
 
   subject do
-    put target_path(target), params: params, headers: headers
+    put target_path(target), params: body, headers: headers
     data
   end
 
@@ -58,7 +68,7 @@ RSpec.describe 'PUT /targets/:id', type: :request do
     before { subject }
 
     it 'returns an error message' do
-      expect(errors).to include "can't be blank"
+      expect(errors).to include "Title can't be blank"
     end
   end
 end

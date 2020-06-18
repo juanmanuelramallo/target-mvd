@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-class TicketSerializer < ActiveModel::Serializer
-  attributes :value
+class TicketSerializer < ApplicationSerializer
+  attributes :id, :user_id, :ip, :created_at, :value
 
-  def value
-    object.encode
-  end
+  attribute :value, &:encode
 end
